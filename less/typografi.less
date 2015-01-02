@@ -1,0 +1,123 @@
+h1,
+.h1 {
+	font-size: 30px;
+	line-height: 32px;
+	margin: 0px 0px 20px 0px;
+}
+
+h2,
+.h2 {
+	font-size: 20px;
+	line-height: 24px;
+	margin: 0px 0px 20px 0px;
+}
+
+h3,
+.h3 {
+	font-size: 20px;
+	line-height: 24px;
+	margin: 40px 0px 0px 0px;
+}
+
+h4,
+.h4 {
+	font-size: 20px;
+	line-height: 24px;
+	margin: 0px 0px 20px 0px;
+}
+
+h5,
+.h5 {
+	font-size: 20px;
+	line-height: 24px;
+	margin: 20px 0px;
+}
+
+h6,
+.h6 {
+	font-size: 20px;
+	line-height: 24px;
+	margin: 20px 0px 0px 0px;
+}
+
+p,
+address {
+	margin-bottom: 20px;
+}
+
+.ingress {
+	.h2;
+}
+
+.avsnittsoverskrift {
+	.h3;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+ul {
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	li {
+		list-style: disc outside;
+		margin: 0px 0px 0px 20px;
+		ul {
+			margin: 0px;
+		}
+	}
+}
+
+ol {
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	li {
+		list-style: decimal outside;
+		margin: 0px 0px 0px 20px;
+		ol {
+			margin: 0px;
+		}
+	}
+}
+
+a {
+	color: @link;
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+	.alignleft {
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 10px;
+	}
+	.aligncenter {
+		display: block;
+		margin: 0px auto 20px auto;
+	}
+	.alignright {
+		float: right;
+		margin-left: 20px;
+		margin-bottom: 10px;
+	}
+.wp-caption {
+	max-width: 100%;
+	height: auto;
+	p.wp-caption-text {
+		margin-bottom: 20px;
+		font-style: italic;
+	}
+}

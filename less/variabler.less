@@ -1,0 +1,87 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	&:last-child {
+		margin-bottom: 0px;
+	}
+}
+
+
+
+// Fonter
+.sans-serif {
+	font-family: sans-serif;
+}
+.serif {
+	font-family: serif;
+}
+
+
+
+// Innhold
+.ramme {
+	.clearfiks;
+	max-width: 960px;
+	width: 90%;
+	margin: 0px auto;
+}
+
+
+
+// Farger
+@hvit: #ffffff;
+@sort: #000000;
+@link: #B02448;
+
+
+
+// Clear
+.clearfiks {
+	display: block;
+	zoom: 1;
+	&:after {
+		content: " ";
+		display: block;
+		font-size: 0;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+.clear {
+	clear: both;
+}
+
+
+
+// Windows Phone responsiv fiks
+@media screen {
+	@-ms-viewport { width: device-width; }
+}
+
+
+
+// Retina bilder
+@retina: ~"(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+
+
+
+// Tekst overflow hidden
+.tekst-overflow-hidden {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+
+// Fin klasse å ha til UU
+.skjult,
+.screen-reader-text {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px);
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+}
