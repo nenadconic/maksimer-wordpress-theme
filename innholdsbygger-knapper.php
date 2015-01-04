@@ -11,9 +11,21 @@
 
 			<?php while ( have_rows( 'knapper' ) ) : the_row(); ?>
 
-				<a href="<?php the_sub_field( 'link' ); ?>" class="knapp">
-					<?php the_sub_field( 'tekst' ); ?>
-				</a> 
+				<?php
+					$tekst = get_sub_field( 'tekst' );
+					$link_type = get_sub_field( 'velg_link_type' );
+					if ( 'intern' == $link_type ) {
+						$link = get_sub_field( 'velg_side' );
+					} elseif ( 'ekstern' == $link_type ) {
+						$link = get_sub_field( 'url' );
+					} else {
+						return false;
+					}
+				?>
+
+				<a href="<?php echo $link; ?>"<?php if ( 'ekstern' == $link_type ) : ?> target="_blank"<?php endif; ?> class="knapp">
+					<?php echo $tekst; ?>
+				</a>
 
 			<?php endwhile; ?>
 
