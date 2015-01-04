@@ -1,5 +1,6 @@
 <?php
-	if ( function_exists ( 'get_row_layout' ) ) :
+	$innholdsbygger = get_field( 'innholdsbygger' );
+	if ( function_exists ( 'get_row_layout' ) && !empty( $innholdsbygger ) ) :
 
 		global $innholdsbygger_teller;
 		$innholdsbygger_teller = 1;
@@ -21,8 +22,12 @@
 		endwhile;
 
 	else :
-		
-		the_content();
+?>
 
+	<div class="ramme">
+		<?php the_content(); ?>
+	</div>
+
+<?php
 	endif;
 ?>
