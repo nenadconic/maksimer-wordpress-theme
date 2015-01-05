@@ -7,15 +7,7 @@
 
 		while ( has_sub_field( 'innholdsbygger' ) ) :
 
-			if ( 'en_kolonne' == get_row_layout() ) {
-				get_template_part( 'innholdsbygger', 'en_kolonne' );
-			} elseif ( 'to_kolonne' == get_row_layout() ) {
-				get_template_part( 'innholdsbygger', 'to_kolonne' );
-			} elseif ( 'knapper' == get_row_layout() ) {
-				get_template_part( 'innholdsbygger', 'knapper' );
-			} else {
-				return false;
-			}
+			get_template_part( 'innholdsbygger', get_row_layout() );
 
 			$innholdsbygger_teller++;
 
