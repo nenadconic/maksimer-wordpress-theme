@@ -47,7 +47,9 @@
 
 	// Dashboard videresending til "pages"
 	function maksimer_dashboard_videresend() {
-		wp_redirect( admin_url( 'edit.php?post_type=page' ) );
+		if ( ! is_network_admin() ) {
+			wp_redirect( admin_url( 'edit.php?post_type=page' ) );	
+		}
 	}
 	add_action( 'load-index.php', 'maksimer_dashboard_videresend' );
 
