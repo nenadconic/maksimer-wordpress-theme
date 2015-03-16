@@ -10,6 +10,13 @@
 
 
 
+	// Endrer default wordpress markup til HTML5
+	add_theme_support( 'html5', array(
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+	) );
+
+
+
 	// Legg til støtte for egne bildestørrelser i WordPress
 	if ( function_exists( 'add_theme_support' ) ) {
 		set_post_thumbnail_size( 150, 150, true );
