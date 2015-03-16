@@ -60,12 +60,14 @@
 	// Endrer rettighetene til brukergruppene
 	function maksimer_endrer_brukerrettigheter() {
 		$editor_role = get_role( 'editor' );
-		$editor_role->add_cap( 'edit_published_posts' );
-		$editor_role->add_cap( 'publish_posts' );
-		$editor_role->add_cap( 'delete_published_posts' );
-		$editor_role->add_cap( 'delete_posts' );
-		$editor_role->add_cap( 'edit_post' );
-		$editor_role->add_cap( 'edit_theme_options' );
+		if($editor_role)  {
+    		$editor_role->add_cap( 'edit_published_posts' );
+    		$editor_role->add_cap( 'publish_posts' );
+    		$editor_role->add_cap( 'delete_published_posts' );
+    		$editor_role->add_cap( 'delete_posts' );
+    		$editor_role->add_cap( 'edit_post' );
+    		$editor_role->add_cap( 'edit_theme_options' );
+		}
 	}
 	add_action( 'admin_init', 'maksimer_endrer_brukerrettigheter' );
 
