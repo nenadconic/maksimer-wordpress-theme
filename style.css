@@ -1,12 +1,11 @@
 /*!
 Theme Name: Maksimer
-Version: 1.0.2
+Version: 1.1
 Description: Tema utviklet av Maksimer AS
 Author: Maksimer AS
 Author URI: http://www.maksimer.no/
 */
 * {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 *:last-child {
