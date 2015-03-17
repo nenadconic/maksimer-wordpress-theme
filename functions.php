@@ -1,6 +1,7 @@
 <?php
-	function maksimer_theme_setup() {
-		
+	function maksimer_theme_setup() 
+	{
+
 		// Legger til støtte for WP-funksjoner
 		add_theme_support( 'post-thumbnails', array( 'post' ) );
 		add_theme_support( 'title-tag' );
@@ -11,15 +12,14 @@
 		update_option( 'image_default_align', 'none' );
 		update_option( 'image_default_link_type', 'none' );
 		update_option( 'image_default_size', 'large' );
+
+		// Endrer default wordpress markup til HTML5
+		add_theme_support( 'html5', array(
+			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+		) );
+
 	}
 	add_action( 'after_setup_theme', 'maksimer_theme_setup' );
-
-
-
-	// Endrer default wordpress markup til HTML5
-	add_theme_support( 'html5', array(
-		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
 
 
 
