@@ -1,10 +1,16 @@
 <?php
-	// Legger til støtte for WP-funksjoner
 	function maksimer_theme_setup() {
+		
+		// Legger til støtte for WP-funksjoner
 		add_theme_support( 'post-thumbnails', array( 'post' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'menus' );
 		add_editor_style();
+
+		// Setter standard bildestørrelse, bildelink og alignment
+		update_option( 'image_default_align', 'none' );
+		update_option( 'image_default_link_type', 'none' );
+		update_option( 'image_default_size', 'large' );
 	}
 	add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
@@ -22,16 +28,6 @@
 		set_post_thumbnail_size( 150, 150, true );
 		// add_image_size( 'EgenBildeStorrelse', 300, 300, true );
 	}
-
-
-
-	// Setter standard bildestørrelse, bildelink og alignment
-	function maksimer_standard_bildevalg() {
-	        update_option( 'image_default_align', 'none' );
-	        update_option( 'image_default_link_type', 'none' );
-	        update_option( 'image_default_size', 'large' );
-	}
-	add_action( 'after_setup_theme', 'maksimer_standard_bildevalg' );
 
 
 
@@ -86,7 +82,7 @@
     		$editor_role->add_cap( 'delete_posts' );
     		$editor_role->add_cap( 'edit_post' );
     		$editor_role->add_cap( 'edit_theme_options' );
-		}
+    	}
 	}
 	add_action( 'admin_init', 'maksimer_endrer_brukerrettigheter' );
 
