@@ -124,6 +124,7 @@
 	// Fjerner linker fra admin-bar
 	function maksimer_admin_bar() {
 		global $wp_admin_bar;
+		$wp_admin_bar->remove_menu( 'customize-themes' );
 		$wp_admin_bar->remove_menu( 'wpseo-menu' );
 		$wp_admin_bar->remove_menu( 'wp-logo' );
 		$wp_admin_bar->remove_menu( 'dashboard' );
