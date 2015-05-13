@@ -8,8 +8,6 @@
 			<p><a href="<?php echo home_url(); ?>" class="knapp"><?php _e('Forsiden', 'maksimer_lang'); ?></a></p>
 		</article>
 
-		<?php get_sidebar(); ?>
-
 	</div> <?php // .ramme ?>
 
 <?php get_footer(); ?>

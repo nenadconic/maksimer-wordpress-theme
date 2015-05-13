@@ -1,11 +1,27 @@
 <?php
 	global $innholdsbygger_teller;
-	$bakgrunn_farge = maksimer_bg_farge();
-	$padding = maksimer_padding();
-?>
-<section id="innholdsbygger-seksjon-<?php echo $innholdsbygger_teller; ?>" class="innholdsbygger-seksjon knapper<?php echo $padding; ?>" style="<?php echo $bakgrunn_farge; ?>">
 
-	<?php if ( have_rows( 'knapper' ) ) : ?>
+	// Fra WP
+	$bakgrunn_farge = maksimer_bg_farge();
+	$luft_over      = maksimer_luft_over();
+	$luft_under     = maksimer_luft_under();
+	$unik_id        = get_sub_field( 'unik_id' );
+
+	// Variabler
+	$stiler .= $bakgrunn_farge;
+	$stiler .= $luft_over;
+	$stiler .= $luft_under;
+
+	if ( isset( $unik_id ) ) {
+		$section_id = $unik_id;
+	} else {
+		$section_id = 'innholdsbygger-seksjon-' . $innholdsbygger_teller;
+	}
+?>
+
+<section id="<?php echo $section_id; ?>" class="innholdsbygger-seksjon knapper">
+
+	<div class="innholdsbygger-seksjon-innhold" style="<?php echo $stiler; ?>">
 
 		<div class="ramme">
 
@@ -29,8 +45,8 @@
 
 			<?php endwhile; ?>
 
-		</div>
+		</div> <?php // .ramme ?>
 
-	<?php endif; ?>
+	</div> <?php // .innholdsbygger-seksjon-innhold ?>
 
 </section> <?php // .knapper ?>

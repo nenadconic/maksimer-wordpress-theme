@@ -13,9 +13,11 @@
 		update_option( 'image_default_size', 'large' );
 
 		// Endrer default wordpress markup til HTML5
-		add_theme_support( 'html5', array(
-			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-		) );
+		add_theme_support(
+			'html5', array(
+				'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
+			)
+		);
 
 	}
 	add_action( 'after_setup_theme', 'maksimer_theme_setup' );
@@ -161,20 +163,25 @@
 				return false;
 			}
 		}
-		// Padding til innholdsbyggeren
-		function maksimer_padding() {
-			$padding_acf = get_sub_field( 'padding' );
-			if( in_array( 'over', $padding_acf ) ) {
-				$padding_topp = ' med-luft-topp';
+		// Luft i innholdsbyggeren
+		function maksimer_luft_over() {
+			$luft_over_acf = get_sub_field( 'luft_over' );
+			if ( ! empty( $luft_over_acf ) ) {
+				$luft_over = 'padding-top: ' . $luft_over_acf . ';';
+				return $luft_over;
 			} else {
-				$padding_topp = ' uten-luft-topp';
+				return false;
 			}
-			if ( in_array( 'under', $padding_acf ) ) {
-				$padding_bunn = ' med-luft-bunn';
+		}
+		// Luft i innholdsbyggeren
+		function maksimer_luft_under() {
+			$luft_under_acf = get_sub_field( 'luft_under' );
+			if ( ! empty( $luft_under_acf ) ) {
+				$luft_under = 'padding-bottom: ' . $luft_under_acf . ';';
+				return $luft_under;
 			} else {
-				$padding_bunn = ' uten-luft-bunn';
+				return false;
 			}
-			return $padding_topp . $padding_bunn;
 		}
 	} else {
 		return false;
