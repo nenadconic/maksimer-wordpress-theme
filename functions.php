@@ -61,6 +61,7 @@
 		remove_submenu_page( 'themes.php', 'customize.php' );
 		remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
 		add_management_page( __( 'Oppdateringer' ), __( 'Oppdateringer' ), 'update_core', 'update-core.php' );
+		add_submenu_page( 'options-general.php', 'Oppdater WordPress', 'Oppdater WordPress', 'update_core', 'update-core.php', '' ); 
 		if ( ! current_user_can( 'administrator' ) ) {
 			remove_menu_page( 'wpcf7' );
 			remove_menu_page( 'tools.php' );
@@ -127,6 +128,7 @@
 	function maksimer_admin_bar() {
 		global $wp_admin_bar;
 		$wp_admin_bar->remove_menu( 'customize-themes' );
+		$wp_admin_bar->remove_menu( 'customize-widgets' );
 		$wp_admin_bar->remove_menu( 'wpseo-menu' );
 		$wp_admin_bar->remove_menu( 'wp-logo' );
 		$wp_admin_bar->remove_menu( 'dashboard' );
