@@ -1,37 +1,21 @@
 /*!
 Theme Name: Maksimer
-Version: 1.2.1
+Version: 1.3
 Description: Tema utviklet av Maksimer AS
 Author: Maksimer AS
 Author URI: http://www.maksimer.no/
 */
 
-@import "variabler";
-@import "innholdsbygger";
-@import "typografi";
+@import 'variabler';
+@import 'innholdsbygger';
+@import 'typografi';
 
 body {
-	.sans-serif;
+	@extend .sans-serif;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background: @hvit;
-	color: @sort;
+	background: $hvit;
+	color: $sort;
 	font-size: 14px;
 	line-height: 24px;
-}
-
-
-
-
-
-
-
-
-
-
-// Bør ligge sist
-* {
-	&:last-child {
-		margin-bottom: 0px;
-	}
 }

@@ -1,7 +1,7 @@
 h1,
 .h1 {
-	font-size: 30px;
-	line-height: 32px;
+	@include vw( 5.2vw, 30px, 75px, 75px );
+	line-height: 120%;
 	margin: 0px 0px 20px 0px;
 	a &,
 	& a {
@@ -9,7 +9,7 @@ h1,
 		color: inherit;
 		&:hover {
 			text-decoration: underline;
-			color: @link;
+			color: $link;
 		}
 	}
 }
@@ -32,7 +32,7 @@ h3,
 		color: inherit;
 		&:hover {
 			text-decoration: underline;
-			color: @link;
+			color: $link;
 		}
 	}
 }
@@ -48,7 +48,7 @@ h4,
 		color: inherit;
 		&:hover {
 			text-decoration: underline;
-			color: @link;
+			color: $link;
 		}
 	}
 }
@@ -64,7 +64,7 @@ h5,
 		color: inherit;
 		&:hover {
 			text-decoration: underline;
-			color: @link;
+			color: $link;
 		}
 	}
 }
@@ -80,7 +80,7 @@ h6,
 		color: inherit;
 		&:hover {
 			text-decoration: underline;
-			color: @link;
+			color: $link;
 		}
 	}
 }
@@ -91,11 +91,11 @@ address {
 }
 
 .ingress {
-	.h2;
+	@extend h2;
 }
 
 .avsnittsoverskrift {
-	.h3;
+	@extend h3;
 }
 
 b,
@@ -133,7 +133,7 @@ ol {
 }
 
 a {
-	color: @link;
+	color: $link;
 	&:focus,
 	&:hover {
 		text-decoration: none;
