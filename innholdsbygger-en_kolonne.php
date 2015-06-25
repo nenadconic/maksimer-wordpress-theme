@@ -1,6 +1,4 @@
 <?php
-	global $innholdsbygger_teller;
-
 	// Fra WP
 	$bakgrunn_farge = maksimer_bg_farge();
 	$tekst_farge    = maksimer_tekst_farge();
