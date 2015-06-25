@@ -1,12 +1,14 @@
 h1,
 .h1 {
-	@include vw( 2.5vw, 24px, 36px, 36px );
+	@include vw(2.5vw, 24px, 36px, 36px);
 	line-height: 120%;
-	margin: 0px 0px 20px 0px;
+	margin: 0 0 20px;
+
 	a &,
 	& a {
 		text-decoration: none;
 		color: inherit;
+
 		&:hover {
 			text-decoration: underline;
 			color: $link;
@@ -18,18 +20,20 @@ h2,
 .h2 {
 	font-size: 20px;
 	line-height: 24px;
-	margin: 0px 0px 20px 0px;
+	margin: 0 0 20px;
 }
 
 h3,
 .h3 {
 	font-size: 20px;
 	line-height: 24px;
-	margin: 40px 0px 0px 0px;
+	margin: 40px 0 0;
+
 	a &,
 	& a {
 		text-decoration: none;
 		color: inherit;
+
 		&:hover {
 			text-decoration: underline;
 			color: $link;
@@ -41,11 +45,13 @@ h4,
 .h4 {
 	font-size: 20px;
 	line-height: 24px;
-	margin: 0px 0px 20px 0px;
+	margin: 0 0 20px;
+
 	a &,
 	& a {
 		text-decoration: none;
 		color: inherit;
+
 		&:hover {
 			text-decoration: underline;
 			color: $link;
@@ -57,11 +63,13 @@ h5,
 .h5 {
 	font-size: 20px;
 	line-height: 24px;
-	margin: 20px 0px;
+	margin: 20px 0;
+
 	a &,
 	& a {
 		text-decoration: none;
 		color: inherit;
+
 		&:hover {
 			text-decoration: underline;
 			color: $link;
@@ -73,11 +81,13 @@ h6,
 .h6 {
 	font-size: 20px;
 	line-height: 24px;
-	margin: 20px 0px 0px 0px;
+	margin: 20px 0 0;
+
 	a &,
 	& a {
 		text-decoration: none;
 		color: inherit;
+
 		&:hover {
 			text-decoration: underline;
 			color: $link;
@@ -91,11 +101,11 @@ address {
 }
 
 .ingress {
-	@extend h2;
+	@extend %h2;
 }
 
 .avsnittsoverskrift {
-	@extend h3;
+	@extend %h3;
 }
 
 b,
@@ -109,31 +119,36 @@ em {
 }
 
 ul {
-	margin: 0px 0px 10px 0px;
-	padding: 0px;
+	margin: 0 0 10px;
+	padding: 0;
+
 	li {
 		list-style: disc outside;
-		margin: 0px 0px 0px 20px;
+		margin: 0 0 0 20px;
+
 		ul {
-			margin: 0px;
+			margin: 0;
 		}
 	}
 }
 
 ol {
-	margin: 0px 0px 10px 0px;
-	padding: 0px;
+	margin: 0 0 10px;
+	padding: 0;
+
 	li {
 		list-style: decimal outside;
-		margin: 0px 0px 0px 20px;
+		margin: 0 0 0 20px;
+
 		ol {
-			margin: 0px;
+			margin: 0;
 		}
 	}
 }
 
 a {
 	color: $link;
+
 	&:focus,
 	&:hover {
 		text-decoration: none;
@@ -144,23 +159,28 @@ img {
 	max-width: 100%;
 	height: auto;
 }
-	.alignleft {
-		float: left;
-		margin-right: 20px;
-		margin-bottom: 10px;
-	}
-	.aligncenter {
-		display: block;
-		margin: 0px auto 20px auto;
-	}
-	.alignright {
-		float: right;
-		margin-left: 20px;
-		margin-bottom: 10px;
-	}
+
+.alignleft {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto 20px;
+}
+
+.alignright {
+	float: right;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
 .wp-caption {
 	max-width: 100%;
 	height: auto;
+
 	p.wp-caption-text {
 		margin-bottom: 20px;
 		font-style: italic;

@@ -12,16 +12,16 @@
 	$stiler .= $luft_over;
 	$stiler .= $luft_under;
 
-	if ( isset( $unik_id ) ) {
-		$section_id = $unik_id;
+	if ( !empty( $unik_id ) ) {
+		$section_id = 'id="' . $unik_id . '"';
 	} else {
-		$section_id = 'innholdsbygger-seksjon-' . $innholdsbygger_teller;
+		$section_id = false;
 	}
 ?>
 
-<section id="<?php echo $section_id; ?>" class="innholdsbygger-seksjon knapper">
+<section <?php echo $section_id; ?> class="innholdsbygger-seksjon knapper">
 
-	<div class="innholdsbygger-seksjon-innhold" style="<?php echo $stiler; ?>">
+	<div class="innhold" style="<?php echo $stiler; ?>">
 
 		<div class="ramme">
 
@@ -47,6 +47,6 @@
 
 		</div> <?php // .ramme ?>
 
-	</div> <?php // .innholdsbygger-seksjon-innhold ?>
+	</div> <?php // .innhold ?>
 
 </section> <?php // .knapper ?>
