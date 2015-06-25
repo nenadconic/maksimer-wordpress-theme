@@ -92,7 +92,7 @@
 
 	// Henter inn javascript og css filer
 	function maksimer_enqueue_scripts() {
-		wp_enqueue_style( 'style', get_bloginfo( 'stylesheet_url' ), array( 'reset' ), filemtime( get_template_directory() . '/style.css' ), 'all' );
+		wp_enqueue_style( 'style', get_bloginfo( 'stylesheet_url' ), false, filemtime( get_template_directory() . '/style.css' ), 'all' );
 		// Dummy for wp_enqueue_script();
 		// wp_enqueue_script( 'FILNAVN', get_bloginfo( 'template_directory' ) . '/js/FILNAVN.js', array( 'jquery' ) );
 		wp_enqueue_script( 'maksimer', get_template_directory_uri() . '/js/maksimer.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/maksimer.js' ) );
