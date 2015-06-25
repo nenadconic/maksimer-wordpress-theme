@@ -10,20 +10,20 @@
 	</head>
 	<body <?php body_class(); ?>>
 
-		<header id="header">
+		<header class="header">
 
 			<div class="ramme">
 
-				<section id="logo">
+				<section class="logo">
 					<a href="<?php echo get_home_url() ?>">
 						<img src="<?php echo get_bloginfo( 'template_directory' ); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
 					</a>
-				</section> <?php // #logo ?>
+				</section> <?php // .logo ?>
 
-				<nav id="hovedmeny">
+				<nav class="hovedmeny">
 					<?php wp_nav_menu( array( 'menu' => 'Hovedmeny', 'container' => false ) ); ?>
-				</nav> <?php // #hovedmeny ?>
+				</nav> <?php // .hovedmeny ?>
 
 			</div> <?php // .ramme ?>
 
-		</header>
+		</header> <?php // .header ?>
