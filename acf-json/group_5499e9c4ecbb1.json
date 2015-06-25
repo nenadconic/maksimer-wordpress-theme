@@ -107,7 +107,7 @@
                                 "class": "tekst-senter",
                                 "id": ""
                             },
-                            "default_value": "#ffffff"
+                            "default_value": ""
                         },
                         {
                             "key": "field_5499ea2010b3c",
@@ -122,7 +122,7 @@
                                 "class": "tekst-senter",
                                 "id": ""
                             },
-                            "default_value": "#000000"
+                            "default_value": ""
                         },
                         {
                             "key": "field_555397840160e",
@@ -340,7 +340,7 @@
                                 "class": "tekst-senter",
                                 "id": ""
                             },
-                            "default_value": "#ffffff"
+                            "default_value": ""
                         },
                         {
                             "key": "field_5499eae310b41",
@@ -355,7 +355,7 @@
                                 "class": "tekst-senter",
                                 "id": ""
                             },
-                            "default_value": "#000000"
+                            "default_value": ""
                         },
                         {
                             "key": "field_555397610160c",
@@ -659,7 +659,7 @@
                                 "class": "tekst-senter",
                                 "id": ""
                             },
-                            "default_value": "#ffffff"
+                            "default_value": ""
                         },
                         {
                             "key": "field_555396d10160a",
@@ -799,6 +799,5 @@
         "categories",
         "tags",
         "send-trackbacks"
-    ],
-    "modified": 1431544000
+    ]
 }
