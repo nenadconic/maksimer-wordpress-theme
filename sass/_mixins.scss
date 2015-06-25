@@ -1,45 +1,17 @@
-* {
-	box-sizing: border-box;
-	&:before,
-	&:after {
-		box-sizing: border-box;
-	}
-	&:last-child {
-		margin-bottom: 0px !important;
-	}
-}
-
-
-
 // Fonter
-.sans-serif {
+@mixin sans-serif {
 	font-family: sans-serif;
 }
-.serif {
+@mixin serif {
 	font-family: serif;
 }
 
 
 
-// Innhold
-.ramme {
-	@extend .clearfiks;
-	max-width: 1100px;
-	width: 100%;
-	margin: 0px auto;
-}
-
-
-
-// Farger
-$hvit: #ffffff;
-$sort: #000000;
-$link: #B02448;
-
 
 
 // Clear
-.clearfiks {
+@mixin clearfiks {
 	display: block;
 	zoom: 1;
 	&:after {
@@ -51,16 +23,8 @@ $link: #B02448;
 		visibility: hidden;
 	}
 }
-.clear {
-	clear: both;
-}
 
 
-
-// Windows Phone responsiv fiks
-@media screen {
-	@-ms-viewport { width: device-width; }
-}
 
 
 
@@ -73,25 +37,6 @@ $link: #B02448;
 }
 
 
-
-// Tekst overflow hidden
-.tekst-overflow-hidden {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
-
-
-// Fin klasse å ha til UU
-.skjult,
-.screen-reader-text {
-	position: absolute !important;
-	clip: rect(1px 1px 1px 1px);
-	overflow: hidden;
-	height: 1px;
-	width: 1px;
-}
 
 
 

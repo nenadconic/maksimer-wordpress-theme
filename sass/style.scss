@@ -6,12 +6,13 @@ Author: Maksimer AS
 Author URI: http://www.maksimer.no/
 */
 
+@import 'mixins';
 @import 'variabler';
 @import 'innholdsbygger';
 @import 'typografi';
 
 body {
-	@extend .sans-serif;
+	@include sans-serif;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	background: $hvit;
