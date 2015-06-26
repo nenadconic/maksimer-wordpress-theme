@@ -17,7 +17,7 @@
 	}
 ?>
 
-<section <?php echo $section_id; ?> class="innholdsbygger-seksjon knapper">
+<section <?php echo $section_id; ?> class="innholdsbygger-seksjon modul-knapper">
 
 	<div class="innhold" style="<?php echo $stiler; ?>">
 

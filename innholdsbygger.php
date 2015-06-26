@@ -4,7 +4,7 @@
 
 		while ( has_sub_field( 'innholdsbygger' ) ) :
 
-			get_template_part( 'innholdsbygger', get_row_layout() );
+			get_template_part( 'modul', get_row_layout() );
 
 		endwhile;
 

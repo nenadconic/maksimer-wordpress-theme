@@ -19,7 +19,7 @@
 	}
 ?>
 
-<section <?php echo $section_id; ?> class="innholdsbygger-seksjon">
+<section <?php echo $section_id; ?> class="innholdsbygger-seksjon modul-en-kolonne">
 
 	<div class="innhold" style="<?php echo $stiler; ?>">
 
