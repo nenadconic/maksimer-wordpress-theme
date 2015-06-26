@@ -60,8 +60,7 @@
 		remove_menu_page( 'edit-comments.php' );
 		remove_submenu_page( 'themes.php', 'customize.php' );
 		remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
-		add_management_page( __( 'Oppdateringer' ), __( 'Oppdateringer' ), 'update_core', 'update-core.php' );
-		add_submenu_page( 'options-general.php', 'Oppdater WordPress', 'Oppdater WordPress', 'update_core', 'update-core.php', '' ); 
+		add_management_page( __( 'Oppdater WordPress' ), __( 'Oppdater WordPress' ), 'update_core', 'update-core.php' );
 		if ( ! current_user_can( 'administrator' ) ) {
 			remove_menu_page( 'wpcf7' );
 			remove_menu_page( 'tools.php' );
