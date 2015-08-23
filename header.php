@@ -15,7 +15,7 @@
 
 				<section class="logo">
 					<a href="<?php echo get_home_url() ?>">
-						<img src="<?php echo get_bloginfo( 'template_directory' ); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
+						<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
 					</a>
 				</section> <?php // .logo ?>
 
