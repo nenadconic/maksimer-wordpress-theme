@@ -60,13 +60,13 @@
 		remove_menu_page( 'edit-comments.php' );
 		remove_submenu_page( 'themes.php', 'customize.php' );
 		remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
-		add_management_page( __( 'Oppdater WordPress' ), __( 'Oppdater WordPress' ), 'update_core', 'update-core.php' );
+		add_management_page( __( 'Oppdater WordPress', 'maksimer_lang' ), __( 'Oppdater WordPress', 'maksimer_lang' ), 'update_core', 'update-core.php' );
 		if ( ! current_user_can( 'administrator' ) ) {
 			remove_menu_page( 'wpcf7' );
 			remove_menu_page( 'tools.php' );
 			remove_menu_page( 'edit.php?post_type=acf-field-group' );
 			// Erstatter "appearance" med "menu/meny" for alle andre enn administratorer
-			add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
+			add_menu_page( __( 'Meny', 'maksimer_lang' ), __( 'Meny', 'maksimer_lang' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
 		}
 	}
 	add_action( 'admin_menu', 'maksimer_endrer_admin_lenker' );
