@@ -31,16 +31,17 @@
 					$link_type = get_sub_field( 'velg_link_type' );
 					if ( 'intern' == $link_type ) {
 						$link = get_sub_field( 'velg_side' );
+						$target = '';
 					} elseif ( 'ekstern' == $link_type ) {
 						$link = get_sub_field( 'url' );
+						$target = ' target="blank"';
 					} else {
 						return false;
 					}
-				?>
 
-				<a href="<?php echo $link; ?>"<?php if ( 'ekstern' == $link_type ) : ?> target="_blank"<?php endif; ?> class="knapp">
-					<?php echo $tekst; ?>
-				</a>
+					// Knappen
+					echo '<a href="' . $link . '"' . $target . 'class="knapp">' . $tekst . '</a>';
+				?>
 
 			<?php endwhile; ?>
 
