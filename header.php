@@ -5,7 +5,6 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="icon" href="<?php echo get_bloginfo( 'template_directory' ); ?>/images/favicon.ico" type="image/x-icon" />
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
 		<?php wp_head(); ?>	
 	</head>
 	<body <?php body_class(); ?>>
