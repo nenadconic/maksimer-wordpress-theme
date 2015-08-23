@@ -6,6 +6,7 @@
 	$unik_id        = get_sub_field( 'unik_id' );
 
 	// Variabler
+	$stiler  = '';
 	$stiler .= $bakgrunn_farge;
 	$stiler .= $luft_over;
 	$stiler .= $luft_under;
