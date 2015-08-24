@@ -66,7 +66,7 @@
 			remove_menu_page( 'tools.php' );
 			remove_menu_page( 'edit.php?post_type=acf-field-group' );
 			// Erstatter "appearance" med "menu/meny" for alle andre enn administratorer
-			add_menu_page( __( 'Meny', 'maksimer_lang' ), __( 'Meny', 'maksimer_lang' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
+			add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
 		}
 	}
 	add_action( 'admin_menu', 'maksimer_endrer_admin_lenker' );
