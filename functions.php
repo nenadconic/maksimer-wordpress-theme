@@ -143,42 +143,10 @@
 
 	//// Innholdsbygger-funksjoner
 	if ( function_exists ( 'get_row_layout' ) ) {
-		// Bakgrunnsfarge til innholdsbyggeren
-		function maksimer_bg_farge() {
-			$bakgrunn_farge_acf = get_sub_field( 'bakgrunnsfarge' );
-			if ( ! empty( $bakgrunn_farge_acf ) ) {
-				$bakgrunn_farge = 'background-color: ' . $bakgrunn_farge_acf . ';';
-				return $bakgrunn_farge;
-			} else {
-				return false;
-			}
-		}
-		// Tekstfarge til innholdsbyggeren
-		function maksimer_tekst_farge() {
-			$tekst_farge_acf = get_sub_field( 'tekstfarge' );
-			if ( ! empty( $tekst_farge_acf ) ) {
-				$tekst_farge = 'color: ' . $tekst_farge_acf . ';';
-				return $tekst_farge;
-			} else {
-				return false;
-			}
-		}
-		// Luft i innholdsbyggeren
-		function maksimer_luft_over() {
-			$luft_over_acf = get_sub_field( 'luft_over' );
-			if ( ! empty( $luft_over_acf ) ) {
-				$luft_over = 'padding-top: ' . $luft_over_acf . ';';
-				return $luft_over;
-			} else {
-				return false;
-			}
-		}
-		// Luft i innholdsbyggeren
-		function maksimer_luft_under() {
-			$luft_under_acf = get_sub_field( 'luft_under' );
-			if ( ! empty( $luft_under_acf ) ) {
-				$luft_under = 'padding-bottom: ' . $luft_under_acf . ';';
-				return $luft_under;
+		function maksimer_css_compiler( $value, $property, $prepend = false, $append = false ) {
+			if ( ! empty( $value ) ) {
+				$compiled = $property . ':' . $prepend . $value . $append . ';';
+				return $compiled;
 			} else {
 				return false;
 			}

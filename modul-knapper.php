@@ -1,8 +1,8 @@
 <?php
 	// Fra WP
-	$bakgrunn_farge = maksimer_bg_farge();
-	$luft_over      = maksimer_luft_over();
-	$luft_under     = maksimer_luft_under();
+	$bakgrunn_farge = maksimer_css_compiler( get_sub_field( 'bakgrunnsfarge' ), 'background' );
+	$luft_over      = maksimer_css_compiler( get_sub_field( 'luft_over' ), 'padding-top', '', 'px' );
+	$luft_under     = maksimer_css_compiler( get_sub_field( 'luft_under' ), 'padding-bottom', '', 'px' );
 	$unik_id        = get_sub_field( 'unik_id' );
 
 	// Variabler
