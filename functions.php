@@ -64,7 +64,7 @@
 			remove_menu_page( 'wpcf7' );
 			remove_menu_page( 'tools.php' );
 			remove_menu_page( 'edit.php?post_type=acf-field-group' );
-			// Replace "appearance" with "menu" for all roles exept admin
+			// Replace "appearance" with "menu" for all roles except admin
 			add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
 		}
 	}
