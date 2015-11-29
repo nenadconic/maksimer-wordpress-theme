@@ -1,4 +1,6 @@
-// Fonter
+/*
+ * Fonter
+*/
 @mixin sans-serif {
 	font-family: sans-serif;
 }
@@ -11,8 +13,10 @@
 
 
 
-// Clear
-@mixin clearfiks {
+/*
+ * Clear
+*/
+@mixin clearfix {
 	display: block;
 	zoom: 1;
 
@@ -30,11 +34,13 @@
 
 
 
-// Retina
-@mixin retina($bilde, $bredde, $hoyde) {
+/*
+ * Retina
+*/
+@mixin retina($image, $width, $height) {
 	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-		background-image: url($bilde);
-		background-size: $bredde $hoyde;
+		background-image: url($image);
+		background-size: $width $height;
 	}
 }
 
@@ -42,7 +48,9 @@
 
 
 
-// http://codepen.io/eduardoboucas/pen/YXxmwv
+/*
+ * http://codepen.io/eduardoboucas/pen/YXxmwv
+*/
 @mixin vw($responsive, $min, $max: false, $fallback: false) {
 	$responsive-unitless: $responsive / ($responsive - $responsive + 1);
 	$dimension: if(unit($responsive) == 'vh', 'height', 'width');

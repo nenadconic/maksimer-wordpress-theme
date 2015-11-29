@@ -1,27 +1,24 @@
 <?php get_header(); ?>
 
-	<div class="ramme">
+	<div class="wrapper">
 
-		<?php if ( have_posts() ) : ?>
+		<?php 
+			if ( have_posts() ) {
 
-			<h1><?php the_archive_title(); ?></h1>
+				echo '<h1>' . get_the_archive_title() . '</h1>';
+				while ( have_posts() ) : the_post();
+					get_template_part( 'loop', 'single' );
+				endwhile;
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			} else {
 
-				<?php get_template_part( 'loop', 'single' ); ?>
+				echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
 
-			<?php endwhile; ?>
-
-		<?php else : ?>
-
-			<h3><?php _e( 'Ingen innlegg funnet', 'maksimer_lang' ); ?></h3>
-
-		<?php endif; ?>
-
-		<?php get_template_part( 'nav', 'post-pag' ); ?>
+			}
+		?>
 
 		<?php get_sidebar(); ?>
 
-	</div> <?php // .ramme ?>
+	</div> <?php // .wrapper ?>
 
 <?php get_footer(); ?>

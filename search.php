@@ -1,23 +1,26 @@
 <?php get_header(); ?>
 
-	<div class="ramme">
+	<div class="wrapper">
 
-		<?php if ( have_posts() && ! ( empty( $_GET['s'] ) ) ) : ?>
+		<?php if ( have_posts() && ( !empty( $_GET['s'] ) ) ) : ?>
 
-			<h2><?php _e('Søkeresultater', 'maksimer_lang'); ?></h2>
+			<h2><?php _e( 'Search results', 'maksimer_lang'); ?></h2>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfiks' ); ?>>
+				<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+
 					<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+
 					<?php
-						$yoast_desc = get_field( '_yoast_wpseo_metadesc' );
-						if ( ! empty( $yoast_desc ) ) :
+						$yoast_desc = get_post_meta( $post->ID, '_yoast_wpseo_metadesc' );
+						if ( ! empty( $yoast_desc ) ) {
+							echo '<p>' . $yoast_desc . '</p>';
+						} else {
+							the_excerpt();
+						}
 					?>
-						<p><?php echo $yoast_desc; ?></p>
-					<?php else : ?>
-						<?php the_excerpt(); ?>
-					<?php endif; ?>
+
 				</article>
 
 			<?php endwhile; ?>
@@ -27,17 +30,17 @@
 		<?php elseif ( empty( $_GET['s'] ) ) : ?>
 
 			<?php
-				// Videresender til forsiden hvis man ikke søker etter noe
+				// Redirect back to homepage on empty search
 				wp_redirect( home_url() );
 				exit;
 			?>
 
 		<?php else: ?>
 
-			<h2><?php _e( 'Ingen treff', 'maksimer_lang' ); ?></h2>
+			<h2><?php _e( 'No post found', 'maksimer_lang' ); ?></h2>
 
 		<?php endif; ?>
 
-	</div> <?php //.ramme ?>
+	</div> <?php //.wrapper ?>
 
 <?php get_footer(); ?>

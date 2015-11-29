@@ -1,0 +1,126 @@
+* {
+	box-sizing: border-box;
+
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+
+/*
+ * Color variables
+*/
+$light: #fff;
+$dark: #000;
+$link: #b02448;
+$text: $dark;
+
+
+
+
+
+/*
+ * Default settings
+*/
+$font-size: 14px;
+$line-height: 26px;
+$space: 20px;
+
+
+
+
+
+/*
+ * Main wrapper
+*/
+.wrapper {
+	@include clearfix;
+	max-width: 1100px;
+	width: 94%;
+	margin: 0 auto;
+}
+
+
+
+
+
+/*
+ * Clear
+*/
+.clear {
+	clear: both;
+}
+
+
+
+
+
+/*
+ * Workaround a Windows Phone responsive issuee
+*/
+@media screen {
+	@-ms-viewport {
+		width: device-width;
+	}
+}
+
+
+
+
+
+/*
+ * Hide's the element from the page, but screen readers will read it
+*/
+.hidden,
+.screen-reader-text {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	overflow: hidden;
+	height: 1px;
+	width: 1px;
+}
+
+
+
+
+
+/*
+ * Columns
+*/
+.col-set {
+	@include clearfix;
+	margin: 0 (-$space);
+
+	.col {
+		float: left;
+		padding: 0 $space;
+	}
+
+	&.col-2 .col {
+		width: 50%;
+	}
+
+	&.col-3 .col {
+		width: 33.33%;
+	}
+
+	&.col-4 .col {
+		width: 25%;
+	}
+
+	&.col-5 .col {
+		width: 20%;
+	}
+
+	&.col-6 .col {
+		width: 16.66%;
+	}
+}

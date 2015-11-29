@@ -1,6 +1,6 @@
-Startertema for <a href="http://www.maksimer.no/" target="_blank">Maksimer</a>.
+WordPress starter theme made and used by <a href="http://www.maksimer.no/" target="_blank">Maksimer</a>.
 
-Kombineres med <a href="http://www.advancedcustomfields.com/" target="_blank">Advanced Custom Fields</a> (v.5.1.5+)
+The theme itself works without, but is best combined <a href="http://www.advancedcustomfields.com/" target="_blank">Advanced Custom Fields</a> (v.5.1.5+)
 
-<h4>Oppsett</h4>
-Etter at tema og <a href="http://www.advancedcustomfields.com/" target="_blank">ACF</a> er installert og aktivert går du til <code>Custom Field > Sync available > Sync</code>.
+<h4>Install</h4>
+After the theme and <a href="http://www.advancedcustomfields.com/" target="_blank">ACF</a> is installed and activated go to <code>Custom Field > Sync available > Sync</code>.

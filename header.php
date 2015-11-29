@@ -11,7 +11,7 @@
 
 		<header class="header">
 
-			<div class="ramme">
+			<div class="wrapper">
 
 				<section class="logo">
 					<a href="<?php echo get_home_url() ?>">
@@ -19,10 +19,10 @@
 					</a>
 				</section> <?php // .logo ?>
 
-				<nav class="hovedmeny">
-					<?php wp_nav_menu( array( 'menu' => 'Hovedmeny', 'container' => false ) ); ?>
-				</nav> <?php // .hovedmeny ?>
+				<nav class="main-menu">
+					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false ) ); ?>
+				</nav> <?php // .main-menu ?>
 
-			</div> <?php // .ramme ?>
+			</div> <?php // .wrapper ?>
 
 		</header> <?php // .header ?>

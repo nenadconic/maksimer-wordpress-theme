@@ -1,80 +1,83 @@
 <?php
+	/*
+	 * Theme setup
+	*/
 	function maksimer_theme_setup() {
+		// Load textdomain
+		load_theme_textdomain( 'maksimer_lang', get_template_directory() . '/languages' );
 
-		// Legger til støtte for WP-funksjoner
-		add_theme_support( 'post-thumbnails', array( 'post' ) );
+		// Declare theme support
+		add_theme_support( 'post-thumbnails', array( 'post', 'product' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'menus' );
+		add_theme_support( 'woocommerce' );
+		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', ) );
+
 		add_editor_style();
 
-		// Setter standard bildestørrelse, bildelink og alignment
+		// Changes default images values
 		update_option( 'image_default_align', 'none' );
 		update_option( 'image_default_link_type', 'none' );
 		update_option( 'image_default_size', 'large' );
 
-		// Endrer default wordpress markup til HTML5
-		add_theme_support(
-			'html5', array(
-				'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-			)
-		);
+		set_post_thumbnail_size( 300, 300, true );
+		// add_image_size( 'example', 220, 220, array( 'left', 'top' ) );
 
+		// Register menus
+		register_nav_menus( array(
+			'main-menu' => __( 'Main menu', 'maksimer_lang' )
+		) );
 	}
 	add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
 
 
-	// Legg til støtte for egne bildestørrelser i WordPress
-	if ( function_exists( 'add_theme_support' ) ) {
-		set_post_thumbnail_size( 150, 150, true );
-		// add_image_size( 'EgenBildeStorrelse', 300, 300, true );
-	}
 
 
-
-	// Laster admin.css
-	function maksimer_admin_css() {
-		if ( is_admin() ) {
-			wp_enqueue_style( 'maksimer_admin_css', get_template_directory_uri() . '/css/admin.css' );
-		}
-	}
-	add_action( 'init', 'maksimer_admin_css' );
-
-
-
-	// Dashboard videresending til "pages"
-	function maksimer_dashboard_videresend() {
+	/*
+	 * Rediret from dashboard to pages
+	*/
+	function maksimer_dashboard_redirect() {
 		if ( ! is_network_admin() ) {
 			wp_redirect( admin_url( 'edit.php?post_type=page' ) );	
 		}
 	}
-	add_action( 'load-index.php', 'maksimer_dashboard_videresend' );
+	add_action( 'load-index.php', 'maksimer_dashboard_redirect' );
 
 
 
-	// Fjerner linker fra admin
-	function maksimer_endrer_admin_lenker() {
+
+
+	/*
+	 * Customizing the admin sidebar
+	*/
+	function maksimer_customize_sidebar_menu() {
 		remove_menu_page( 'index.php' );
 		remove_menu_page( 'separator1' );
 		remove_menu_page( 'upload.php' );
 		remove_menu_page( 'edit-comments.php' );
 		remove_submenu_page( 'themes.php', 'customize.php' );
 		remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
-		add_management_page( __( 'Oppdater WordPress', 'maksimer_lang' ), __( 'Oppdater WordPress', 'maksimer_lang' ), 'update_core', 'update-core.php' );
+		add_management_page( __( 'Updates', 'maksimer_lang' ), __( 'Updates', 'maksimer_lang' ), 'update_core', 'update-core.php' );
+
 		if ( ! current_user_can( 'administrator' ) ) {
 			remove_menu_page( 'wpcf7' );
 			remove_menu_page( 'tools.php' );
 			remove_menu_page( 'edit.php?post_type=acf-field-group' );
-			// Erstatter "appearance" med "menu/meny" for alle andre enn administratorer
+			// Replace "appearance" with "menu" for all roles exept admin
 			add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
 		}
 	}
-	add_action( 'admin_menu', 'maksimer_endrer_admin_lenker' );
+	add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
 
 
 
-	// Endrer rettighetene til brukergruppene
-	function maksimer_endrer_brukerrettigheter() {
+
+
+	/*
+	 * Change user cap's
+	*/
+	function maksimer_change_user_cap() {
 		$editor_role = get_role( 'editor' );
 		if ( $editor_role ) {
 			$editor_role->add_cap( 'edit_published_posts' );
@@ -85,15 +88,18 @@
 			$editor_role->add_cap( 'edit_theme_options' );
 		}
 	}
-	add_action( 'admin_init', 'maksimer_endrer_brukerrettigheter' );
+	add_action( 'admin_init', 'maksimer_change_user_cap' );
 
 
 
-	// Henter inn javascript og css filer
+
+
+	/*
+	 * Enqueue's all the scripts
+	*/
 	function maksimer_enqueue_scripts() {
 		wp_enqueue_style( 'style', get_bloginfo( 'stylesheet_url' ), false, filemtime( get_template_directory() . '/style.css' ), 'all' );
-		// Dummy for wp_enqueue_script();
-		// wp_enqueue_script( 'FILNAVN', get_bloginfo( 'template_directory' ) . '/js/FILNAVN.js', array( 'jquery' ) );
+		// wp_enqueue_script( 'example', get_template_directory_uri() . '/js/example.js', array( 'jquery' ) );
 		wp_enqueue_script( 'maksimer', get_template_directory_uri() . '/js/maksimer.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/maksimer.js' ) );
 		if ( ! is_admin() ) {
 			wp_enqueue_script( 'analyse', get_template_directory_uri() . '/js/analyse.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/analyse.js' ), true );
@@ -103,7 +109,25 @@
 
 
 
-	// Henter inn html5 shim til gamle IE versjoner, GO HTML5 <3
+
+
+	/*
+	 * Enqueue admin-scripts
+	*/
+	function maksimer_admin_enqueue() {
+		if ( is_admin() ) {
+			wp_enqueue_style( 'maksimer_admin_css', get_template_directory_uri() . '/css/admin.css' );
+		}
+	}
+	add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
+
+
+
+
+
+	/*
+	 * Adds html5shim to old IE versions
+	*/
 	function maksimer_html5shim() {
 		global $is_IE;
 		if ( $is_IE ) {
@@ -114,15 +138,23 @@
 
 
 
-	// Endrer prioriteten til yoast meta-boksen 
-	function maksimer_wpseo_metabox_prioritet() {
+
+
+	/*
+	 * Change yoast metabox priority
+	*/
+	function maksimer_wpseo_metabox_priority() {
 		return 'low';
 	}
-	add_filter( 'wpseo_metabox_prio', 'maksimer_wpseo_metabox_prioritet' );
+	add_filter( 'wpseo_metabox_prio', 'maksimer_wpseo_metabox_priority' );
 
 
 
-	// Fjerner linker fra admin-bar
+
+
+	/*
+	 * Manage the admin bar, front-end
+	*/
 	function maksimer_admin_bar() {
 		global $wp_admin_bar;
 		$wp_admin_bar->remove_menu( 'customize-themes' );
@@ -141,32 +173,21 @@
 
 
 
-	//// Innholdsbygger-funksjoner
-	if ( function_exists ( 'get_row_layout' ) ) {
-		function maksimer_css_compiler( $value, $property, $prepend = false, $append = false ) {
-			if ( ! empty( $value ) ) {
-				$compiled = $property . ':' . $prepend . $value . $append . ';';
-				return $compiled;
-			} else {
-				return false;
+
+
+	/*
+	 * Function to compile css
+	*/
+	function maksimer_css_compiler( $value, $property, $prepend = false, $append = false ) {
+		if ( ! empty( $value ) ) {
+			if ( 'auto' == $value ) {
+				$append = false;
 			}
-		}
-	} else {
-		return false;
-	}
 
-
-
-	// Hent id fra den eldste forelder
-	function stamfar_id( $post_id = '' ) {
-		global $post;
-		if ( empty( $post_id ) && empty( $post->ID ) ) {
+			$compiled = $property . ':' . $prepend . $value . $append . ';';
+			return $compiled;
+		} else {
 			return false;
-		} elseif ( empty( $post_id ) && ! ( empty( $post->ID ) ) ) {
-			$post_id = $post->ID;
 		}
-		$page_ancestors = get_ancestors( $post->ID, 'page' );
-		array_unshift( $page_ancestors, $post_id );
-		return array_pop( $page_ancestors );
-	};
+	}
 ?>

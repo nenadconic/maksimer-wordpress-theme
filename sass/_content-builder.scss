@@ -1,0 +1,13 @@
+.module {
+	@include clearfix;
+
+	&:first-child {
+		.content {
+			padding-top: 0;
+		}
+	}
+
+	.content {
+		padding: 10px 0;
+	}
+}

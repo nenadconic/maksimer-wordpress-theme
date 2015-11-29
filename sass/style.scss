@@ -1,23 +1,30 @@
 /*!
 Theme Name: Maksimer
-Version: 2.0
-Description: Tema utviklet av Maksimer AS
+Theme URI: https://github.com/maksimer/maksimer-wordpress-theme
+Version: 2.1.0
+Description: Theme developed by Maksimer AS
 Author: Maksimer AS
 Author URI: http://www.maksimer.no/
+Text Domain: maksimer_lang
 */
 
 @import 'reset';
 @import 'mixins';
-@import 'variabler';
-@import 'innholdsbygger';
-@import 'typografi';
+@import 'variables';
+@import 'content-builder';
+@import 'typography';
 
 body {
 	@include sans-serif;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background: $hvit;
-	color: $sort;
-	font-size: 14px;
-	line-height: 24px;
+	background: $light;
+	color: $text;
+	font-size: $font-size;
+	line-height: $line-height;
 }
+
+
+
+
+@import 'responsive';

@@ -1,10 +1,10 @@
 		<footer class="footer">
 
-			<div class="ramme">
+			<div class="wrapper">
 
 				<?php echo date( 'Y' ); ?> <a href="http://www.maksimer.no/" target="_blank">Maksimer</a>
 
-			</div>
+			</div> <?php // .wrapper ?>
 
 		</footer>
 

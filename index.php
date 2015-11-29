@@ -1,21 +1,23 @@
 <?php get_header(); ?>
 
-	<div class="ramme">
+	<div class="wrapper">
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php 
+			if ( have_posts() ) {
 
-			<?php get_template_part( 'loop', 'single' ); ?>
+				while ( have_posts() ) : the_post();
+					get_template_part( 'loop', 'single' );
+				endwhile;
 
-		<?php endwhile; else : ?>
+			} else {
 
-			<h3><?php _e( 'Ingen innlegg funnet', 'maksimer_lang' ); ?></h3>
+				echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
 
-		<?php endif; ?>
-
-		<?php get_template_part( 'nav', 'post-pag' ); ?>
+			}
+		?>
 
 		<?php get_sidebar(); ?>
 
-	</div> <?php // .ramme ?>
+	</div> <?php // .wrapper ?>
 
 <?php get_footer(); ?>

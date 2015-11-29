@@ -1,20 +1,20 @@
 <?php the_post(); ?>
 <?php get_header(); ?>
 
-	<section class="hovedinnhold">
+	<section class="main-content-wrap">
 
-		<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfiks' ); ?>>
-			<?php get_template_part( 'innholdsbygger' ); ?>
+		<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+			<?php get_template_part( 'content-builder' ); ?>
 		</article>
 
-	</section> <?php // .hovedinnhold ?>
+	</section> <?php // .main-content-wrap ?>
 
-	<div class="ramme">
+	<div class="wrapper">
 
-		<?php get_template_part( 'nav', 'undersider' ); ?>
+		<?php get_template_part( 'nav', 'subpages' ); ?>
 
 		<?php get_sidebar(); ?>
 
-	</div>
+	</div> <?php // .wrapper ?>
 
 <?php get_footer(); ?>
