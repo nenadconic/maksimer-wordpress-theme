@@ -102,25 +102,47 @@ $space: 20px;
 	.col {
 		float: left;
 		padding: 0 $space;
+		min-height: 1px;
 	}
 
 	&.col-2 .col {
 		width: 50%;
+
+		&.w2 {
+			width: 100%;
+		}
+
 	}
 
 	&.col-3 .col {
 		width: 33.33%;
+
+		&.w2 {
+			width: 66.66%;
+		}
 	}
 
 	&.col-4 .col {
 		width: 25%;
+
+		&.w2 {
+			width: 50%;
+		}
 	}
 
 	&.col-5 .col {
 		width: 20%;
+
+		&.w2 {
+			width: 40%;
+		}
 	}
 
 	&.col-6 .col {
 		width: 16.66%;
+
+		&.w2 {
+			width: 33.32%;
+		}
 	}
 }

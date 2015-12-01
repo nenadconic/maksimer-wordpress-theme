@@ -20,7 +20,7 @@
 				</section> <?php // .logo ?>
 
 				<nav class="main-menu">
-					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'fallback_cb' => false ) ); ?>
 				</nav> <?php // .main-menu ?>
 
 			</div> <?php // .wrapper ?>
