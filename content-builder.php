@@ -8,7 +8,7 @@
 	if ( !empty( $content_builder ) ) {
 
 		while ( has_sub_field( 'innholdsbygger' ) ) :
-			get_template_part( 'module', get_row_layout() );
+			get_template_part( 'modules/module', get_row_layout() );
 		endwhile;
 
 	} else {
