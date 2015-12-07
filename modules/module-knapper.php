@@ -27,17 +27,17 @@
 			<?php
 				while ( have_rows( 'knapper' ) ) : the_row();
 
-					$tekst     = get_sub_field( 'tekst' );
+					$label     = get_sub_field( 'tekst' );
 					$link_type = get_sub_field( 'velg_link_type' );
 
 					if ( 'intern' == $link_type ) {
 
-						$link = get_sub_field( 'velg_side' );
+						$link   = get_sub_field( 'velg_side' );
 						$target = '';
 
 					} elseif ( 'ekstern' == $link_type ) {
 
-						$link = get_sub_field( 'url' );
+						$link   = get_sub_field( 'url' );
 						$target = ' target="blank"';
 
 					} else {
@@ -46,7 +46,7 @@
 
 					}
 
-					echo '<a href="' . $link . '"' . $target . 'class="button">' . $tekst . '</a>';
+					echo '<a href="' . $link . '"' . $target . 'class="button">' . $label . '</a>';
 
 				endwhile;
 			?>
