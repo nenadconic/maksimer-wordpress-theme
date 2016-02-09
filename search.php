@@ -1,3 +1,11 @@
+<?php
+	if ( empty( $_GET['s'] ) ) {
+		// Redirect back to homepage on empty search
+		wp_redirect( home_url() );
+		exit;
+	}
+?>
+
 <?php get_header(); ?>
 
 	<div class="wrapper">
@@ -26,14 +34,6 @@
 			<?php endwhile; ?>
 
 			<?php get_template_part( 'nav', 'post-pag' ); ?>
-
-		<?php elseif ( empty( $_GET['s'] ) ) : ?>
-
-			<?php
-				// Redirect back to homepage on empty search
-				wp_redirect( home_url() );
-				exit;
-			?>
 
 		<?php else: ?>
 
