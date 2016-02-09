@@ -1,8 +1,8 @@
 <?php
 	// Custom fields from WordPress
 	$background_color = maksimer_css_compiler( get_sub_field( 'bakgrunnsfarge' ), 'background' );
-	$space_above      = maksimer_css_compiler( get_sub_field( 'luft_over' ), 'padding-top', '', 'px' );
-	$space_below      = maksimer_css_compiler( get_sub_field( 'luft_under' ), 'padding-bottom', '', 'px' );
+	$space_above      = maksimer_css_compiler( get_sub_field( 'luft_over' ), 'padding-top' );
+	$space_below      = maksimer_css_compiler( get_sub_field( 'luft_under' ), 'padding-bottom' );
 	$unique_id        = get_sub_field( 'unik_id' );
 
 	// Variabler
