@@ -157,8 +157,7 @@
 	*/
 	function maksimer_admin_bar() {
 		global $wp_admin_bar;
-		$wp_admin_bar->remove_menu( 'customize-themes' );
-		$wp_admin_bar->remove_menu( 'customize-widgets' );
+		$wp_admin_bar->remove_menu( 'widgets' );
 		$wp_admin_bar->remove_menu( 'wpseo-menu' );
 		$wp_admin_bar->remove_menu( 'wp-logo' );
 		$wp_admin_bar->remove_menu( 'dashboard' );
