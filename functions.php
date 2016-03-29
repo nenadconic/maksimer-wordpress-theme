@@ -81,21 +81,6 @@
 
 
 	/*
-	 * Change user cap's
-	*/
-	function maksimer_change_user_cap() {
-		$editor_role = get_role( 'editor' );
-		if ( $editor_role ) {
-			$editor_role->add_cap( 'edit_theme_options' );
-		}
-	}
-	add_action( 'admin_init', 'maksimer_change_user_cap' );
-
-
-
-
-
-	/*
 	 * Enqueue's all the scripts
 	*/
 	function maksimer_enqueue_scripts() {
