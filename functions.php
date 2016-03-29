@@ -38,8 +38,14 @@
 	 * Rediret from dashboard to pages
 	*/
 	function maksimer_dashboard_redirect() {
-		if ( ! is_network_admin() ) {
-			wp_redirect( admin_url( 'edit.php?post_type=page' ) );	
+		if ( is_network_admin() ) {
+			wp_redirect( admin_url( 'network/sites.php' ) );
+		} elseif ( ! current_user_can( 'edit_pages' ) && current_user_can( 'edit_posts' ) ) {
+			wp_redirect( admin_url( 'edit.php' ) );
+		} elseif ( current_user_can( 'edit_pages' ) ) {
+			wp_redirect( admin_url( 'edit.php?post_type=page' ) );
+		} else {
+			wp_redirect( admin_url( 'profile.php' ) );
 		}
 	}
 	add_action( 'load-index.php', 'maksimer_dashboard_redirect' );
@@ -64,7 +70,7 @@
 			remove_menu_page( 'wpcf7' );
 			remove_menu_page( 'tools.php' );
 			remove_menu_page( 'edit.php?post_type=acf-field-group' );
-			// Replace "appearance" with "menu" for all roles except admin
+			remove_menu_page( 'themes.php' );
 			add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
 		}
 	}
@@ -80,11 +86,6 @@
 	function maksimer_change_user_cap() {
 		$editor_role = get_role( 'editor' );
 		if ( $editor_role ) {
-			$editor_role->add_cap( 'edit_published_posts' );
-			$editor_role->add_cap( 'publish_posts' );
-			$editor_role->add_cap( 'delete_published_posts' );
-			$editor_role->add_cap( 'delete_posts' );
-			$editor_role->add_cap( 'edit_post' );
 			$editor_role->add_cap( 'edit_theme_options' );
 		}
 	}
@@ -189,4 +190,3 @@
 			return false;
 		}
 	}
-?>
