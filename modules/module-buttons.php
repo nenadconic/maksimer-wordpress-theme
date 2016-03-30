@@ -1,9 +1,9 @@
 <?php
 	// Custom fields from WordPress
-	$background_color = maksimer_css_compiler( get_sub_field( 'bakgrunnsfarge' ), 'background' );
-	$space_above      = maksimer_css_compiler( get_sub_field( 'luft_over' ), 'padding-top' );
-	$space_below      = maksimer_css_compiler( get_sub_field( 'luft_under' ), 'padding-bottom' );
-	$unique_id        = get_sub_field( 'unik_id' );
+	$background_color = maksimer_css_compiler( get_sub_field( 'background_color' ), 'background' );
+	$space_above      = maksimer_css_compiler( get_sub_field( 'padding_top' ), 'padding-top' );
+	$space_below      = maksimer_css_compiler( get_sub_field( 'padding_bottom' ), 'padding-bottom' );
+	$unique_id        = get_sub_field( 'unique_id' );
 
 	// Variabler
 	$style  = '';
@@ -25,17 +25,17 @@
 		<div class="wrapper">
 
 			<?php
-				while ( have_rows( 'knapper' ) ) : the_row();
+				while ( have_rows( 'buttons' ) ) : the_row();
 
-					$label     = get_sub_field( 'tekst' );
-					$link_type = get_sub_field( 'velg_link_type' );
+					$label     = get_sub_field( 'text' );
+					$link_type = get_sub_field( 'choose_type_of_link' );
 
-					if ( 'intern' == $link_type ) {
+					if ( 'internal' == $link_type ) {
 
-						$link   = get_sub_field( 'velg_side' );
+						$link   = get_sub_field( 'select_page' );
 						$target = '';
 
-					} elseif ( 'ekstern' == $link_type ) {
+					} elseif ( 'external' == $link_type ) {
 
 						$link   = get_sub_field( 'url' );
 						$target = ' target="blank"';

@@ -1,10 +1,10 @@
 <?php
 	// Custom fields from WordPress
-	$background_color = maksimer_css_compiler( get_sub_field( 'bakgrunnsfarge' ), 'background' );
-	$text_color       = maksimer_css_compiler( get_sub_field( 'tekstfarge' ), 'color' );
-	$space_above      = maksimer_css_compiler( get_sub_field( 'luft_over' ), 'padding-top' );
-	$space_below      = maksimer_css_compiler( get_sub_field( 'luft_under' ), 'padding-bottom' );
-	$unique_id        = get_sub_field( 'unik_id' );
+	$background_color = maksimer_css_compiler( get_sub_field( 'background_color' ), 'background' );
+	$text_color       = maksimer_css_compiler( get_sub_field( 'text_color' ), 'color' );
+	$space_above      = maksimer_css_compiler( get_sub_field( 'padding_top' ), 'padding-top' );
+	$space_below      = maksimer_css_compiler( get_sub_field( 'padding_bottom' ), 'padding-bottom' );
+	$unique_id        = get_sub_field( 'unique_id' );
 
 	// Variables
 	$style  = '';
@@ -29,11 +29,11 @@
 			<div class="col-set col-2">
 
 				<div class="col">
-					<?php the_sub_field( 'venstre' ); ?>
+					<?php the_sub_field( 'left' ); ?>
 				</div> <?php // .col ?>
 
 				<div class="col">
-					<?php the_sub_field( 'hoyre' ); ?>
+					<?php the_sub_field( 'right' ); ?>
 				</div> <?php // .col ?>
 
 			</div> <?php // .col-set ?>

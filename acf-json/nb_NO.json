@@ -5,7 +5,7 @@
         {
             "key": "field_5499e9e710b39",
             "label": "Administrer innholdet p\u00e5 denne siden",
-            "name": "innholdsbygger",
+            "name": "content_builder",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -21,14 +21,14 @@
             "layouts": [
                 {
                     "key": "5499e9f7257d5",
-                    "name": "en_kolonne",
+                    "name": "one_column",
                     "label": "En kolonne",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5553961136c4a",
                             "label": "Innhold",
-                            "name": "",
+                            "name": "innhold",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -38,12 +38,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top"
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
                             "key": "field_5499e9fd10b3a",
                             "label": "Innhold",
-                            "name": "innhold",
+                            "name": "content",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -61,7 +62,7 @@
                         {
                             "key": "field_5553960336c49",
                             "label": "Innstillinger",
-                            "name": "",
+                            "name": "innstillinger",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -71,12 +72,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top"
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
                             "key": "field_555397a801610",
                             "label": "Unik ID",
-                            "name": "unik_id",
+                            "name": "unique_id",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -97,14 +99,14 @@
                         {
                             "key": "field_5499ea0d10b3b",
                             "label": "Bakgrunnsfarge",
-                            "name": "bakgrunnsfarge",
+                            "name": "background_color",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": 25,
-                                "class": "tekst-senter",
+                                "class": "text-center",
                                 "id": ""
                             },
                             "default_value": ""
@@ -112,14 +114,14 @@
                         {
                             "key": "field_5499ea2010b3c",
                             "label": "Tekstfarge",
-                            "name": "tekstfarge",
+                            "name": "text_color",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": 25,
-                                "class": "tekst-senter",
+                                "class": "text-center",
                                 "id": ""
                             },
                             "default_value": ""
@@ -127,7 +129,7 @@
                         {
                             "key": "field_555397840160e",
                             "label": "Luft over",
-                            "name": "luft_over",
+                            "name": "padding_top",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -166,9 +168,9 @@
                                 "240px": "240 px",
                                 "250px": "250 px"
                             },
-                            "default_value": {
-                                "auto": "auto"
-                            },
+                            "default_value": [
+                                "auto"
+                            ],
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -180,7 +182,7 @@
                         {
                             "key": "field_5553978d0160f",
                             "label": "Luft under",
-                            "name": "luft_under",
+                            "name": "padding_bottom",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -219,9 +221,9 @@
                                 "240px": "240 px",
                                 "250px": "250 px"
                             },
-                            "default_value": {
-                                "auto": "auto"
-                            },
+                            "default_value": [
+                                "auto"
+                            ],
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -236,14 +238,14 @@
                 },
                 {
                     "key": "5499eae310b3e",
-                    "name": "to_kolonne",
+                    "name": "two_column",
                     "label": "To kolonne",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5553962236c4b",
                             "label": "Innhold",
-                            "name": "",
+                            "name": "innhold",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -253,12 +255,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top"
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
                             "key": "field_5499eae310b3f",
                             "label": "Venstre",
-                            "name": "venstre",
+                            "name": "left",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -276,7 +279,7 @@
                         {
                             "key": "field_5499eaf510b43",
                             "label": "H\u00f8yre",
-                            "name": "hoyre",
+                            "name": "right",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -294,7 +297,7 @@
                         {
                             "key": "field_5553962836c4c",
                             "label": "Innstillinger",
-                            "name": "",
+                            "name": "innstillinger",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -304,12 +307,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top"
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
                             "key": "field_555397b201611",
                             "label": "Unik ID",
-                            "name": "unik_id",
+                            "name": "unique_id",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -330,14 +334,14 @@
                         {
                             "key": "field_5499eae310b40",
                             "label": "Bakgrunnsfarge",
-                            "name": "bakgrunnsfarge",
+                            "name": "background_color",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": 25,
-                                "class": "tekst-senter",
+                                "class": "text-center",
                                 "id": ""
                             },
                             "default_value": ""
@@ -345,14 +349,14 @@
                         {
                             "key": "field_5499eae310b41",
                             "label": "Tekstfarge",
-                            "name": "tekstfarge",
+                            "name": "text_color",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": 25,
-                                "class": "tekst-senter",
+                                "class": "text-center",
                                 "id": ""
                             },
                             "default_value": ""
@@ -360,7 +364,7 @@
                         {
                             "key": "field_555397610160c",
                             "label": "Luft over",
-                            "name": "luft_over",
+                            "name": "padding_top",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -399,9 +403,9 @@
                                 "240px": "240 px",
                                 "250px": "250 px"
                             },
-                            "default_value": {
-                                "auto": "auto"
-                            },
+                            "default_value": [
+                                "auto"
+                            ],
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -413,7 +417,7 @@
                         {
                             "key": "field_555397720160d",
                             "label": "Luft under",
-                            "name": "luft_under",
+                            "name": "padding_bottom",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -452,9 +456,9 @@
                                 "240px": "240 px",
                                 "250px": "250 px"
                             },
-                            "default_value": {
-                                "auto": "auto"
-                            },
+                            "default_value": [
+                                "auto"
+                            ],
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -469,7 +473,7 @@
                 },
                 {
                     "key": "54a998200ff86",
-                    "name": "knapper",
+                    "name": "buttons",
                     "label": "Knapper",
                     "display": "block",
                     "sub_fields": [
@@ -486,12 +490,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top"
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
                             "key": "field_54a998360ff8c",
                             "label": "Administrer knapper",
-                            "name": "knapper",
+                            "name": "buttons",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -501,6 +506,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "collapsed": "",
                             "min": 1,
                             "max": "",
                             "layout": "block",
@@ -509,7 +515,7 @@
                                 {
                                     "key": "field_54a998590ff8d",
                                     "label": "Tekst",
-                                    "name": "tekst",
+                                    "name": "text",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -530,29 +536,29 @@
                                 {
                                     "key": "field_54a9986b0ff8e",
                                     "label": "Velg link-type",
-                                    "name": "velg_link_type",
+                                    "name": "choose_type_of_link",
                                     "type": "radio",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
                                         "width": 40,
-                                        "class": "tekst-senter",
+                                        "class": "text-center",
                                         "id": ""
                                     },
                                     "choices": {
-                                        "intern": "Intern",
-                                        "ekstern": "Ekstern"
+                                        "internal": "Internal",
+                                        "external": "External"
                                     },
                                     "other_choice": 0,
                                     "save_other_choice": 0,
-                                    "default_value": "intern",
+                                    "default_value": "internal",
                                     "layout": "horizontal"
                                 },
                                 {
                                     "key": "field_54a998ae0ff8f",
                                     "label": "Velg side",
-                                    "name": "velg_side",
+                                    "name": "select_page",
                                     "type": "page_link",
                                     "instructions": "",
                                     "required": 0,
@@ -561,7 +567,7 @@
                                             {
                                                 "field": "field_54a9986b0ff8e",
                                                 "operator": "==",
-                                                "value": "intern"
+                                                "value": "internal"
                                             }
                                         ]
                                     ],
@@ -591,7 +597,7 @@
                                             {
                                                 "field": "field_54a9986b0ff8e",
                                                 "operator": "==",
-                                                "value": "ekstern"
+                                                "value": "external"
                                             }
                                         ]
                                     ],
@@ -613,7 +619,7 @@
                         {
                             "key": "field_5553964a36c4e",
                             "label": "Innstillinger",
-                            "name": "",
+                            "name": "innstillinger",
                             "type": "tab",
                             "instructions": "",
                             "required": 0,
@@ -623,12 +629,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top"
+                            "placement": "top",
+                            "endpoint": 0
                         },
                         {
                             "key": "field_555397bb01612",
                             "label": "Unik ID",
-                            "name": "unik_id",
+                            "name": "unique_id",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -649,14 +656,14 @@
                         {
                             "key": "field_54a998200ff89",
                             "label": "Bakgrunnsfarge",
-                            "name": "bakgrunnsfarge",
+                            "name": "background_color",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": 50,
-                                "class": "tekst-senter",
+                                "class": "text-center",
                                 "id": ""
                             },
                             "default_value": ""
@@ -664,7 +671,7 @@
                         {
                             "key": "field_555396d10160a",
                             "label": "Luft over",
-                            "name": "luft_over",
+                            "name": "padding_top",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -703,9 +710,9 @@
                                 "240px": "240 px",
                                 "250px": "250 px"
                             },
-                            "default_value": {
-                                "auto": "auto"
-                            },
+                            "default_value": [
+                                "auto"
+                            ],
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -717,7 +724,7 @@
                         {
                             "key": "field_5553974b0160b",
                             "label": "Luft under",
-                            "name": "luft_under",
+                            "name": "padding_bottom",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -756,9 +763,9 @@
                                 "240px": "240 px",
                                 "250px": "250 px"
                             },
-                            "default_value": {
-                                "auto": "auto"
-                            },
+                            "default_value": [
+                                "auto"
+                            ],
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
@@ -783,7 +790,7 @@
             }
         ]
     ],
-    "menu_order": 4,
+    "menu_order": 0,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -799,5 +806,7 @@
         "categories",
         "tags",
         "send-trackbacks"
-    ]
+    ],
+    "active": 1,
+    "description": ""
 }

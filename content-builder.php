@@ -1,13 +1,13 @@
 <?php
 	if ( function_exists( 'get_row_layout' ) ) {
-		$content_builder = get_field( 'innholdsbygger' );
+		$content_builder = get_field( 'content_builder' );
 	} else {
 		$content_builder = false;
 	}
 
 	if ( !empty( $content_builder ) ) {
 
-		while ( has_sub_field( 'innholdsbygger' ) ) :
+		while ( has_sub_field( 'content_builder' ) ) :
 			get_template_part( 'modules/module', get_row_layout() );
 		endwhile;
 
