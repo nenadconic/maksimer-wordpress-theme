@@ -14,9 +14,15 @@
 			<div class="wrapper">
 
 				<section class="logo">
-					<a href="<?php echo get_home_url() ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo( 'name' ); ?>" />
-					</a>
+					<?php
+						if ( has_custom_logo() ) {
+							the_custom_logo();
+						} else {
+							echo '<a href="' . get_home_url() . '">';
+								bloginfo( 'name' );
+							echo '</a>';
+						}
+					?>
 				</section> <?php // .logo ?>
 
 				<nav class="main-menu">

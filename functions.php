@@ -11,7 +11,18 @@
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'menus' );
 		add_theme_support( 'woocommerce' );
-		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', ) );
+		add_theme_support( 'html5', array( 
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
+		add_theme_support( 'custom-logo', array(
+			'height'      => 80,
+			'width'       => 200,
+			'flex-height' => true,
+			'flex-width'  => true,
+		) );
 
 		add_editor_style();
 
