@@ -1,0 +1,23 @@
+{
+  "name": "maksimer_boilerplate",
+  "version": "2.1.2",
+  "author": "Maksimer",
+  "description": "A theme boilerplate for Maksimer.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "autoprefixer": "^6.3.6",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "*"
+  },
+  "keywords": [
+    "theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksimer/maksimer-wordpress-theme.git"
+  },
+  "license": "GPL-3.0"
+}
