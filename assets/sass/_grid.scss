@@ -1,4 +1,30 @@
 /*
+ *
+ * General style, all screens
+ *
+*/
+.col-set {
+	margin: (-$space/2);
+
+	.col {
+		padding: $space/2;
+		min-height: 1px;
+	}
+
+	&.flex-set {
+		display: flex;
+		flex-wrap: wrap;
+
+		.col {
+			flex: 0 1 100%;
+		}
+	}
+}
+
+
+
+
+/*
  * 
  * Min width: 677px
  * From landscape split screen iPad pro and above
@@ -8,29 +34,16 @@
 
 	.col-set {
 		@include clearfix;
-		margin: 0 (-$space/2);
 
 		&.flex-set {
-			display: flex;
-			flex-wrap: wrap;
 
 			.col {
 				flex: 0 1 auto;
 			}
 		}
 
-		&.multi-row-set {
-			margin: (-$space/2);
-
-			.col {
-				padding: $space/2;
-			}
-		}
-
 		.col {
 			float: left;
-			padding: 0 $space/2;
-			min-height: 1px;
 		}
 
 		&.col-2 .col,
