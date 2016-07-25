@@ -97,9 +97,9 @@
 	function maksimer_enqueue_scripts() {
 		wp_enqueue_style( 'style', get_bloginfo( 'stylesheet_url' ), false, filemtime( get_template_directory() . '/style.css' ), 'all' );
 		// wp_enqueue_script( 'example', get_template_directory_uri() . '/js/example.js', array( 'jquery' ) );
-		wp_enqueue_script( 'maksimer', get_template_directory_uri() . '/js/maksimer.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/maksimer.js' ) );
+		wp_enqueue_script( 'maksimer', get_template_directory_uri() . '/assets/js/min/maksimer.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/min/maksimer.min.js' ) );
 		if ( ! is_admin() ) {
-			wp_enqueue_script( 'analyse', get_template_directory_uri() . '/js/analyse.js', array( 'jquery' ), filemtime( get_template_directory() . '/js/analyse.js' ), true );
+			wp_enqueue_script( 'analyse', get_template_directory_uri() . '/assets/js/analyse.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/analyse.js' ), true );
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
