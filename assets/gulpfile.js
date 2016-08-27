@@ -9,16 +9,21 @@ var concat       = require('gulp-concat');
 
 
 
+
 /*
  * JavaScript compile task
 */
 gulp.task('scripts', function() {
-  gulp.src(['js/**/*.js', '!js/analyse.js'])
+  gulp.src(['js/**/*.js', '!js/analytics.js', '!js/min/maksimer.min.js'])
+    .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(concat('maksimer.min.js'))
-    .pipe(gulp.dest('js/min/'))
     .pipe(uglify())
+    .pipe(notify({title: '💩', icon: '', message: 'Compiling <%= file.relative %> complete' }))
     .pipe(gulp.dest('js/min/'))
 });
+
+
+
 
 
 /*
@@ -27,9 +32,9 @@ gulp.task('scripts', function() {
 gulp.task('styles', function () {
    gulp.src('sass/**/*.scss')
     .pipe(sass({outputStyle: 'compressed'}))
-		.pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+        .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
     .pipe(autoprefixer( 'last 2 version', 'ie 8', 'ie 9' ) )
-    .pipe(notify({title: '💩', icon: '', message: '<%= file.relative %> complete' }))
+    .pipe(notify({title: '💩', icon: '', message: 'Compiling <%= file.relative %> complete' }))
     .pipe(gulp.dest('../'));
 });
 
@@ -42,8 +47,8 @@ gulp.task('styles', function () {
  * Type "gulp watch" to run this function
 */
 gulp.task('watch', function() {
-	gulp.watch('sass/**/*.scss', ['styles']);
-	gulp.watch('js/**/*.js', ['scripts']);
+    gulp.watch('sass/**/*.scss', ['styles']);
+    gulp.watch('js/**/*.js', ['scripts']);
 });
 
 
