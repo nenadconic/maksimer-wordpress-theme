@@ -17,6 +17,7 @@
 
 		.col {
 			flex: 0 1 100%;
+			max-width: 100%;
 		}
 	}
 }
@@ -30,7 +31,7 @@
  * From landscape split screen iPad pro and above
  *
 */
-@media screen and ( min-width: 677px ) {
+@media screen and ( min-width: 657px ) {
 
 	.col-set {
 		@include clearfix;
@@ -50,6 +51,7 @@
 		&.col-3 .col,
 		&.col-4 .col {
 			width: 50%;
+			max-width: 50%;
 
 			&.w2 {
 				float: none;
@@ -74,10 +76,12 @@
 
 		&.col-3 .col {
 			width: 33.33%;
+			max-width: 33.33%;
 
 			&.w2 {
 				float: left;
 				width: 66.66%;
+				max-width: 66.66%;
 				clear: none;
 			}
 		}
@@ -98,9 +102,11 @@
 
 		&.col-4 .col {
 			width: 25%;
+			max-width: 25%;
 
 			&.w2 {
 				width: 50%;
+				max-width: 50%;
 			}
 		}
 	}
