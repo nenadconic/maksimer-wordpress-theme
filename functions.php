@@ -7,7 +7,7 @@
 		load_theme_textdomain( 'maksimer_lang', get_template_directory() . '/assets/languages' );
 
 		// Declare theme support
-		add_theme_support( 'post-thumbnails', array( 'post', 'product' ) );
+		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'menus' );
 		add_theme_support( 'woocommerce' );
@@ -40,6 +40,20 @@
 		) );
 	}
 	add_action( 'after_setup_theme', 'maksimer_theme_setup' );
+
+
+
+
+
+	/*
+	 * Init
+	*/
+	function maksimer_theme_init() {
+		// Remove theme and post type supports
+		remove_post_type_support( 'page', 'thumbnail' );
+		unregister_taxonomy_for_object_type( 'post_tag', 'post' );
+	}
+	add_action( 'init', 'maksimer_theme_init' );
 
 
 
