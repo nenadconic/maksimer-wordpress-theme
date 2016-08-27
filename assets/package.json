@@ -12,7 +12,8 @@
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "*",
     "gulp-concat": "^2.6.0",
-    "gulp-uglify": "^1.5.3"
+    "gulp-uglify": "^1.5.3",
+    "gulp-clean": "*"
   },
   "keywords": [
     "theme"
@@ -21,5 +22,5 @@
     "type": "git",
     "url": "git+https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
-  "license": "GPL-3.0",
+  "license": "GPL-3.0"
 }
