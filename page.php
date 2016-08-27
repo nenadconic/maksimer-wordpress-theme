@@ -4,7 +4,7 @@
 	<section class="main-content-wrap">
 
 		<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
-			<?php get_template_part( 'content-builder' ); ?>
+			<?php the_content(); ?>
 		</article>
 
 	</section> <?php // .main-content-wrap ?>

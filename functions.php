@@ -7,7 +7,7 @@
 		load_theme_textdomain( 'maksimer_lang', get_template_directory() . '/languages' );
 
 		// Declare theme support
-		add_theme_support( 'post-thumbnails', array( 'post', 'product' ) );
+		add_theme_support( 'post-thumbnails', array( 'post', 'product', 'event' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'menus' );
 		add_theme_support( 'woocommerce' );
