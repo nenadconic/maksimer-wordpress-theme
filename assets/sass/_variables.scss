@@ -44,6 +44,7 @@ $space: 20px;
 .wrapper {
 	@include clearfix;
 	max-width: 1140px;
+	width: 100%;
 	padding: 0 20px;
 	margin: 0 auto;
 }
