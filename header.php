@@ -8,7 +8,7 @@
 	</head>
 	<body <?php body_class(); ?>>
 
-		<header class="header">
+		<header class="header" role="banner">
 
 			<div class="wrapper">
 
@@ -24,10 +24,10 @@
 					?>
 				</section> <?php // .logo ?>
 
-				<nav class="main-menu">
+				<nav class="main-menu" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'fallback_cb' => false ) ); ?>
-				</nav> <?php // .main-menu ?>
+				</nav>
 
 			</div> <?php // .wrapper ?>
 
-		</header> <?php // .header ?>
+		</header>
