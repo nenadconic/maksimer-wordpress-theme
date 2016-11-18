@@ -7,18 +7,20 @@
 ?>
 
 <?php get_header(); ?>
+	
+	<main role="main" class="main-content-wrap">
 
-	<div class="wrapper">
+		<div class="wrapper">
 
-		<?php if ( have_posts() && ( !empty( $_GET['s'] ) ) ) : ?>
+			<?php if ( have_posts() && ( ! empty( $_GET['s'] ) ) ) : ?>
 
-			<h2><?php _e( 'Search results', 'maksimer_lang'); ?></h2>
+				<h2><?php _e( 'Search results', 'maksimer_lang' ); ?></h2>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-				<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+					<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
 
-					<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+						<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
 
 						<?php
 							$yoast_desc = get_post_meta( $post->ID, '_yoast_wpseo_metadesc' );
@@ -29,18 +31,20 @@
 							}
 						?>
 
-				</article>
+					</article>
 
-			<?php endwhile; ?>
+				<?php endwhile; ?>
 
-			<?php get_template_part( 'nav', 'post-pag' ); ?>
+				<?php get_template_part( 'nav', 'post-pag' ); ?>
 
-		<?php else : ?>
+			<?php else : ?>
 
-			<h2><?php _e( 'No post found', 'maksimer_lang' ); ?></h2>
+				<h2><?php _e( 'No post found', 'maksimer_lang' ); ?></h2>
 
-		<?php endif; ?>
+			<?php endif; ?>
 
-	</div> <?php //.wrapper ?>
+		</div> <?php //.wrapper ?>
+
+	</main>
 
 <?php get_footer(); ?>

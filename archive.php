@@ -1,24 +1,29 @@
 <?php get_header(); ?>
 
-	<div class="wrapper">
+	<main role="main" class="main-content-wrap">
 
-		<?php 
-			if ( have_posts() ) {
+		<div class="wrapper">
 
-				echo '<h1>' . get_the_archive_title() . '</h1>';
-				while ( have_posts() ) : the_post();
-					get_template_part( 'loop', 'single' );
-				endwhile;
+			<?php
+				if ( have_posts() ) {
 
-			} else {
+					echo '<h1>' . get_the_archive_title() . '</h1>';
 
-				echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
+					while ( have_posts() ) : the_post();
+						get_template_part( 'loop', 'single' );
+					endwhile;
 
-			}
-		?>
+				} else {
 
-		<?php get_sidebar(); ?>
+					echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
 
-	</div> <?php // .wrapper ?>
+				}
+			?>
+
+			<?php get_sidebar(); ?>
+
+		</div>
+
+	</main>
 
 <?php get_footer(); ?>

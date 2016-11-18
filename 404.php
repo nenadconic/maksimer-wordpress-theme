@@ -1,15 +1,19 @@
 <?php get_header(); ?>
+	
+	<main role="main" class="main-content-wrap">
 
-	<div class="wrapper">
+		<div class="wrapper">
 
-		<article class="content-404">
-			<h1><?php _e( '404 - Page not found', 'maksimer_lang' ); ?></h1>
-			<h2><?php _e( 'The page you are looking for does not exist', 'maksimer_lang' ); ?>.</h2>
-			<p>
-				<a href="<?php echo home_url(); ?>" class="button"><?php _e( 'Home Page', 'maksimer_lang' ); ?></a>
-			</p>
-		</article>
+			<article class="content-404">
+				<h1><?php _e( '404 - Page not found', 'maksimer_lang' ); ?></h1>
+				<h2><?php _e( 'The page you are looking for does not exist', 'maksimer_lang' ); ?>.</h2>
+				<p>
+					<a href="<?php echo home_url(); ?>" class="button"><?php _e( 'Home Page', 'maksimer_lang' ); ?></a>
+				</p>
+			</article>
 
-	</div> <?php // .wrapper ?>
+		</div> <?php // .wrapper ?>
+
+	</main>
 
 <?php get_footer(); ?>

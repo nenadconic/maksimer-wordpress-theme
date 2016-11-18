@@ -1,11 +1,11 @@
 <?php the_post(); ?>
 <?php get_header(); ?>
 
-	<section class="main-content-wrap">
+	<main role="main" class="main-content-wrap">
 		<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
 			<?php the_content(); ?>
 		</article>
-	</section> <?php // .main-content-wrap ?>
+	</main> <?php // .main-content-wrap ?>
 
 	<div class="wrapper">
 

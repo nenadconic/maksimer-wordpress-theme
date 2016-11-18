@@ -1,15 +1,19 @@
 <?php the_post(); ?>
 <?php get_header(); ?>
 
-	<div class="wrapper">
+	<main role="main" class="main-content-wrap">
 
-		<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
-		  <h1><?php the_title(); ?></h1>
-		  <?php the_content(); ?>
-		</article>
+		<div class="wrapper">
 
-		<?php get_sidebar(); ?>
+			<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+			  <h1><?php the_title(); ?></h1>
+			  <?php the_content(); ?>
+			</article>
 
-	</div> <?php // .wrapper ?>
+			<?php get_sidebar(); ?>
+
+		</div> <?php // .wrapper ?>
+
+	</main>
 
 <?php get_footer(); ?>
