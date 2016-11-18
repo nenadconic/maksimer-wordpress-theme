@@ -179,23 +179,3 @@
 		$wp_admin_bar->remove_menu( 'new-media' );
 	}
 	add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
-
-
-
-
-
-	/*
-	 * Function to compile css
-	*/
-	function maksimer_css_compiler( $value, $property, $prepend = false, $append = false ) {
-		if ( ! empty( $value ) ) {
-			if ( 'auto' == $value ) {
-				$append = false;
-			}
-
-			$compiled = $property . ':' . $prepend . $value . $append . ';';
-			return $compiled;
-		} else {
-			return false;
-		}
-	}
