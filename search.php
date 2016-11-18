@@ -35,7 +35,7 @@
 
 			<?php get_template_part( 'nav', 'post-pag' ); ?>
 
-		<?php else: ?>
+		<?php else : ?>
 
 			<h2><?php _e( 'No post found', 'maksimer_lang' ); ?></h2>
 
