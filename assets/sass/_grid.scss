@@ -1,0 +1,113 @@
+/*
+ *
+ * General style, all screens
+ *
+*/
+.col-set {
+	margin: (-$space/2);
+
+	.col {
+		padding: $space/2;
+		min-height: 1px;
+	}
+
+	&.flex-set {
+		display: flex;
+		flex-wrap: wrap;
+
+		.col {
+			flex: 0 1 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+
+
+
+/*
+ * 
+ * Min width: 677px
+ * From landscape split screen iPad pro and above
+ *
+*/
+@media screen and ( min-width: 657px ) {
+
+	.col-set {
+		@include clearfix;
+
+		&.flex-set {
+
+			.col {
+				flex: 0 1 auto;
+			}
+		}
+
+		.col {
+			float: left;
+		}
+
+		&.col-2 .col,
+		&.col-3 .col,
+		&.col-4 .col {
+			width: 50%;
+			max-width: 50%;
+
+			&.w2 {
+				float: none;
+				width: 100%;
+				clear: left;
+			}
+		}
+	}
+}
+
+
+
+
+/*
+ * 
+ * Min width: 767px
+ *
+*/
+@media screen and ( min-width: 767px ) {
+
+	.col-set {
+
+		&.col-3 .col {
+			width: 33.33%;
+			max-width: 33.33%;
+
+			&.w2 {
+				float: left;
+				width: 66.66%;
+				max-width: 66.66%;
+				clear: none;
+			}
+		}
+	}
+}
+
+
+
+
+/*
+ * 
+ * Min width: 1023px
+ *
+*/
+@media screen and ( min-width: 1023px ) {
+	
+	.col-set {
+
+		&.col-4 .col {
+			width: 25%;
+			max-width: 25%;
+
+			&.w2 {
+				width: 50%;
+				max-width: 50%;
+			}
+		}
+	}
+}

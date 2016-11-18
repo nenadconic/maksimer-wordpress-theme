@@ -1,7 +1,7 @@
 /*!
 Theme Name: Maksimer
 Theme URI: https://github.com/maksimer/maksimer-wordpress-theme
-Version: 2.1.2
+Version: 3.0.0
 Description: Theme developed by Maksimer AS
 Author: Maksimer AS
 Author URI: http://www.maksimer.no/
@@ -11,6 +11,7 @@ Text Domain: maksimer_lang
 @import 'reset';
 @import 'mixins';
 @import 'variables';
+@import 'grid';
 @import 'elements';
 @import 'content-builder';
 @import 'typography';
@@ -24,8 +25,6 @@ body {
 	font-size: $font-size;
 	line-height: $line-height;
 }
-
-
 
 
 @import 'responsive';

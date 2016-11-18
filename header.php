@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" type="image/x-icon" />
 		<?php wp_head(); ?>	
 	</head>
 	<body <?php body_class(); ?>>
 
-		<header class="header">
+		<header class="header" role="banner">
 
 			<div class="wrapper">
 
@@ -25,10 +24,10 @@
 					?>
 				</section> <?php // .logo ?>
 
-				<nav class="main-menu">
+				<nav class="main-menu" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'fallback_cb' => false ) ); ?>
-				</nav> <?php // .main-menu ?>
+				</nav>
 
 			</div> <?php // .wrapper ?>
 
-		</header> <?php // .header ?>
+		</header>

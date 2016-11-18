@@ -1,23 +1,26 @@
 <?php get_header(); ?>
+	<main role="main" class="main-content-wrap">
+		
+		<div class="wrapper">
 
-	<div class="wrapper">
+			<?php
+				if ( have_posts() ) {
 
-		<?php 
-			if ( have_posts() ) {
+					while ( have_posts() ) : the_post();
+						get_template_part( 'loop', 'single' );
+					endwhile;
 
-				while ( have_posts() ) : the_post();
-					get_template_part( 'loop', 'single' );
-				endwhile;
+				} else {
 
-			} else {
+					echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
 
-				echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
+				}
+			?>
 
-			}
-		?>
+			<?php get_sidebar(); ?>
 
-		<?php get_sidebar(); ?>
+		</div> <?php // .wrapper ?>
 
-	</div> <?php // .wrapper ?>
+	</main>
 
 <?php get_footer(); ?>

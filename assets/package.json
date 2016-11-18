@@ -1,0 +1,24 @@
+{
+  "name": "MaksimerBoilerplate",
+  "author": "Maksimer",
+  "description": "A theme boilerplate for Maksimer.",
+  "version": "3.0.0",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksimer/maksimer-wordpress-theme.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-merge-media-queries": "^0.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-uglifycss": "^1.0.6"
+  }
+}

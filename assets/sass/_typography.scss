@@ -289,7 +289,7 @@ a.button {
 	padding: 10px;
 	text-decoration: none;
 	cursor: pointer;
-	display: inline-block;
+	display: flex;
 
 	&:focus,
 	&:hover {

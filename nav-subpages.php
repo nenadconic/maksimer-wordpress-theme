@@ -2,7 +2,7 @@
 	$family_tree_arr = get_post_ancestors( $post->ID );
 	$family_tree     = array_reverse( $family_tree_arr );
 
-	if ( !empty( $family_tree_arr ) ) {
+	if ( ! empty( $family_tree_arr ) ) {
 		$family_tree_top = $family_tree[0];
 	} else {
 		$family_tree_top = $post->ID;

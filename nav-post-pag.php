@@ -5,4 +5,3 @@
 		'before_page_number' => '<span class="screen-reader-text">' . __( 'Page', 'maksimer_lang' ) . ' </span>',
 	);
 	the_posts_pagination( $args );
-?>
