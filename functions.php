@@ -113,7 +113,7 @@
 		wp_enqueue_script( 'maksimer', get_template_directory_uri() . '/assets/js/min/maksimer.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/min/maksimer.min.js' ) );
 
 		if ( ! is_admin() ) {
-			wp_enqueue_script( 'analytics', get_template_directory_uri() . '/assets/js/analytics.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/analytics.js' ), true );
+			wp_enqueue_script( 'analytics', get_template_directory_uri() . '/assets/js/originals/analytics.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/originals/analytics.js' ), true );
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
