@@ -127,7 +127,7 @@
 	*/
 	function maksimer_admin_enqueue() {
 		if ( is_admin() ) {
-			wp_enqueue_style( 'maksimer_admin_css', get_template_directory_uri() . '/css/admin.css' );
+			wp_enqueue_style( 'maksimer_admin_css', get_template_directory_uri() . '/assets/css/admin.css' );
 		}
 	}
 	add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
