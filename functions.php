@@ -137,21 +137,6 @@
 
 
 	/*
-	 * Adds html5shim to old IE versions
-	*/
-	function maksimer_html5shim() {
-		global $is_IE;
-		if ( $is_IE ) {
-			echo '<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->';
-		}
-	}
-	add_action( 'wp_head', 'maksimer_html5shim' );
-
-
-
-
-
-	/*
 	 * Change yoast metabox priority
 	*/
 	function maksimer_wpseo_metabox_priority() {
