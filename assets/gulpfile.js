@@ -63,7 +63,7 @@ gulp.task('styles', function () {
 	.pipe( lineec() )
 	.pipe( gulp.dest( './../' ) )
 	.pipe( browserSync.stream() )
-	.pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
+	.pipe( notify( { title: '💩', message: 'Compiling <%= file.relative %> complete', onLast: true } ) )
 });
 
 
