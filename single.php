@@ -6,8 +6,8 @@
 		<div class="wrapper">
 
 			<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
-			  <h1><?php the_title(); ?></h1>
-			  <?php the_content(); ?>
+				<h1><?php the_title(); ?></h1>
+				<?php the_content(); ?>
 			</article>
 
 			<?php get_sidebar(); ?>
