@@ -13,7 +13,7 @@
 
 			<div class="wrapper">
 
-				<section class="logo">
+				<div class="logo">
 					<?php
 						if ( has_custom_logo() ) {
 							the_custom_logo();
@@ -23,7 +23,7 @@
 							echo '</a>';
 						}
 					?>
-				</section> <?php // .logo ?>
+				</div> <?php // .logo ?>
 
 				<nav class="main-menu" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'fallback_cb' => false ) ); ?>
