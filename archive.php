@@ -20,6 +20,8 @@
 				}
 			?>
 
+			<?php get_template_part( 'nav', 'post-pag' ); ?>
+
 			<?php get_sidebar(); ?>
 
 		</div>
