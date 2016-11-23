@@ -7,6 +7,7 @@
 		<?php wp_head(); ?>	
 	</head>
 	<body <?php body_class(); ?>>
+		<a class="skip-link screen-reader-text" href="#main-menu-wrapper"><?php _e( 'Skip to navigation', 'maksimer_lang' ); ?></a>
 		<a class="skip-link screen-reader-text" href="#main-content"><?php _e( 'Skip to content', 'maksimer_lang' ); ?></a>
 
 		<header class="header" role="banner">
@@ -25,7 +26,7 @@
 					?>
 				</div> <?php // .logo ?>
 
-				<nav class="main-menu" role="navigation">
+				<nav class="main-menu" id="main-menu-wrapper" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'fallback_cb' => false ) ); ?>
 				</nav>
 
