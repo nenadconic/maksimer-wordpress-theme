@@ -7,6 +7,7 @@
 		<?php wp_head(); ?>	
 	</head>
 	<body <?php body_class(); ?>>
+		<a class="skip-link screen-reader-text" href="#main-content"><?php _e( 'Skip to content', 'maksimer_lang' ); ?></a>
 
 		<header class="header" role="banner">
 

@@ -1,7 +1,7 @@
 <?php the_post(); ?>
 <?php get_header(); ?>
 
-	<main role="main" class="main-content-wrap">
+	<main role="main" id="main-content" class="main-content-wrap">
 
 		<div class="wrapper">
 
