@@ -109,11 +109,11 @@
 	 * Enqueue's all the scripts
 	*/
 	function maksimer_enqueue_scripts() {
-		wp_enqueue_style( 'style', get_bloginfo( 'stylesheet_url' ), false, filemtime( get_template_directory() . '/style.css' ), 'all' );
-		wp_enqueue_script( 'maksimer', get_template_directory_uri() . '/assets/js/min/maksimer.min.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/min/maksimer.min.js' ) );
+		wp_enqueue_style( 'style', get_stylesheet_uri(), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
+		wp_enqueue_script( 'maksimer', get_theme_file_uri( 'assets/js/min/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'assets/js/min/maksimer.min.js' ) ) );
 
 		if ( ! is_admin() ) {
-			wp_enqueue_script( 'analytics', get_template_directory_uri() . '/assets/js/originals/analytics.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/originals/analytics.js' ), true );
+			wp_enqueue_script( 'analytics', get_theme_file_uri( 'assets/js/originals/analytics.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'assets/js/originals/analytics.js' ) ), true );
 		}
 	}
 	add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
@@ -164,3 +164,15 @@
 		$wp_admin_bar->remove_menu( 'new-media' );
 	}
 	add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
+
+
+
+
+
+	/*
+	 * Modify the customizer (remove css editor)
+	*/
+	function maksimer_customize_register( $wp_customize ) {
+		$wp_customize->remove_control( 'custom_css' );
+	}
+	add_action( 'customize_register', 'maksimer_customize_register' );
