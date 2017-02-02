@@ -52,6 +52,7 @@
 		// Remove theme and post type supports
 		remove_post_type_support( 'page', 'thumbnail' );
 		unregister_taxonomy_for_object_type( 'post_tag', 'post' );
+		unregister_taxonomy_for_object_type( 'post_format', 'post' );
 	}
 	add_action( 'init', 'maksimer_theme_init' );
 
