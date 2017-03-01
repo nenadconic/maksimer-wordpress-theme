@@ -63,7 +63,8 @@ gulp.task('styles', function () {
 	.pipe( lineec() )
 	.pipe( gulp.dest( './../' ) )
 	.pipe( browserSync.stream() )
-	.pipe( notify( { title: '💩', message: 'Compiling <%= file.relative %> complete', onLast: true } ) )
+	// Uncomment line below to enable notifications
+	//.pipe( notify( { title: '💩', message: 'Compiling <%= file.relative %> complete', onLast: true } ) )
 });
 
 
@@ -79,7 +80,8 @@ gulp.task( 'scripts', function() {
 	.pipe( lineec() )
 	.pipe( uglify() )
 	.pipe( gulp.dest( './js/min/' ) )
-	.pipe( notify( { title: '💩', message: 'Compiling <%= file.relative %> complete', onLast: true } ) );
+	// Uncomment line below to enable notifications
+	//.pipe( notify( { title: '💩', message: 'Compiling <%= file.relative %> complete', onLast: true } ) );
 });
 
 
