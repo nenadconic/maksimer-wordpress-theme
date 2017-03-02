@@ -11,24 +11,7 @@ Text Domain: maksimer_lang
 @import 'reset';
 @import 'mixins';
 @import 'variables';
+@import 'wrappers';
 @import 'grid';
 @import 'elements';
 @import 'typography';
-
-body {
-	@include sans-serif;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	background: $light;
-	color: $text;
-	font-size: $font-size;
-	line-height: $line-height;
-}
-
-
-.main-content-wrap {
-	overflow-x: hidden;
-}
-
-
-@import 'responsive';

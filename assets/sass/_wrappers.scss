@@ -1,0 +1,44 @@
+/*
+ * Globals
+*/
+* {
+	box-sizing: border-box;
+
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+
+/*
+ * Body
+*/
+body {
+	@include sans-serif;
+	background: $light;
+	color: $text;
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+
+
+
+/*
+ * Main wrapper
+*/
+.wrapper {
+	@include clearfix;
+	max-width: 1140px;
+	width: 100%;
+	padding: 0 $space;
+	margin: 0 auto;
+}
