@@ -10,16 +10,6 @@
 		padding: $space/2;
 		min-height: 1px;
 	}
-
-	&.flex-set {
-		display: flex;
-		flex-wrap: wrap;
-
-		.col {
-			flex: 0 1 100%;
-			max-width: 100%;
-		}
-	}
 }
 
 
@@ -33,30 +23,32 @@
 */
 @media screen and ( min-width: 657px ) {
 
-	.col-set {
+	.col-set:not(.flex-set) {
 		@include clearfix;
-
-		&.flex-set {
-
-			.col {
-				flex: 0 1 auto;
-			}
-		}
-
+			
 		.col {
 			float: left;
-		}
-
-		&.col-2 .col,
-		&.col-3 .col,
-		&.col-4 .col {
 			width: 50%;
-			max-width: 50%;
 
 			&.w2 {
 				float: none;
 				width: 100%;
-				clear: left;
+				clear: both;
+			}
+		}
+	}
+
+	.flex-set {
+		display: flex;
+		flex-wrap: wrap;
+
+		.col {
+			flex: 0 0 50%;
+			max-width: 50%;
+
+			&.w2 {
+				flex: 0 0 100%;
+				max-width: 100%;
 			}
 		}
 	}
@@ -72,17 +64,26 @@
 */
 @media screen and ( min-width: 767px ) {
 
-	.col-set {
-
+	.col-set:not(.flex-set) {
 		&.col-3 .col {
 			width: 33.33%;
-			max-width: 33.33%;
 
 			&.w2 {
 				float: left;
 				width: 66.66%;
-				max-width: 66.66%;
 				clear: none;
+			}
+		}
+	}
+	
+	.flex-set {
+		&.col-3 .col {
+			flex: 0 0 33.33%;
+			max-width: 33.33%;
+			
+			&.w2 {
+				flex: 0 0 66.66%;
+				max-width: 66.66%;
 			}
 		}
 	}
@@ -98,14 +99,23 @@
 */
 @media screen and ( min-width: 1023px ) {
 	
-	.col-set {
-
+	.col-set:not(.flex-set) {
 		&.col-4 .col {
 			width: 25%;
-			max-width: 25%;
 
 			&.w2 {
 				width: 50%;
+			}
+		}
+	}
+	
+	.flex-set {
+		&.col-4 .col {
+			flex: 0 0 25%;
+			max-width: 25%;
+			
+			&.w2 {
+				flex: 0 0 50%;
 				max-width: 50%;
 			}
 		}
