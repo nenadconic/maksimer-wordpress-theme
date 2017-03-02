@@ -46,41 +46,6 @@
 
 
 	/*
-	 * Init
-	*/
-	function maksimer_theme_init() {
-		// Remove theme and post type supports
-		remove_post_type_support( 'page', 'thumbnail' );
-		unregister_taxonomy_for_object_type( 'post_tag', 'post' );
-		unregister_taxonomy_for_object_type( 'post_format', 'post' );
-	}
-	add_action( 'init', 'maksimer_theme_init' );
-
-
-
-
-
-	/*
-	 * Rediret from dashboard to pages
-	*/
-	function maksimer_dashboard_redirect() {
-		if ( is_network_admin() ) {
-			wp_redirect( admin_url( 'network/sites.php' ) );
-		} elseif ( ! current_user_can( 'edit_pages' ) && current_user_can( 'edit_posts' ) ) {
-			wp_redirect( admin_url( 'edit.php' ) );
-		} elseif ( current_user_can( 'edit_pages' ) ) {
-			wp_redirect( admin_url( 'edit.php?post_type=page' ) );
-		} else {
-			wp_redirect( admin_url( 'profile.php' ) );
-		}
-	}
-	add_action( 'load-index.php', 'maksimer_dashboard_redirect' );
-
-
-
-
-
-	/*
 	 * Customizing the admin sidebar
 	*/
 	function maksimer_customize_sidebar_menu() {
