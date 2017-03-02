@@ -5,7 +5,7 @@ h1,
 .h1 {
 	@include vw(5vw, 32px, 40px, 40px);
 	line-height: $line-height;
-	margin: $space*2 0 $space;
+	margin: ($space * 2) 0 $space;
 }
 
 h1 + h2 {
@@ -16,35 +16,35 @@ h2,
 .h2 {
 	@include vw(4vw, 28px, 32px, 32px);
 	line-height: $line-height;
-	margin: $space*2 0 $space;
+	margin: ($space * 2) 0 $space;
 }
 
 h3,
 .h3 {
 	@include vw(3.3vw, 23px, 27px, 27px);
 	line-height: $line-height;
-	margin: $space*2 0 $space/2;
+	margin: ($space * 2) 0 ($space / 2);
 }
 
 h4,
 .h4 {
 	@include vw(2.5vw, 18px, 21px, 21px);
 	line-height: $line-height;
-	margin: $space*2 0 $space/2;
+	margin: ($space * 2) 0 ($space / 2);
 }
 
 h5,
 .h5 {
 	font-size: $font-size;
 	line-height: $line-height;
-	margin: $space*2 0 $space/2;
+	margin: ($space * 2) 0 ($space / 2);
 }
 
 h6,
 .h6 {
 	font-size: 14px;
 	line-height: $line-height;
-	margin: $space*2 0 $space/2;
+	margin: ($space * 2) 0 ($space / 2);
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
@@ -219,7 +219,7 @@ img {
 .alignleft {
 	float: left;
 	margin-right: $space;
-	margin-bottom: $space/2;
+	margin-bottom: ($space / 2);
 }
 
 .aligncenter {
@@ -230,7 +230,7 @@ img {
 .alignright {
 	float: right;
 	margin-left: $space;
-	margin-bottom: $space/2;
+	margin-bottom: ($space / 2);
 }
 
 
