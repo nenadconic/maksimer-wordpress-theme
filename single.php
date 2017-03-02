@@ -12,7 +12,7 @@
 
 			<?php get_sidebar(); ?>
 
-		</div> <?php // .wrapper ?>
+		</div>
 
 	</main>
 
