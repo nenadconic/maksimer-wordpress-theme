@@ -3,5 +3,10 @@
 @import 'typography';
 
 body {
+	@include sans-serif;
+	color: $text;
+	font-size: $font-size;
+	line-height: $line-height;
+	font-weight: 300;
 	padding: $space;
 }
