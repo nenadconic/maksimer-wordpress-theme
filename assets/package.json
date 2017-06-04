@@ -1,26 +1,35 @@
 {
   "name": "maksimer-wordpress-theme",
   "author": "Maksimer",
-  "description": "A theme boilerplate for Maksimer.",
-  "version": "3.0.0",
+  "description": "WordPress starter theme developed and maintained by Maksimer",
+  "version": "3.2.0",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
-  "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.18.8",
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12",
+    "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
-    "gulp-line-ending-corrector": "^1.0.1",
-    "gulp-merge-media-queries": "^0.2.1",
-    "gulp-notify": "^2.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.1",
-    "gulp-uglifycss": "^1.0.6"
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "postcss-flexbugs-fixes": "^3.0.0"
   },
-  "main": "gulpfile.js"
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "ie >= 8",
+    "ie_mob >= 10",
+    "ff >= 30",
+    "chrome >= 34",
+    "safari >= 6",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4",
+    "bb >= 10"
+  ]
 }
