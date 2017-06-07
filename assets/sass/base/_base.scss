@@ -28,17 +28,3 @@ body {
 	font-size: $font-size;
 	line-height: $line-height;
 }
-
-
-
-
-/*
- * Main wrapper
-*/
-.wrapper {
-	@include clearfix;
-	max-width: 1140px;
-	width: 100%;
-	padding: 0 $space;
-	margin: 0 auto;
-}

@@ -1,0 +1,201 @@
+/*
+ * Headings
+*/
+h1,
+.h1 {
+	@include vw(5vw, 32px, 40px, 40px);
+	line-height: $line-height;
+	margin: ($space * 2) 0 $space;
+}
+
+h1 + h2 {
+	margin-top: $space;
+}
+
+h2,
+.h2 {
+	@include vw(4vw, 28px, 32px, 32px);
+	line-height: $line-height;
+	margin: ($space * 2) 0 $space;
+}
+
+h3,
+.h3 {
+	@include vw(3.3vw, 23px, 27px, 27px);
+	line-height: $line-height;
+	margin: ($space * 2) 0 ($space / 2);
+}
+
+h4,
+.h4 {
+	@include vw(2.5vw, 18px, 21px, 21px);
+	line-height: $line-height;
+	margin: ($space * 2) 0 ($space / 2);
+}
+
+h5,
+.h5 {
+	font-size: $font-size;
+	line-height: $line-height;
+	margin: ($space * 2) 0 ($space / 2);
+}
+
+h6,
+.h6 {
+	font-size: 14px;
+	line-height: $line-height;
+	margin: ($space * 2) 0 ($space / 2);
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	& a {
+		text-decoration: none;
+		color: inherit;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+			color: $link;
+		}
+	}
+}
+
+
+
+
+
+/*
+ * Body text
+*/
+p,
+address {
+	margin-bottom: $space;
+}
+
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+a {
+	color: $link;
+
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+sup { 
+	vertical-align: super;
+	font-size: smaller;
+	line-height: 0;
+}
+
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+	line-height: 0;
+}
+
+
+
+
+
+/*
+ * Lists
+*/
+ul {
+	margin: 0 0 $space;
+	padding: 0;
+
+	li {
+		list-style: disc outside;
+		margin: 0 0 0 $space;
+
+		ul {
+			margin: 0;
+		}
+	}
+}
+
+ol {
+	margin: 0 0 $space;
+	padding: 0;
+
+	li {
+		list-style: decimal outside;
+		margin: 0 0 0 $space;
+
+		ol {
+			margin: 0;
+		}
+	}
+}
+
+
+
+
+
+/*
+ * Table
+*/
+table {
+	width: 100%;
+	margin-bottom: $space;
+
+	th,
+	td {
+		padding: 10px;
+		text-align: left;
+	}
+		th {
+			font-weight: 700;
+		}
+
+	tbody {
+		tr {
+			border-bottom: 1px solid darken($light, 10%);
+		}
+	}
+}
+
+
+
+
+
+/*
+ * Preformatted and code
+*/
+pre,
+xmp,
+code {
+	font-family: 'Fira Code', 'monospace';
+	background: darken($light, 5%);
+	color: $text;
+	padding: $space;
+	margin: 0 0 $space;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	overflow: scroll;
+}
+	code {
+		padding: 5px;
+		margin: 0 2px;
+	}
