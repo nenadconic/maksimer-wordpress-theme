@@ -40,7 +40,9 @@ gulp.task( 'styles', function() {
 	// Plugins that run on sass compiling. Remember to keep autoprefixer below other plugins.
 	var plugins = [
 		flexbugsfixes(),
-		cssnano(),
+		cssnano({
+			zindex: false
+		}),
 		autoprefixer() // Browserslist is defined in package.json
 	];
 	return gulp.src( sass_src )
