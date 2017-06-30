@@ -48,7 +48,8 @@ textarea {
  * Buttons
 */
 .button,
-a.button {
+a.button,
+.wpcf7-submit {
 	@include sans-serif;
 	appearance: none;
 	border: 1px solid darken($light, 10%);
