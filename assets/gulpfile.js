@@ -41,7 +41,12 @@ gulp.task( 'styles', function() {
 	var plugins = [
 		flexbugsfixes(),
 		cssnano({
-			zindex: false
+			zindex: false,
+			autoprefixer: false,
+			safe: true,
+			discardUnused: false,
+			mergeIdents: false,
+			reduceIdents: false
 		}),
 		autoprefixer() // Browserslist is defined in package.json
 	];
