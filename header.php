@@ -24,7 +24,7 @@
 							echo '</a>';
 						}
 					?>
-				</div> <?php // .logo ?>
+				</div>
 
 				<nav class="main-menu" id="main-menu-wrapper" role="navigation">
 					<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'container' => false, 'fallback_cb' => false ) ); ?>

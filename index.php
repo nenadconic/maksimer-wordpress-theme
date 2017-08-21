@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 	<main role="main" id="main-content" class="main-content-wrap">
 
 		<div class="wrapper">
@@ -12,13 +13,12 @@
 
 				} else {
 
-					echo '<h3>' . __( 'No post found', 'maksimer_lang' ) . '</h3>';
+					echo '<h1>' . __( 'No post found', 'maksimer_lang' ) . '</h1>';
 
 				}
 			?>
 
 			<?php get_template_part( 'nav', 'post-pag' ); ?>
-
 			<?php get_sidebar(); ?>
 
 		</div>

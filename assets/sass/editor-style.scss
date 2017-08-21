@@ -1,6 +1,6 @@
-@import 'mixins';
-@import 'variables';
-@import 'typography';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+@import 'base/typography';
 
 body {
 	@include sans-serif;

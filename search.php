@@ -7,7 +7,7 @@
 ?>
 
 <?php get_header(); ?>
-	
+
 	<main role="main" id="main-content" class="main-content-wrap">
 
 		<div class="wrapper">
@@ -43,7 +43,7 @@
 
 			<?php endif; ?>
 
-		</div> <?php //.wrapper ?>
+		</div>
 
 	</main>
 
