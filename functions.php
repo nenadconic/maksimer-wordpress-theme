@@ -131,14 +131,3 @@
 	}
 	add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
 
-
-
-
-
-	/*
-	 * Modify the customizer (remove css editor)
-	*/
-	function maksimer_customize_register( $wp_customize ) {
-		$wp_customize->remove_control( 'custom_css' );
-	}
-	add_action( 'customize_register', 'maksimer_customize_register' );
