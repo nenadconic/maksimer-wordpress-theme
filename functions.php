@@ -31,8 +31,8 @@ function maksimer_theme_setup() {
 	update_option( 'image_default_link_type', 'none' );
 	update_option( 'image_default_size', 'large' );
 
+	// To register new sizes: https://developer.wordpress.org/reference/functions/add_image_size/.
 	set_post_thumbnail_size( 300, 300, true );
-	// add_image_size( 'example', 220, 220, array( 'left', 'top' ) );
 
 	// Register menus.
 	register_nav_menus( array(
