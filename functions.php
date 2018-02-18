@@ -1,12 +1,12 @@
 <?php
-	/*
+	/**
 	 * Theme setup
-	*/
+	 */
 	function maksimer_theme_setup() {
-		// Load textdomain
+		// Load textdomain.
 		load_theme_textdomain( 'maksimer_lang', get_template_directory() . '/assets/languages' );
 
-		// Declare theme support
+		// Declare theme support.
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'menus' );
@@ -26,7 +26,7 @@
 
 		add_editor_style();
 
-		// Changes default images values
+		// Changes default images values.
 		update_option( 'image_default_align', 'none' );
 		update_option( 'image_default_link_type', 'none' );
 		update_option( 'image_default_size', 'large' );
@@ -34,7 +34,7 @@
 		set_post_thumbnail_size( 300, 300, true );
 		// add_image_size( 'example', 220, 220, array( 'left', 'top' ) );
 
-		// Register menus
+		// Register menus.
 		register_nav_menus( array(
 			'main-menu' => __( 'Main menu', 'maksimer_lang' ),
 		) );
@@ -45,9 +45,9 @@
 
 
 
-	/*
+	/**
 	 * Customizing the admin sidebar
-	*/
+	 */
 	function maksimer_customize_sidebar_menu() {
 		remove_menu_page( 'index.php' );
 		remove_menu_page( 'separator1' );
@@ -71,9 +71,9 @@
 
 
 
-	/*
+	/**
 	 * Enqueue's all the scripts
-	*/
+	 */
 	function maksimer_enqueue_scripts() {
 		wp_enqueue_style( 'style', get_stylesheet_uri(), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
 		wp_enqueue_script( 'maksimer', get_theme_file_uri( 'assets/js/min/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'assets/js/min/maksimer.min.js' ) ) );
@@ -88,9 +88,9 @@
 
 
 
-	/*
+	/**
 	 * Enqueue admin-scripts
-	*/
+	 */
 	function maksimer_admin_enqueue() {
 		if ( is_admin() ) {
 			wp_enqueue_style( 'maksimer_admin_css', get_template_directory_uri() . '/assets/css/admin.css' );
@@ -102,9 +102,9 @@
 
 
 
-	/*
+	/**
 	 * Change yoast metabox priority
-	*/
+	 */
 	function maksimer_wpseo_metabox_priority() {
 		return 'low';
 	}
@@ -114,9 +114,9 @@
 
 
 
-	/*
+	/**
 	 * Manage the admin bar, front-end
-	*/
+	 */
 	function maksimer_admin_bar() {
 		global $wp_admin_bar;
 		$wp_admin_bar->remove_menu( 'widgets' );
@@ -130,4 +130,3 @@
 		$wp_admin_bar->remove_menu( 'new-media' );
 	}
 	add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
-
