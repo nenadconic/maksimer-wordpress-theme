@@ -1,23 +1,23 @@
 <?php
-	$family_tree_arr = get_post_ancestors( $post->ID );
-	$family_tree     = array_reverse( $family_tree_arr );
+$family_tree_arr = get_post_ancestors( $post->ID );
+$family_tree     = array_reverse( $family_tree_arr );
 
-	if ( ! empty( $family_tree_arr ) ) {
-		$family_tree_top = $family_tree[0];
-	} else {
-		$family_tree_top = $post->ID;
-	}
+if ( ! empty( $family_tree_arr ) ) {
+	$family_tree_top = $family_tree[0];
+} else {
+	$family_tree_top = $post->ID;
+}
 
-	$subpages = get_pages( 'child_of=' . $family_tree_top );
-	$no_parent = is_search() || is_404();
+$subpages  = get_pages( 'child_of=' . $family_tree_top );
+$no_parent = is_search() || is_404();
 
-	if ( ! $no_parent && ( count( $subpages ) != 0 ) ) :
+if ( ! $no_parent && ( count( $subpages ) !== 0 ) ) :
 ?>
 	<section class="subpages-menu">
-		<nav class="subpages" role="navigation" aria-label="<?php _e( 'Subpages', 'maksimer_lang' ); ?>">
+		<nav class="subpages" role="navigation" aria-label="<?php esc_attr_e( 'Subpages', 'maksimer_lang' ); ?>">
 
 			<h6>
-				<a href="<?php echo get_the_permalink( $family_tree_top ); ?>">
+				<a href="<?php echo esc_url( get_the_permalink( $family_tree_top ) ); ?>">
 					<?php echo get_the_title( $family_tree_top ); ?>
 				</a>
 			</h6>

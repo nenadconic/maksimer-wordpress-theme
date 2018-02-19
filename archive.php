@@ -5,19 +5,20 @@
 		<div class="wrapper">
 
 			<?php
-				if ( have_posts() ) {
+			if ( have_posts() ) {
 
-					echo '<h1>' . get_the_archive_title() . '</h1>';
+				the_archive_title( '<h1>', '</h1>' );
 
-					while ( have_posts() ) : the_post();
-						get_template_part( 'loop', 'single' );
-					endwhile;
+				while ( have_posts() ) :
+					the_post();
+					get_template_part( 'loop', 'single' );
+				endwhile;
 
-				} else {
+			} else {
 
-					echo '<h1>' . __( 'No post found', 'maksimer_lang' ) . '</h1>';
+				echo '<h1>' . esc_attr__( 'No post found', 'maksimer_lang' ) . '</h1>';
 
-				}
+			}
 			?>
 
 			<?php get_template_part( 'nav', 'post-pag' ); ?>
