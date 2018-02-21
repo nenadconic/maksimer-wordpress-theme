@@ -59,6 +59,10 @@ function maksimer_customize_sidebar_menu() {
 		remove_menu_page( 'edit.php?post_type=acf-field-group' );
 		remove_menu_page( 'themes.php' );
 		add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
+
+		if ( current_theme_supports( 'widgets' ) ) {
+			add_menu_page( __( 'Widgets' ), __( 'Widgets' ), 'edit_theme_options', 'widgets.php', '', 'dashicons-welcome-widgets-menus', 61 );
+		}
 	}
 }
 add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
