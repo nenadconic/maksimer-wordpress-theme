@@ -49,11 +49,7 @@ add_action( 'after_setup_theme', 'maksimer_theme_setup' );
  * Customizing the admin sidebar
  */
 function maksimer_customize_sidebar_menu() {
-	remove_menu_page( 'index.php' );
-	remove_menu_page( 'separator1' );
-	remove_menu_page( 'upload.php' );
 	remove_menu_page( 'edit-comments.php' );
-	remove_submenu_page( 'themes.php', 'customize.php' );
 	remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
 	add_management_page( __( 'Updates', 'maksimer_lang' ), __( 'Updates', 'maksimer_lang' ), 'update_core', 'update-core.php' );
 
