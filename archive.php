@@ -5,8 +5,7 @@
 		<div class="wrapper">
 
 			<?php
-			if ( have_posts() ) {
-
+			if ( have_posts() ) :
 				the_archive_title( '<h1>', '</h1>' );
 				the_archive_description();
 
@@ -15,11 +14,9 @@
 					get_template_part( 'loop', 'single' );
 				endwhile;
 
-			} else {
-
-				echo '<h1>' . esc_attr__( 'No post found', 'maksimer_lang' ) . '</h1>';
-
-			}
+			else :
+				echo '<h1>' . esc_attr__( 'No post found!', 'maksimer_lang' ) . '</h1>';
+			endif;
 			?>
 
 			<?php get_template_part( 'nav', 'post-pag' ); ?>

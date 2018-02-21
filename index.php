@@ -5,18 +5,16 @@
 		<div class="wrapper">
 
 			<?php
-			if ( have_posts() ) {
+			if ( have_posts() ) :
 
 				while ( have_posts() ) :
 					the_post();
 					get_template_part( 'loop', 'single' );
 				endwhile;
 
-			} else {
-
-				echo '<h1>' . esc_attr__( 'No post found', 'maksimer_lang' ) . '</h1>';
-
-			}
+			else :
+				echo '<h1>' . esc_attr__( 'No post found!', 'maksimer_lang' ) . '</h1>';
+			endif;
 			?>
 
 			<?php get_template_part( 'nav', 'post-pag' ); ?>

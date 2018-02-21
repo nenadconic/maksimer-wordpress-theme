@@ -42,7 +42,7 @@ if ( empty( $_GET['s'] ) ) {
 
 			<?php else : ?>
 
-				<h2><?php esc_attr_e( 'No post found', 'maksimer_lang' ); ?></h2>
+				<h2><?php esc_attr_e( 'No post found!', 'maksimer_lang' ); ?></h2>
 
 			<?php endif; ?>
 
