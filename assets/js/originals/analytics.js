@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+jQuery(function() {
 	jQuery("a[href*='mailto']").click(function() {
 		if ( typeof _gaq !== "undefined" ) {
 			_gaq.push(['_trackEvent', 'kontakt', 'maillink', jQuery(this).attr("href").replace("mailto:", "")]);
