@@ -2,7 +2,7 @@
 <?php get_header(); ?>
 
 	<main role="main" id="main-content" class="main-content-wrap">
-		<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+		<article id="post-id-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?>>
 			<?php the_content(); ?>
 		</article>
 	</main>

@@ -5,7 +5,7 @@
 
 		<div class="wrapper">
 
-			<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+			<article id="post-id-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?>>
 				<h1><?php the_title(); ?></h1>
 				<?php the_content(); ?>
 			</article>

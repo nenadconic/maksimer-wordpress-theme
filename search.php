@@ -16,9 +16,12 @@ if ( empty( $_GET['s'] ) ) {
 
 				<h2><?php esc_attr_e( 'Search results', 'maksimer_lang' ); ?></h2>
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+				?>
 
-					<article id="post-id-<?php the_id(); ?>" <?php post_class( 'clearfix' ); ?>>
+					<article id="post-id-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?>>
 
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 
