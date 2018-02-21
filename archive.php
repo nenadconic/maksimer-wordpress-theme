@@ -8,6 +8,7 @@
 			if ( have_posts() ) {
 
 				the_archive_title( '<h1>', '</h1>' );
+				the_archive_description();
 
 				while ( have_posts() ) :
 					the_post();
