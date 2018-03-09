@@ -7,18 +7,38 @@ Author: Maksimer AS
 Author URI: http://www.maksimer.no/
 Text Domain: maksimer_lang
 */
+
+/*
+ * Vendor
+*/
+@import 'vendor/reset';
+
+/*
+ * Abstracts
+*/
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
-@import 'vendor/reset';
+
+/*
+ * Base
+*/
 @import 'base/base';
 @import 'base/helpers';
 @import 'base/media';
 @import 'base/typography';
 @import 'base/form';
+
+/*
+ * Layout
+*/
 @import 'layout/wrappers';
 @import 'layout/header';
 @import 'layout/grid';
 @import 'layout/footer';
+
+/*
+ * Components
+*/
 @import 'components/content-builder';
 @import 'components/elements';
 @import 'components/menu';

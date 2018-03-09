@@ -1,7 +1,7 @@
-/*
+/**
  * Required plugins
  * SCSS:
- */
+*/
 var gulp          = require( 'gulp' );
 var postcss       = require( 'gulp-postcss' );
 var sass          = require( 'gulp-sass' );
@@ -13,17 +13,35 @@ var cssnano       = require( 'cssnano' );
 var concat = require( 'gulp-concat' );
 var uglify = require( 'gulp-uglify' );
 
-// BrowserSync:
+// BrowserSync
 var browserSync = require( 'browser-sync' ).create();
-var reload      = browserSync.reload;
 
 
 
 
 
-/*
+/**
+ * BrowserSync options
+*/
+var browserSyncOptions = {
+	'proxy': 'woo.dev',
+	'notify': true,
+	'reloadDelay': 500
+};
+
+var browserSyncWatchFiles = [
+	'./style.css',
+	'./js/*.min.js'
+	// './**/*.php'
+];
+
+
+
+
+
+/**
  * File sources
- */
+*/
 const sass_src   = './sass/**/*scss';
 const theme_root = './../';
 const js_src     = './js/*.js';
@@ -33,9 +51,9 @@ const js_output  = './js/min/';
 
 
 
-/*
+/**
  * Style Task
- */
+*/
 gulp.task( 'styles', function() {
 	// Plugins that run on sass compiling. Remember to keep autoprefixer below other plugins.
 	var plugins = [
@@ -60,9 +78,9 @@ gulp.task( 'styles', function() {
 
 
 
-/*
+/**
  * Task: Compile JavaScript
- */
+*/
 gulp.task( 'scripts', function() {
 	return gulp.src( js_src )
 		.pipe( concat( 'maksimer.min.js' ) )
@@ -74,43 +92,31 @@ gulp.task( 'scripts', function() {
 
 
 
-/*
+/**
  * Browser sync task
- */
-gulp.task( 'browser-sync', function() {
-	var files = [
-		theme_root + 'style.css',
-		theme_root + '/**/*.php'
-	];
-
-	browserSync.init( files, {
-		proxy: 'wp.dev',
-		open: true,
-		injectChanges: true,
-		reloadDelay: 500
-	} );
-} );
+*/
+gulp.task('browser-sync', function() {
+	browserSync.init( browserSyncWatchFiles, browserSyncOptions );
+});
 
 
 
 
 
-/*
+
+/**
+ * Browser sync watch task
+*/
+gulp.task('watch-bs', ['browser-sync', 'watch'], function () {});
+
+
+
+
+
+/**
  * Watch task
- */
+*/
 gulp.task( 'watch', function() {
 	gulp.watch( sass_src, ['styles'] ); // CSS changes
 	gulp.watch( js_src, ['scripts'] ); // JavaScript changes
 } );
-
-
-
-
-
-/*
- * Default task
- */
-gulp.task( 'default', [
-	'styles',
-	'scripts'
-] );

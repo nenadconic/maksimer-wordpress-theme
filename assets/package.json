@@ -9,7 +9,7 @@
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
   "devDependencies": {
-    "autoprefixer": "^7.2.6",
+    "autoprefixer": "^8.1.0",
     "browser-sync": "^2.23.6",
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
