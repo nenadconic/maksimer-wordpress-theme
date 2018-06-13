@@ -11,14 +11,12 @@ function maksimer_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'menus' );
 	add_theme_support( 'woocommerce' );
-	add_theme_support(
-		'html5', array(
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-		)
-	);
+	add_theme_support( 'html5', array(
+		'comment-form',
+		'comment-list',
+		'gallery',
+		'caption',
+	) );
 	add_theme_support(
 		'custom-logo', array(
 			'height'      => 80,
@@ -28,6 +26,7 @@ function maksimer_theme_setup() {
 		)
 	);
 
+	// Add editor style. Uses editor-style.css from theme root.
 	add_editor_style();
 
 	// Changes default images values.
@@ -36,14 +35,12 @@ function maksimer_theme_setup() {
 	update_option( 'image_default_size', 'large' );
 
 	// To register new sizes: https://developer.wordpress.org/reference/functions/add_image_size/.
-	set_post_thumbnail_size( 300, 300, true );
+	set_post_thumbnail_size( 300, 300, true ); // TODO: Remove?
 
 	// Register menus.
-	register_nav_menus(
-		array(
-			'main-menu' => __( 'Main menu', 'maksimer-lang' ),
-		)
-	);
+	register_nav_menus( array(
+		'main-menu' => __( 'Main menu', 'maksimer-lang' ),
+	) );
 }
 add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
