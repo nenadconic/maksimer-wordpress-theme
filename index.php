@@ -13,7 +13,7 @@
 				endwhile;
 
 			else :
-				echo '<h1>' . esc_attr__( 'No post found!', 'maksimer_lang' ) . '</h1>';
+				echo '<h1>' . esc_attr__( 'No post found!', 'maksimer-lang' ) . '</h1>';
 			endif;
 			?>
 

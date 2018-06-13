@@ -4,7 +4,7 @@
  */
 function maksimer_theme_setup() {
 	// Load textdomain.
-	load_theme_textdomain( 'maksimer_lang', get_template_directory() . '/assets/languages' );
+	load_theme_textdomain( 'maksimer-lang', get_template_directory() . '/assets/languages' );
 
 	// Declare theme support.
 	add_theme_support( 'post-thumbnails' );
@@ -41,7 +41,7 @@ function maksimer_theme_setup() {
 	// Register menus.
 	register_nav_menus(
 		array(
-			'main-menu' => __( 'Main menu', 'maksimer_lang' ),
+			'main-menu' => __( 'Main menu', 'maksimer-lang' ),
 		)
 	);
 }
@@ -57,17 +57,17 @@ add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 function maksimer_customize_sidebar_menu() {
 	remove_menu_page( 'edit-comments.php' );
 	remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
-	add_management_page( __( 'Updates', 'maksimer_lang' ), __( 'Updates', 'maksimer_lang' ), 'update_core', 'update-core.php' );
+	add_management_page( __( 'Updates', 'maksimer-lang' ), __( 'Updates', 'maksimer-lang' ), 'update_core', 'update-core.php' );
 
 	if ( ! current_user_can( 'administrator' ) ) {
 		remove_menu_page( 'wpcf7' );
 		remove_menu_page( 'tools.php' );
 		remove_menu_page( 'edit.php?post_type=acf-field-group' );
 		remove_menu_page( 'themes.php' );
-		add_menu_page( __( 'Menu' ), __( 'Menu' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
+		add_menu_page( __( 'Menu', 'maksimer-lang' ), __( 'Menu', 'maksimer-lang' ), 'edit_theme_options', 'nav-menus.php', '', 'dashicons-menu', 60 );
 
 		if ( current_theme_supports( 'widgets' ) ) {
-			add_menu_page( __( 'Widgets' ), __( 'Widgets' ), 'edit_theme_options', 'widgets.php', '', 'dashicons-welcome-widgets-menus', 61 );
+			add_menu_page( __( 'Widgets', 'maksimer-lang' ), __( 'Widgets', 'maksimer-lang' ), 'edit_theme_options', 'widgets.php', '', 'dashicons-welcome-widgets-menus', 61 );
 		}
 	}
 }

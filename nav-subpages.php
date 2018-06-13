@@ -14,7 +14,7 @@ $no_parent = is_search() || is_404();
 if ( ! $no_parent && ( count( $subpages ) !== 0 ) ) :
 ?>
 	<section class="subpages-menu">
-		<nav class="subpages" role="navigation" aria-label="<?php esc_attr_e( 'Subpages', 'maksimer_lang' ); ?>">
+		<nav class="subpages" role="navigation" aria-label="<?php esc_attr_e( 'Subpages', 'maksimer-lang' ); ?>">
 
 			<h6>
 				<a href="<?php echo esc_url( get_the_permalink( $family_tree_top ) ); ?>">

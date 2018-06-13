@@ -14,7 +14,7 @@ if ( empty( $_GET['s'] ) ) {
 
 			<?php if ( have_posts() && ( ! empty( $_GET['s'] ) ) ) : ?>
 
-				<h2><?php esc_attr_e( 'Search results', 'maksimer_lang' ); ?></h2>
+				<h2><?php esc_attr_e( 'Search results', 'maksimer-lang' ); ?></h2>
 
 				<?php
 				while ( have_posts() ) :
@@ -42,7 +42,7 @@ if ( empty( $_GET['s'] ) ) {
 
 			<?php else : ?>
 
-				<h2><?php esc_attr_e( 'No post found!', 'maksimer_lang' ); ?></h2>
+				<h2><?php esc_attr_e( 'No post found!', 'maksimer-lang' ); ?></h2>
 
 			<?php endif; ?>
 
