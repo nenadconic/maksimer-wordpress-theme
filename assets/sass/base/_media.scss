@@ -1,6 +1,6 @@
-/*
+/**
  * Image and caption
-*/
+ */
 img {
 	max-width: 100%;
 	height: auto;
@@ -20,9 +20,9 @@ img {
 
 
 
-/*
+/**
  * Gallery
-*/
+ */
 .gallery {
 	margin: (-$space / 2);
 }
@@ -99,9 +99,10 @@ img {
 
 
 
-/*
- * Alignments
-*/
+/**
+ * Alignments (Default WP image classes)
+ * TODO: Check Kims feeling that these have changed?
+ */
 .alignleft {
 	float: left;
 	margin-right: $space;

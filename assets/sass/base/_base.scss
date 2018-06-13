@@ -1,6 +1,6 @@
-/*
+/**
  * Globals
-*/
+ */
 * {
 	box-sizing: border-box;
 
@@ -18,9 +18,9 @@
 
 
 
-/*
+/**
  * Body
-*/
+ */
 body {
 	@include sans-serif;
 	background: $light;

@@ -1,6 +1,6 @@
-/*
+/**
  * Hide's the element from the page, but screen readers will read it
-*/
+ */
 .hidden,
 .screen-reader-text {
 	position: absolute;
@@ -10,26 +10,26 @@
 	width: 1px;
 }
 
-.skip-link.screen-reader-text:focus {
-	display: block;
-	clip: auto;
-	color: $text;
-	height: auto;
-	left: 5px;
-	top: 5px;
-	padding: ($space / 2) $space;
-	text-decoration: none;
-	width: auto;
-	z-index: 100000;
-}
+	.skip-link.screen-reader-text:focus {
+		display: block;
+		clip: auto;
+		color: $text;
+		height: auto;
+		left: 5px;
+		top: 5px;
+		padding: ($space / 2) $space;
+		text-decoration: none;
+		width: auto;
+		z-index: 100000;
+	}
 
 
 
 
 
-/*
+/**
  * Clear
-*/
+ */
 .clear {
 	clear: both;
 }
@@ -38,9 +38,9 @@
 
 
 
-/*
+/**
  * Workaround a Windows Phone responsive issuee
-*/
+ */
 @media screen {
 	@-ms-viewport {
 		width: device-width;

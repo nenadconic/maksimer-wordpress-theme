@@ -1,6 +1,6 @@
-/*
- * Fonter
-*/
+/**
+ * Fonts
+ */
 @mixin sans-serif {
 	font-family: sans-serif;
 }
@@ -13,9 +13,9 @@
 
 
 
-/*
+/**
  * Clear
-*/
+ */
 @mixin clearfix {
 	display: block;
 	zoom: 1;
@@ -34,9 +34,9 @@
 
 
 
-/*
- * Retina
-*/
+/**
+ * Retina background images
+ */
 @mixin retina($image, $width, $height) {
 	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 		background-image: url($image);
@@ -48,9 +48,12 @@
 
 
 
-/*
+/**
+ * Practical vw mixin for adjusting font sizes, padding etc when screen resizes
  * http://codepen.io/eduardoboucas/pen/YXxmwv
-*/
+ *
+ * TODO: Does this have actual accessibility issues when zooming screen to increase font size?
+ */
 @mixin vw($responsive, $min, $max: false, $fallback: false, $attribute: 'font-size') {
 	$responsive-unitless: $responsive / ($responsive - $responsive + 1);
 	$dimension: if(unit($responsive) == 'vh', 'height', 'width');

@@ -1,6 +1,6 @@
-/*
+/**
  * Input fields
-*/
+ */
 input[type=text],
 input[type=url],
 input[type=email],
@@ -24,9 +24,9 @@ input[type=search] {
 
 
 
-/*
+/**
  * Textarea
-*/
+ */
 textarea {
 	@include sans-serif;
 	appearance: none;
@@ -45,9 +45,9 @@ textarea {
 
 
 
-/*
+/**
  * Buttons
-*/
+ */
 .button,
 a.button {
 	@include sans-serif;

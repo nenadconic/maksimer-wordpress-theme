@@ -1,8 +1,6 @@
-/*
- *
+/**
  * General style, all screens
- *
-*/
+ */
 .col-set {
 	margin: (-$space / 2);
 
@@ -15,14 +13,12 @@
 
 
 
-/*
- *
+
+/**
  * Min width: 677px
  * From landscape split screen iPad pro and above
- *
-*/
+ */
 @media screen and ( min-width: 657px ) {
-
 	.col-set:not(.flex-set) {
 		@include clearfix;
 
@@ -57,13 +53,11 @@
 
 
 
-/*
- *
- * Min width: 767px
- *
-*/
-@media screen and ( min-width: 767px ) {
 
+/**
+ * Min width: 767px
+ */
+@media screen and ( min-width: 767px ) {
 	.col-set:not(.flex-set) {
 		&.col-3 .col {
 			width: 33.33%;
@@ -92,13 +86,11 @@
 
 
 
-/*
- *
- * Min width: 1023px
- *
-*/
-@media screen and ( min-width: 1023px ) {
 
+/**
+ * Min width: 1023px
+ */
+@media screen and ( min-width: 1023px ) {
 	.col-set:not(.flex-set) {
 		&.col-4 .col {
 			width: 25%;

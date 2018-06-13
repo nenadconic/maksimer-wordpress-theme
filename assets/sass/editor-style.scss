@@ -1,6 +1,9 @@
+/**
+ * Editor styles
+ * Compiles to seperate file in theme root (editor-style.css)
+ */
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
-@import 'base/typography';
 
 body {
 	@include sans-serif;
@@ -10,3 +13,5 @@ body {
 	font-weight: 300;
 	padding: $space;
 }
+
+@import 'base/typography';

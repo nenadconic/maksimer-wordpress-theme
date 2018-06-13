@@ -1,6 +1,6 @@
-/*
+/**
  * Headings
-*/
+ */
 h1,
 .h1 {
 	@include vw(5vw, 32px, 40px, 40px);
@@ -73,14 +73,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 
 
-/*
+/**
  * Body text
-*/
+ */
 p,
 address {
 	margin-bottom: $space;
 }
-
 
 b,
 strong {
@@ -92,16 +91,7 @@ em {
 	font-style: italic;
 }
 
-a {
-	color: $link;
-
-	&:focus,
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-sup { 
+sup {
 	vertical-align: super;
 	font-size: smaller;
 	line-height: 0;
@@ -117,9 +107,25 @@ sub {
 
 
 
-/*
+/**
+ * Links
+ */
+a {
+	color: $link;
+
+	&:focus,
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+
+
+
+
+/**
  * Lists
-*/
+ */
 ul {
 	margin: 0 0 $space;
 	padding: 0;
@@ -152,9 +158,9 @@ ol {
 
 
 
-/*
+/**
  * Table
-*/
+ */
 table {
 	width: 100%;
 	margin-bottom: $space;
@@ -179,9 +185,9 @@ table {
 
 
 
-/*
+/**
  * Preformatted and code
-*/
+ */
 pre,
 xmp,
 code {
@@ -195,6 +201,7 @@ code {
 	tab-size: 2;
 	overflow: scroll;
 }
+
 	code {
 		padding: 5px;
 		margin: 0 2px;
