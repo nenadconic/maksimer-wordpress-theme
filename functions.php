@@ -11,18 +11,22 @@ function maksimer_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'menus' );
 	add_theme_support( 'woocommerce' );
-	add_theme_support( 'html5', array(
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
-	add_theme_support( 'custom-logo', array(
-		'height'      => 80,
-		'width'       => 200,
-		'flex-height' => true,
-		'flex-width'  => true,
-	) );
+	add_theme_support(
+		'html5', array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+	add_theme_support(
+		'custom-logo', array(
+			'height'      => 80,
+			'width'       => 200,
+			'flex-height' => true,
+			'flex-width'  => true,
+		)
+	);
 
 	add_editor_style();
 
@@ -35,9 +39,11 @@ function maksimer_theme_setup() {
 	set_post_thumbnail_size( 300, 300, true );
 
 	// Register menus.
-	register_nav_menus( array(
-		'main-menu' => __( 'Main menu', 'maksimer_lang' ),
-	) );
+	register_nav_menus(
+		array(
+			'main-menu' => __( 'Main menu', 'maksimer_lang' ),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
