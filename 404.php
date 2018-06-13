@@ -1,8 +1,16 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found)
+ *
+ * @package maksimer
+ */
 
-	<main role="main" id="main-content" class="main-content-wrap">
+get_header();
+?>
 
-		<div class="wrapper">
+	<div class="wrapper">
+
+		<main role="main" id="main-content" class="main-content-wrap">
 
 			<article class="content-404">
 				<h1><?php esc_attr_e( '404 - Page not found', 'maksimer-lang' ); ?></h1>
@@ -10,8 +18,8 @@
 				<p><a href="<?php echo esc_url( home_url() ); ?>" class="button"><?php esc_attr_e( 'Home Page', 'maksimer-lang' ); ?></a></p>
 			</article>
 
-		</div>
+		</main>
 
-	</main>
+	</div>
 
 <?php get_footer(); ?>

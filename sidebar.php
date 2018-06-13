@@ -1,2 +1,6 @@
 <?php
-// Silence is golden.
+/**
+ * The sidebar containing the main sidebar
+ *
+ * @package maksimer
+ */

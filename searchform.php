@@ -1,3 +1,11 @@
+<?php
+/**
+ * The template for displaying search form
+ *
+ * @package maksimer
+ */
+?>
+
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label>
 		<span class="hidden"><?php esc_attr_e( 'Search for…', 'maksimer-lang' ); ?></span>

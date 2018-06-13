@@ -1,3 +1,11 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * @package maksimer
+ */
+?>
+
 		<footer class="footer">
 
 			<div class="wrapper">

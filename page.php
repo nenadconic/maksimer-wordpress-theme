@@ -1,13 +1,28 @@
-<?php the_post(); ?>
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * @package maksimer
+ */
 
-	<main role="main" id="main-content" class="main-content-wrap">
-		<article id="post-id-<?php the_ID(); ?>" <?php post_class( 'clearfix' ); ?>>
-			<?php the_content(); ?>
-		</article>
-	</main>
+get_header();
+?>
 
-	<?php get_template_part( 'nav', 'subpages' ); ?>
-	<?php get_sidebar(); ?>
+	<div class="wrapper">
+
+		<main role="main" id="main-content" class="main-content-wrap">
+
+			<article id="post-id-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					the_content();
+				endwhile;
+				?>
+			</article>
+
+		</main>
+
+	</div>
 
 <?php get_footer(); ?>
