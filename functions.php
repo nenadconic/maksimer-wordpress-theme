@@ -17,14 +17,12 @@ function maksimer_theme_setup() {
 		'gallery',
 		'caption',
 	) );
-	add_theme_support(
-		'custom-logo', array(
-			'height'      => 80,
-			'width'       => 200,
-			'flex-height' => true,
-			'flex-width'  => true,
-		)
-	);
+	add_theme_support( 'custom-logo', array(
+		'height'      => 80,
+		'width'       => 200,
+		'flex-height' => true,
+		'flex-width'  => true,
+	) );
 
 	// Add editor style. Uses editor-style.css from theme root.
 	add_editor_style();
@@ -34,8 +32,8 @@ function maksimer_theme_setup() {
 	update_option( 'image_default_link_type', 'none' );
 	update_option( 'image_default_size', 'large' );
 
-	// To register new sizes: https://developer.wordpress.org/reference/functions/add_image_size/.
-	set_post_thumbnail_size( 300, 300, true ); // TODO: Remove?
+	// Custom image sizes
+	// add_image_size( 'custom-size', 220, 180, true );
 
 	// Register menus.
 	register_nav_menus( array(
