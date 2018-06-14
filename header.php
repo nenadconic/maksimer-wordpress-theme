@@ -14,6 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
 	</head>
+
 	<body <?php body_class(); ?>>
 		<a class="skip-link screen-reader-text" href="#main-menu-wrapper"><?php esc_attr_e( 'Skip to navigation', 'maksimer-lang' ); ?></a>
 		<a class="skip-link screen-reader-text" href="#main-content"><?php esc_attr_e( 'Skip to content', 'maksimer-lang' ); ?></a>
