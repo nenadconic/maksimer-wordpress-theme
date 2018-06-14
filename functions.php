@@ -105,6 +105,7 @@ add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
 
 /**
  * Change yoast metabox priority
+ * TODO: Add to maksimer control?
  */
 function maksimer_wpseo_metabox_priority() {
 	return 'low';
@@ -117,6 +118,7 @@ add_filter( 'wpseo_metabox_prio', 'maksimer_wpseo_metabox_priority' );
 
 /**
  * Manage the admin bar, front-end
+ * TODO: Is this still the way to do this?
  */
 function maksimer_admin_bar() {
 	global $wp_admin_bar;
@@ -131,3 +133,12 @@ function maksimer_admin_bar() {
 	$wp_admin_bar->remove_menu( 'new-media' );
 }
 add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
+
+
+
+
+
+/**
+ * Custom template tags (reusable functions)
+ */
+require get_template_directory() . '/inc/template-tags.php';
