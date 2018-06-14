@@ -18,28 +18,24 @@ get_header();
 
 		<main role="main" id="main-content" class="main-content-wrap">
 
-			<?php if ( have_posts() && ( ! empty( $_GET['s'] ) ) ) : ?>
+			<?php
+			if ( have_posts() ) {
 
-				<h1>
-					<?php esc_attr_e( 'Search results', 'maksimer-lang' ); ?>
-				</h1>
+				echo '<h1>' . esc_attr__( 'Search results', 'maksimer-lang' ) . '</h1>';
 
-				<?php
 				while ( have_posts() ) :
 					the_post();
 					get_template_part( 'loop', 'search' );
 				endwhile;
 
 				the_posts_navigation();
-				?>
 
-			<?php else : ?>
+			} else {
 
-				<h1>
-					<?php esc_attr_e( 'No post found!', 'maksimer-lang' ); ?>
-				</h1>
+				echo '<h1>' . esc_attr__( 'No post found!', 'maksimer-lang' ) . '</h1>';
 
-			<?php endif; ?>
+			}
+			?>
 
 		</main>
 

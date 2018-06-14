@@ -76,7 +76,7 @@ add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
  * Enqueue's all the scripts
  */
 function maksimer_enqueue_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri(), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
+	wp_enqueue_style( 'style', get_theme_file_uri( 'style.css' ), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
 	wp_enqueue_script( 'maksimer', get_theme_file_uri( 'assets/js/min/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'assets/js/min/maksimer.min.js' ) ) );
 
 	if ( ! is_admin() ) {
@@ -84,20 +84,6 @@ function maksimer_enqueue_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
-
-
-
-
-
-/**
- * Enqueue admin-scripts
- */
-function maksimer_admin_enqueue() {
-	if ( is_admin() ) {
-		wp_enqueue_style( 'maksimer_admin_css', get_template_directory_uri() . '/assets/css/admin.css' );
-	}
-}
-add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
 
 
 
@@ -122,6 +108,7 @@ add_filter( 'wpseo_metabox_prio', 'maksimer_wpseo_metabox_priority' );
  */
 function maksimer_admin_bar() {
 	global $wp_admin_bar;
+
 	$wp_admin_bar->remove_menu( 'widgets' );
 	$wp_admin_bar->remove_menu( 'wpseo-menu' );
 	$wp_admin_bar->remove_menu( 'wp-logo' );
