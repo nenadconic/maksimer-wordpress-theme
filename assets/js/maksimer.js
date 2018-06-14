@@ -1,2 +1,5 @@
+/**
+ * Document ready
+ */
 jQuery(function() {
 });

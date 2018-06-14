@@ -51,8 +51,6 @@
 /**
  * Practical vw mixin for adjusting font sizes, padding etc when screen resizes
  * http://codepen.io/eduardoboucas/pen/YXxmwv
- *
- * TODO: Does this have actual accessibility issues when zooming screen to increase font size?
  */
 @mixin vw($responsive, $min, $max: false, $fallback: false, $attribute: 'font-size') {
 	$responsive-unitless: $responsive / ($responsive - $responsive + 1);

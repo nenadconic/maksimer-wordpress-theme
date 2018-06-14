@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Maksimer WordPress Theme\n"
-"POT-Creation-Date: 2018-06-13 14:04+0200\n"
-"PO-Revision-Date: 2018-06-13 14:04+0200\n"
+"POT-Creation-Date: 2018-06-14 06:15+0200\n"
+"PO-Revision-Date: 2018-06-14 06:15+0200\n"
 "Last-Translator: Kim Bertelsen <kim@maksimer.no>\n"
 "Language-Team: Maksimer AS <post@maksimer.no>\n"
 "Language: nb_NO\n"
@@ -21,76 +21,60 @@ msgstr ""
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:8
+#: 404.php:16
 msgid "404 - Page not found"
 msgstr "404 - Siden finnes ikke"
 
-#: 404.php:9
+#: 404.php:17
 msgid "The page you are looking for does not exist"
 msgstr "Siden du ser etter eksisterer ikke"
 
-#: 404.php:10
+#: 404.php:18
 msgid "Home Page"
 msgstr "Hjem"
 
-#: archive.php:18 index.php:16 search.php:45
+#: archive.php:29 index.php:27 search.php:39
 msgid "No post found!"
 msgstr "Ingen artikler funnet!"
 
 #. Theme Name of the plugin/theme
-#: footer.php:4
+#: footer.php:12
 msgid "Maksimer"
 msgstr "Maksimer"
 
-#: functions.php:44
+#: functions.php:40
 msgid "Main menu"
 msgstr "Hovedmeny"
 
-#: functions.php:60
+#: functions.php:55
 msgid "Updates"
 msgstr "Oppdateringer"
 
-#: functions.php:67
+#: functions.php:62
 msgid "Menu"
 msgstr "Meny"
 
-#: functions.php:70
+#: functions.php:65
 msgid "Widgets"
 msgstr "Widgeter"
 
-#: header.php:10
+#: header.php:18
 msgid "Skip to navigation"
 msgstr "Hopp til navigasjon"
 
-#: header.php:11
+#: header.php:19
 msgid "Skip to content"
 msgstr "Hopp til innhold"
 
-#: nav-post-pag.php:3
-msgid "Previous page"
-msgstr "Forrige side"
-
-#: nav-post-pag.php:4
-msgid "Next page"
-msgstr "Neste side"
-
-#: nav-post-pag.php:5
-msgid "Page"
-msgstr "Side"
-
-#: nav-subpages.php:17
-msgid "Subpages"
-msgstr "Undersider"
-
-#: search.php:17
+#: search.php:24
 msgid "Search results"
 msgstr "Søkeresultater"
 
-#: searchform.php:3 searchform.php:4
+#: searchform.php:11 searchform.php:12
 msgid "Search for…"
 msgstr "Søk etter…"
 
-#: searchform.php:6
+#: searchform.php:14
 msgid "Search"
 msgstr "Søk"
 
@@ -107,5 +91,19 @@ msgid "Maksimer AS"
 msgstr "Maksimer AS"
 
 #. Author URI of the plugin/theme
-msgid "http://www.maksimer.no/"
+#, fuzzy
+#| msgid "http://www.maksimer.no/"
+msgid "https://www.maksimer.no/"
 msgstr "https://www.maksimer.no/"
+
+#~ msgid "Previous page"
+#~ msgstr "Forrige side"
+
+#~ msgid "Next page"
+#~ msgstr "Neste side"
+
+#~ msgid "Page"
+#~ msgstr "Side"
+
+#~ msgid "Subpages"
+#~ msgstr "Undersider"
