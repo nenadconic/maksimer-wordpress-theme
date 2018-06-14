@@ -11,7 +11,13 @@
   "devDependencies": {
     "autoprefixer": "^8.6.2",
     "browserslist": "^3.2.8",
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "postcss-flexbugs-fixes": "^3.3.1"
   },
   "browserslist": [
     "last 2 version",
