@@ -20,16 +20,7 @@
     "postcss-flexbugs-fixes": "^4.1.0"
   },
   "browserslist": [
-    "last 2 version",
-    "> 1%",
-    "ie >= 8",
-    "ie_mob >= 10",
-    "ff >= 30",
-    "chrome >= 34",
-    "safari >= 6",
-    "opera >= 23",
-    "ios >= 7",
-    "android >= 4",
-    "bb >= 10"
+    "> 0.20%",
+    "not dead"
   ]
 }
