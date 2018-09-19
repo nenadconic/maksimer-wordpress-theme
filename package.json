@@ -9,9 +9,10 @@
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
 	},
 	"scripts": {
-		"docker": "docker-compose up -d",
+		"docker": "docker-compose up -d && docker-compose logs -f --tail 1 wordpress-cli",
 		"docker-stop": "docker-compose stop",
-		"docker-delete": "docker-compose down"
+		"docker-delete": "docker-compose down -v",
+		"wp": "docker-compose run -u 33 wordpress-cli"
 	},
   "devDependencies": {
     "@babel/core": "^7.0.0",
