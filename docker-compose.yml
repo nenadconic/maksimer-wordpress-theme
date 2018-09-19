@@ -38,9 +38,9 @@ services:
     volumes:
       - wp_data:/var/www/html
       - ./compose-this.sh:/var/www/html/wp-content/themes/maksimer/compose-this.sh
+    environment:
+      WP_CLI_CACHE_DIR: /var/www/html/cli-cache
     command: "bash wp-content/themes/maksimer/compose-this.sh"
-    stdin_open: true
-    tty: true
 
 volumes:
   db_data:
