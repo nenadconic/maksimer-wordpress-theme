@@ -7,20 +7,20 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
-	},
-	"scripts": {
-		"docker": "docker-compose up -d && docker-compose logs -f --tail 1 wordpress-cli",
-		"docker-stop": "docker-compose stop",
-		"docker-delete": "docker-compose down -v",
-		"docker-script": "docker-compose run wordpress-cli"
-	},
+  },
+  "scripts": {
+    "docker": "docker-compose up -d",
+    "docker-stop": "docker-compose stop",
+    "docker-delete": "docker-compose down -v",
+    "docker-script": "docker-compose exec wordpress"
+  },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "browserslist": "^4.1.1",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "browserslist": "^4.3.4",
     "gulp": "^4.0.0",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2",
     "webpack-stream": "^5.1.1"
   },
   "browserslist": [
