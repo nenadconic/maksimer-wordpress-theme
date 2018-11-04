@@ -42,6 +42,10 @@ function empty_content() {
 	wp widget delete search-2 recent-posts-2 recent-comments-2 archives-2 categories-2 meta-2
 }
 
+# Initial WordPress setup, creating database tables etc.
+function setup_wordpress() {
+	wp core install --url=localhost:8000 --title=WordPress --admin_user=admin --admin_password=password --admin_email=email@example.com
+}
 
 # Set custom language
 function set_language() {
@@ -73,8 +77,15 @@ else
 	echo "Sleeping 5 seconds to wait for WordPress"
 	sleep 5s
 
-	# Initial WordPress setup, creating database tables etc.
-	wp core install --url=localhost:8000 --title=WordPress --admin_user=admin --admin_password=password --admin_email=email@example.com
+	# Run Run_every_time
+	echo -n "Do you want to run the WordPress installation? [Y/n] "
+	read WORDPRESS_INSTALLATION
+	if [ "n" = "$WORDPRESS_INSTALLATION" ]
+	then
+		echo "Skipping WordPress installation"
+	else
+		setup_wordpress
+	fi
 
 	# Run language installation and activation
 	echo -n "Do you want to activate another language? [nb_NO / n] "

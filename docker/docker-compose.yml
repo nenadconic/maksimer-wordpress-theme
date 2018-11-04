@@ -9,17 +9,17 @@ services:
       - "52000:3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_DATABASE: wp
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
 
   wordpress:
     depends_on:
       - db
     build:
       context: .
-      dockerfile: docker/wp-dev/Dockerfile
+      dockerfile: Dockerfile
     volumes:
       - wp_data:/var/www/html
       - ../:/var/www/html/wp-content/themes/maksimer
@@ -27,9 +27,10 @@ services:
       - "8000:80"
     restart: always
     environment:
+      WORDPRESS_DB_NAME: wp
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_USER: wp
+      WORDPRESS_DB_PASSWORD: wp
 
   # wordpress-cli:
   #   depends_on:

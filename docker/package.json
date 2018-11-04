@@ -1,0 +1,12 @@
+{
+	"name": "docker-wordpress",
+	"version": "1.0.0",
+	"description": "Docker for WordPress",
+	"scripts": {
+    "docker": "docker-compose up -d",
+    "docker-stop": "docker-compose stop",
+    "docker-delete": "docker-compose down -v",
+    "docker-setup": "docker-compose exec -u www-data wordpress wp-content/themes/maksimer/docker/scripts/compose-this.sh",
+    "wp": "docker-compose exec -u www-data wordpress wp"
+	}
+}
