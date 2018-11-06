@@ -2,13 +2,14 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "jquery": true
   },
   "parserOptions": {
     "parser": "babel-eslint"
   },
   "extends": [
-    "wordpress"
+    "airbnb"
   ],
   "rules": {}
 }

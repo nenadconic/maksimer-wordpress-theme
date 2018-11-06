@@ -1,5 +1,4 @@
 /**
  * Document ready
  */
-jQuery(function() {
-});
+jQuery(() => {});

@@ -1,14 +1,14 @@
-import path from 'path';
-import webpack from 'webpack';
+const path    = require('path');
+const webpack = require('webpack');
 
 const DIST_PATH = path.resolve( './assets/dist/js' );
 
 const config = {
 	cache: true,
 	entry: {
-		admin: './assets/js/admin.js',
-		frontend: './assets/js/maksimer.js',
-		shared: './assets/js/shared.js'
+		maksimer: './assets/js/maksimer.js',
+		// admin: './assets/js/admin.js',
+		// shared: './assets/js/shared.js'
 	},
 	output: {
 		path: DIST_PATH,

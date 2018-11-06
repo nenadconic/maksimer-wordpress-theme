@@ -2,20 +2,33 @@
  * Required plugins
  */
 // SCSS:
-const gulp          = require( 'gulp' );
-const postcss       = require( 'gulp-postcss' );
-const sass          = require( 'gulp-sass' );
-const autoprefixer  = require( 'autoprefixer' );
-const flexbugsfixes = require( 'postcss-flexbugs-fixes' );
-const cleanCSS      = require( 'gulp-clean-css' );
+const gulp          = require('gulp');
+const postcss       = require('gulp-postcss');
+const sass          = require('gulp-sass');
+const autoprefixer  = require('autoprefixer');
+const flexbugsfixes = require('postcss-flexbugs-fixes');
+const cleanCSS      = require('gulp-clean-css');
 
 // JS:
-const concat = require( 'gulp-concat' );
-const uglify = require( 'gulp-uglify' );
+const pump          = require('pump');
+const webpack       = require('webpack');
+const webpackStream = require('webpack-stream');
 
 // BrowserSync
-const bs       = browserSync.create();
-const proxyUrl = packageJson.browserSync.proxyUrl;
+const packageJson = require('./package.json');
+const browserSync = require('browser-sync');
+const bs          = browserSync.create();
+const proxyUrl    = packageJson.browserSync.proxyUrl;
+
+gulp.task( 'bs-reload-css', ( cb ) => {
+	bs.reload('*.css');
+	cb();
+});
+
+gulp.task( 'bs-reload', ( cb ) => {
+	bs.reload();
+	cb();
+});
 
 
 
@@ -26,8 +39,6 @@ const proxyUrl = packageJson.browserSync.proxyUrl;
  */
 const sass_src   = './assets/sass/**/*scss';
 const theme_root = './';
-const js_src     = './assets/js/*.js';
-const js_output  = './assets/js/min/';
 
 
 
@@ -52,16 +63,27 @@ gulp.task( 'styles', function() {
 
 
 
-
 /**
- * Task: Compile JavaScript
+ * JS Task
+ * Handled by webpack
  */
-gulp.task( 'scripts', function() {
-	return gulp.src( js_src )
-		.pipe( concat( 'maksimer.min.js' ) )
-		.pipe( uglify() )
-		.pipe( gulp.dest( js_output ) );
+function processWebpack( src, conf, dest, cb ) {
+	pump( [
+		gulp.src( src ),
+		webpackStream( require( conf ), webpack ),
+		gulp.dest( dest )
+	], cb );
+}
+
+gulp.task( 'webpack', ( cb ) => {
+	const src = './assets/js/**/*.js';
+	const conf = './webpack.config.babel.js';
+	const dest = './dist/js';
+	processWebpack( src, conf, dest );
+	cb();
 } );
+
+gulp.task( 'js', gulp.series( 'webpack' ) );
 
 
 
@@ -71,6 +93,20 @@ gulp.task( 'scripts', function() {
  * Watch task
  */
 gulp.task( 'watch', function() {
+	process.env.NODE_ENV = 'development';
+
+	if ( proxyUrl ) {
+		// https://browsersync.io/docs/options
+		bs.init({
+			proxy: proxyUrl,
+			snippetOptions: {
+				whitelist: ["/wp-admin/admin-ajax.php"],
+				blacklist: ["/wp-admin/**"]
+			}
+		});
+	}
+
+	gulp.watch( sass_src, gulp.series( 'styles', 'bs-reload-css' ) );
+	gulp.watch( './assets/js/**/*.js', gulp.series( 'js', 'bs-reload' ) );
 	gulp.watch( sass_src, gulp.series('styles') ); // CSS changes
-	gulp.watch( js_src, gulp.series('scripts') ); // JavaScript changes
 } );
