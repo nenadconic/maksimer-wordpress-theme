@@ -106,7 +106,28 @@ gulp.task( 'watch', function() {
 		});
 	}
 
-	gulp.watch( sass_src, gulp.series( 'styles', 'bs-reload-css' ) );
+	gulp.watch( './assets/sass/**/*scss', gulp.series( 'styles', 'bs-reload-css' ) );
 	gulp.watch( './assets/js/**/*.js', gulp.series( 'js', 'bs-reload' ) );
-	gulp.watch( sass_src, gulp.series('styles') ); // CSS changes
 } );
+
+
+
+
+
+/**
+ * Set node.env
+ */
+gulp.task( 'set-prod-node-env', ( cb ) => {
+	process.env.NODE_ENV = 'production';
+	cb();
+} );
+
+
+
+
+
+
+/**
+ * Production build
+ */
+gulp.task( 'default', gulp.parallel( 'styles', gulp.series( 'set-prod-node-env', 'webpack' ) ) );
