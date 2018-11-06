@@ -2,16 +2,20 @@
  * Required plugins
  */
 // SCSS:
-var gulp          = require( 'gulp' );
-var postcss       = require( 'gulp-postcss' );
-var sass          = require( 'gulp-sass' );
-var autoprefixer  = require( 'autoprefixer' );
-var flexbugsfixes = require( 'postcss-flexbugs-fixes' );
-var cleanCSS      = require( 'gulp-clean-css' );
+const gulp          = require( 'gulp' );
+const postcss       = require( 'gulp-postcss' );
+const sass          = require( 'gulp-sass' );
+const autoprefixer  = require( 'autoprefixer' );
+const flexbugsfixes = require( 'postcss-flexbugs-fixes' );
+const cleanCSS      = require( 'gulp-clean-css' );
 
 // JS:
-var concat = require( 'gulp-concat' );
-var uglify = require( 'gulp-uglify' );
+const concat = require( 'gulp-concat' );
+const uglify = require( 'gulp-uglify' );
+
+// BrowserSync
+const bs       = browserSync.create();
+const proxyUrl = packageJson.browserSync.proxyUrl;
 
 
 
