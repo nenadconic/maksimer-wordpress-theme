@@ -38,6 +38,7 @@
 	-->
 
 	<rule ref="WordPress-Core"/>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
 
 
 	<!--
