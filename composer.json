@@ -1,0 +1,17 @@
+{
+  "name": "maksimer/maksimer-wordpress-theme",
+  "type": "wordpress-theme",
+  "authors": [
+    {
+      "name": "Maksimer",
+      "email": "post@maksimer.no"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "scripts": {
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf ."
+  }
+}
