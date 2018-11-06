@@ -10,9 +10,9 @@ Text Domain: maksimer-lang
 
 /**
  * Vendor
- * TODO: Postcss import to use tilde instead of path?
+ * 1. Normalize, imported from node_modules. Always on top
  */
-@import '../../node_modules/normalize.css/normalize.css';
+@import 'normalize.css';
 
 /**
  * Abstracts

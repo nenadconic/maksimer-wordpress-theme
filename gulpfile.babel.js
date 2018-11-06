@@ -8,6 +8,10 @@ const sass          = require('gulp-sass');
 const autoprefixer  = require('autoprefixer');
 const flexbugsfixes = require('postcss-flexbugs-fixes');
 const cleanCSS      = require('gulp-clean-css');
+const gulpif        = require('gulp-if');
+const rmComments    = require('postcss-discard-comments');
+const cssPrettify   = require('postcss-prettify');
+const postcssImport = require('postcss-import');
 
 // JS:
 const pump          = require('pump');
@@ -47,17 +51,21 @@ const theme_root = './';
 /**
  * Style Task
  */
-gulp.task( 'styles', function() {
+gulp.task('styles', function() {
 	// Plugins that run on sass compiling. Remember to keep autoprefixer below other plugins.
 	var plugins = [
 		flexbugsfixes(),
+		postcssImport(),
+		gulpif(process.env.NODE_ENV === 'development', rmComments()),
+		gulpif(process.env.NODE_ENV === 'development', cssPrettify()),
 		autoprefixer() // Browserslist is defined in package.json
 	];
-	return gulp.src( sass_src )
+
+	return gulp.src(sass_src)
 		.pipe(sass().on('error',sass.logError))
 		.pipe(postcss(plugins))
-		.pipe(cleanCSS())
-		.pipe( gulp.dest( theme_root ) );
+		.pipe(gulpif(process.env.NODE_ENV === 'production', cleanCSS()))
+		.pipe(gulp.dest(theme_root));
 } );
 
 
@@ -94,6 +102,19 @@ gulp.task( 'js', gulp.series( 'webpack' ) );
  */
 gulp.task( 'watch', function() {
 	process.env.NODE_ENV = 'development';
+	gulp.watch( './assets/sass/**/*scss', gulp.series( 'styles' ) );
+	gulp.watch( './assets/js/**/*.js', gulp.series( 'js' ) );
+} );
+
+
+
+
+
+/**
+ * Watch with browsersync
+ */
+gulp.task( 'watch-bs', function() {
+	process.env.NODE_ENV = 'development';
 
 	if ( proxyUrl ) {
 		// https://browsersync.io/docs/options
@@ -115,13 +136,12 @@ gulp.task( 'watch', function() {
 
 
 /**
- * Set node.env
+ * Set NODE_ENV to production
  */
 gulp.task( 'set-prod-node-env', ( cb ) => {
 	process.env.NODE_ENV = 'production';
 	cb();
 } );
-
 
 
 
