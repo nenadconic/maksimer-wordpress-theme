@@ -10,9 +10,8 @@
  *
  * Wraps the post thumbnail in an anchor element on index views, or a div
  * element when on single views.
- * TODO: possibility to specify size?
  */
-function maksimer_thumbnail() {
+function maksimer_thumbnail( $size = 'post-thumbnail' ) {
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -20,13 +19,13 @@ function maksimer_thumbnail() {
 	if ( is_singular() ) :
 
 		echo '<div class="post-thumbnail">';
-		the_post_thumbnail();
+		the_post_thumbnail( $size );
 		echo '</div>';
 
 	else :
 
 		echo '<a class="post-thumbnail" href="' . get_the_permalink() . '" aria-hidden="true" tabindex="-1">';
-		the_post_thumbnail( 'post-thumbnail', array(
+		the_post_thumbnail( $size, array(
 			'alt' => the_title_attribute( array(
 				'echo' => false,
 			) ),
