@@ -1,7 +1,6 @@
-const path    = require('path');
-const webpack = require('webpack');
-
-const DIST_PATH = path.resolve( './assets/dist/js' );
+const path                = require('path');
+const webpack             = require('webpack');
+const DIST_PATH           = path.resolve( './assets/dist/js' );
 
 const config = {
 	cache: true,
@@ -10,14 +9,18 @@ const config = {
 		// admin: './assets/js/admin.js',
 		// shared: './assets/js/shared.js'
 	},
+
 	output: {
 		path: DIST_PATH,
 		filename: '[name].min.js',
 	},
+
 	resolve: {
 		modules: ['node_modules'],
 	},
+
 	devtool: 'source-map',
+
 	module: {
 		rules: [
 			{
