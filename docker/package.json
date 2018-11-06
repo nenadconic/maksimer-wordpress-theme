@@ -8,9 +8,5 @@
       "docker-delete": "docker-compose down -v",
       "docker-setup": "docker-compose exec -u www-data wordpress wp-content/themes/maksimer/docker/scripts/compose-this.sh",
       "wp": "docker-compose exec -u www-data wordpress wp"
-   },
-   "dependencies": {},
-   "devDependencies": {
-      "browser-sync": "^2.26.3"
    }
 }
