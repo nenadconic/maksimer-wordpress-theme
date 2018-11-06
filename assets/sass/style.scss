@@ -10,8 +10,9 @@ Text Domain: maksimer-lang
 
 /**
  * Vendor
+ * TODO: Postcss import to use tilde instead of path?
  */
-@import 'vendor/reset';
+@import '../../node_modules/normalize.css/normalize.css';
 
 /**
  * Abstracts
