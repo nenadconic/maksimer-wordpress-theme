@@ -77,7 +77,7 @@ add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
  */
 function maksimer_enqueue_scripts() {
 	wp_enqueue_style( 'style', get_theme_file_uri( 'style.css' ), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
-	wp_enqueue_script( 'maksimer', get_theme_file_uri( 'dist/js/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'dist/js/maksimer.min.js' ) ), true );
+	wp_enqueue_script( 'maksimer', get_theme_file_uri( 'build/js/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'build/js/maksimer.min.js' ) ), true );
 }
 add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
 

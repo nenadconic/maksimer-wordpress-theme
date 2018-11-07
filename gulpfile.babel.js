@@ -1,35 +1,161 @@
+const
+	// Paths
+	dir = {
+		src         : './assets/',
+		build       : './build/'
+	},
+
+	// SCSS:
+	gulp          = require('gulp'),
+	postcss       = require('gulp-postcss'),
+	sass          = require('gulp-sass'),
+	newer         = require('gulp-newer'),
+	imagemin      = require('gulp-imagemin'),
+	gulpif        = require('gulp-if'),
+
+	// JS:
+	pump          = require('pump'),
+	webpack       = require('webpack'),
+	webpackStream = require('webpack-stream'),
+
+	// BrowserSync
+	browserSync = require('browser-sync'),
+	bs          = browserSync.create(),
+	proxyUrl    = 'http://localhost:8000' // Set this to the hosted site url and port if needed
+;
+
+
+
+
+
 /**
- * Required plugins
+ * Image optimizing
  */
-// SCSS:
-const gulp          = require('gulp');
-const postcss       = require('gulp-postcss');
-const sass          = require('gulp-sass');
-const autoprefixer  = require('autoprefixer');
-const flexbugsfixes = require('postcss-flexbugs-fixes');
-const cleanCSS      = require('gulp-clean-css');
-const gulpif        = require('gulp-if');
-const rmComments    = require('postcss-discard-comments');
-const cssPrettify   = require('postcss-prettify');
-const postcssImport = require('postcss-import');
+const images = {
+  src   : dir.src + 'images/**/*',
+  build : dir.build + 'images/'
+};
 
-// JS:
-const pump          = require('pump');
-const webpack       = require('webpack');
-const webpackStream = require('webpack-stream');
 
-// BrowserSync
-const packageJson = require('./package.json');
-const browserSync = require('browser-sync');
-const bs          = browserSync.create();
-const proxyUrl    = packageJson.browserSync.proxyUrl;
+// image processing
+gulp.task('images', (cb) => {
+	pump([
+  	gulp.src(images.src),
+    newer(images.build),
+    imagemin(),
+		gulp.dest(images.build)
+	], cb);
+});
 
-gulp.task( 'bs-reload-css', ( cb ) => {
+
+
+
+
+/**
+ * SCSS
+ */
+const css = {
+	src   : dir.src + 'sass/style.scss',
+	watch : dir.src + 'sass/**/*',
+	build : './',
+
+	processors: [
+    require('autoprefixer'),
+		require('postcss-flexbugs-fixes'),
+		require('postcss-import'),
+		require('cssnano'),
+	],
+
+	processorsDev: [
+		require('autoprefixer'),
+		require('postcss-flexbugs-fixes'),
+		require('postcss-import'),
+		require('postcss-prettify'),
+		require('postcss-discard-comments')
+	],
+}
+
+
+gulp.task('scss', (cb) => {
+	pump([
+		gulp.src(css.src),
+		sass().on('error',sass.logError),
+		postcss(gulpif(process.env.NODE_ENV === 'development', css.processorsDev, css.processors)),
+		gulp.dest(css.build)
+	], cb);
+});
+
+gulp.task('css', gulp.series('images', 'scss'));
+
+
+
+
+
+/**
+ * JS
+ * Handled by webpack
+ */
+const js = {
+	src   : dir.src + 'js/**/*',
+  build : dir.build + 'js/',
+  conf  : './webpack.config.babel.js'
+}
+
+
+gulp.task('webpack', (cb) => {
+	pump([
+		gulp.src(js.src),
+		webpackStream(require(js.conf), webpack),
+		gulp.dest(js.build)
+	], cb);
+});
+
+gulp.task('js', gulp.series('webpack'));
+
+
+
+
+
+/**
+ * Watch task
+ */
+gulp.task('watch', () => {
+	process.env.NODE_ENV = 'development';
+
+	gulp.watch(images.src, gulp.series('images'));
+	gulp.watch(css.src, gulp.series('css'));
+	gulp.watch(js.src, gulp.series('js'));
+});
+
+
+
+
+
+/**
+ * Watch with browsersync
+ */
+gulp.task('watch-bs', () => {
+	process.env.NODE_ENV = 'development';
+
+	bs.init({
+		proxy: proxyUrl,
+		snippetOptions: {
+			whitelist: ['/wp-admin/admin-ajax.php'],
+			blacklist: ['/wp-admin/**']
+		}
+	});
+
+	gulp.watch(images.src, gulp.series('images'));
+	gulp.watch(css.src, gulp.series('css', 'bs-reload-css'));
+	gulp.watch(js.src, gulp.series('js', 'bs-reload'));
+});
+
+gulp.task('bs-reload-css', (cb) => {
 	bs.reload('*.css');
 	cb();
 });
 
-gulp.task( 'bs-reload', ( cb ) => {
+gulp.task('bs-reload', (cb) => {
 	bs.reload();
 	cb();
 });
@@ -39,109 +165,12 @@ gulp.task( 'bs-reload', ( cb ) => {
 
 
 /**
- * File sources and output
- */
-const sass_src   = './assets/sass/**/*scss';
-const theme_root = './';
-
-
-
-
-
-/**
- * Style Task
- */
-gulp.task('styles', function() {
-	// Plugins that run on sass compiling. Remember to keep autoprefixer below other plugins.
-	var plugins = [
-		flexbugsfixes(),
-		postcssImport(),
-		gulpif(process.env.NODE_ENV === 'development', rmComments()),
-		gulpif(process.env.NODE_ENV === 'development', cssPrettify()),
-		autoprefixer() // Browserslist is defined in package.json
-	];
-
-	return gulp.src(sass_src)
-		.pipe(sass().on('error',sass.logError))
-		.pipe(postcss(plugins))
-		.pipe(gulpif(process.env.NODE_ENV === 'production', cleanCSS()))
-		.pipe(gulp.dest(theme_root));
-} );
-
-
-
-
-/**
- * JS Task
- * Handled by webpack
- */
-function processWebpack( src, conf, dest, cb ) {
-	pump( [
-		gulp.src( src ),
-		webpackStream( require( conf ), webpack ),
-		gulp.dest( dest )
-	], cb );
-}
-
-gulp.task( 'webpack', ( cb ) => {
-	const src = './assets/js/**/*.js';
-	const conf = './webpack.config.babel.js';
-	const dest = './dist/js';
-	processWebpack( src, conf, dest );
-	cb();
-} );
-
-gulp.task( 'js', gulp.series( 'webpack' ) );
-
-
-
-
-
-/**
- * Watch task
- */
-gulp.task( 'watch', function() {
-	process.env.NODE_ENV = 'development';
-	gulp.watch( './assets/sass/**/*scss', gulp.series( 'styles' ) );
-	gulp.watch( './assets/js/**/*.js', gulp.series( 'js' ) );
-} );
-
-
-
-
-
-/**
- * Watch with browsersync
- */
-gulp.task( 'watch-bs', function() {
-	process.env.NODE_ENV = 'development';
-
-	if ( proxyUrl ) {
-		// https://browsersync.io/docs/options
-		bs.init({
-			proxy: proxyUrl,
-			snippetOptions: {
-				whitelist: ["/wp-admin/admin-ajax.php"],
-				blacklist: ["/wp-admin/**"]
-			}
-		});
-	}
-
-	gulp.watch( './assets/sass/**/*scss', gulp.series( 'styles', 'bs-reload-css' ) );
-	gulp.watch( './assets/js/**/*.js', gulp.series( 'js', 'bs-reload' ) );
-} );
-
-
-
-
-
-/**
  * Set NODE_ENV to production
  */
-gulp.task( 'set-prod-node-env', ( cb ) => {
+gulp.task( 'set-prod-node-env', (cb) => {
 	process.env.NODE_ENV = 'production';
 	cb();
-} );
+});
 
 
 
@@ -150,4 +179,4 @@ gulp.task( 'set-prod-node-env', ( cb ) => {
 /**
  * Production build
  */
-gulp.task( 'default', gulp.parallel( 'styles', gulp.series( 'set-prod-node-env', 'webpack' ) ) );
+gulp.task('default', gulp.parallel(gulp.series('images', 'css'), gulp.series('set-prod-node-env', 'webpack')));
