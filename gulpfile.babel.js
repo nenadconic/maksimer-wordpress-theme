@@ -55,8 +55,8 @@ gulp.task('images', (cb) => {
  * SCSS
  */
 const css = {
-	src   : dir.src + 'sass/**/*',
-	watch : dir.src + 'sass/**/*',
+	src   : dir.src + 'sass/**/*.scss',
+	watch : dir.src + 'sass/**/*.scss',
 	build : './',
 
 	processors: [
