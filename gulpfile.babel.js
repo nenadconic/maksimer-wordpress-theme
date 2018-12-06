@@ -40,9 +40,16 @@ const images = {
 // image processing
 gulp.task('images', (cb) => {
 	pump([
-  	gulp.src(images.src),
-    newer(images.build),
-    imagemin(),
+		gulp.src(images.src),
+		newer(images.build),
+		imagemin([
+			imagemin.svgo({
+				plugins: [
+					{
+						removeViewBox: false
+					}
+				]
+			})]),
 		gulp.dest(images.build)
 	], cb);
 });
