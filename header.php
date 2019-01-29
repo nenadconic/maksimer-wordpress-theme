@@ -16,6 +16,11 @@
 	</head>
 
 	<body <?php body_class(); ?>>
+
+	<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) {
+		gtm4wp_the_gtm_tag();
+	} ?>
+
 		<a class="skip-link screen-reader-text" href="#main-menu-wrapper"><?php esc_attr_e( 'Skip to navigation', 'maksimer-lang' ); ?></a>
 		<a class="skip-link screen-reader-text" href="#main-content"><?php esc_attr_e( 'Skip to content', 'maksimer-lang' ); ?></a>
 
