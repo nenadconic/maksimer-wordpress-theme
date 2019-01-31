@@ -1,0 +1,21 @@
+{
+  "name": "maksimer/maksimer-wordpress-theme",
+  "type": "wordpress-theme",
+  "authors": [
+    {
+      "name": "Maksimer",
+      "email": "post@maksimer.no"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "wp-coding-standards/wpcs": "^1.1"
+  },
+  "scripts": {
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf ."
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0"
+  }
+}

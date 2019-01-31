@@ -77,11 +77,7 @@ add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
  */
 function maksimer_enqueue_scripts() {
 	wp_enqueue_style( 'style', get_theme_file_uri( 'style.css' ), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
-	wp_enqueue_script( 'maksimer', get_theme_file_uri( 'assets/js/min/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'assets/js/min/maksimer.min.js' ) ) );
-
-	if ( ! is_admin() ) {
-		wp_enqueue_script( 'analytics', get_theme_file_uri( 'assets/js/originals/analytics.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'assets/js/originals/analytics.js' ) ), true );
-	}
+	wp_enqueue_script( 'maksimer', get_theme_file_uri( 'build/js/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'build/js/maksimer.min.js' ) ), true );
 }
 add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
 
@@ -104,7 +100,6 @@ add_filter( 'wpseo_metabox_prio', 'maksimer_wpseo_metabox_priority' );
 
 /**
  * Manage the admin bar, front-end
- * TODO: Is this still the way to do this?
  */
 function maksimer_admin_bar() {
 	global $wp_admin_bar;

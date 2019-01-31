@@ -24,8 +24,8 @@
 	<!-- Check up to 8 files simultanously. -->
 	<arg name="parallel" value="8"/>
 
-	<!-- Only check the PHP, CSS and SCSS files. JS files are checked separately with JSCS and JSHint. -->
-	<arg name="extensions" value="php,css,scss/css"/>
+	<!-- Only check the PHP files. -->
+	<arg name="extensions" value="php"/>
 
 	<!-- Check all files in this directory and the directories below it. -->
 	<file>.</file>
@@ -38,6 +38,7 @@
 	-->
 
 	<rule ref="WordPress-Core"/>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
 
 
 	<!--
