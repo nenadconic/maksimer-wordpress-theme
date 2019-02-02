@@ -102,6 +102,7 @@ add_filter( 'wpseo_metabox_prio', 'maksimer_wpseo_metabox_priority' );
  * Manage the admin bar, front-end
  */
 function maksimer_admin_bar() {
+	/** @var WP_Admin_Bar $wp_admin_bar */
 	global $wp_admin_bar;
 
 	$wp_admin_bar->remove_menu( 'widgets' );
