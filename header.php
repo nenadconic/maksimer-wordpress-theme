@@ -17,9 +17,15 @@
 
 	<body <?php body_class(); ?>>
 
-	<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) {
-		gtm4wp_the_gtm_tag();
-	} ?>
+		<?php
+		/**
+		 * Get Google Tag Manager tags from DuracellTomi's Google Tag Manager for WordPress
+		 * https://wordpress.org/plugins/duracelltomi-google-tag-manager/
+		 */
+		if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) {
+			gtm4wp_the_gtm_tag();
+		}
+		?>
 
 		<a class="skip-link screen-reader-text" href="#main-menu-wrapper"><?php esc_attr_e( 'Skip to navigation', 'maksimer-lang' ); ?></a>
 		<a class="skip-link screen-reader-text" href="#main-content"><?php esc_attr_e( 'Skip to content', 'maksimer-lang' ); ?></a>
