@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Maksimer WordPress Theme\n"
-"POT-Creation-Date: 2018-06-14 06:15+0200\n"
-"PO-Revision-Date: 2018-06-14 06:15+0200\n"
+"POT-Creation-Date: 2019-02-03 22:26+0100\n"
+"PO-Revision-Date: 2019-02-03 22:28+0100\n"
 "Last-Translator: Kim Bertelsen <kim@maksimer.no>\n"
 "Language-Team: Maksimer AS <post@maksimer.no>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-WPHeader: style.css\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -20,6 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: assets\n"
 "X-Poedit-SearchPath-1: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: wp\n"
 
 #: 404.php:16
 msgid "404 - Page not found"
@@ -33,7 +34,7 @@ msgstr "Siden du ser etter eksisterer ikke"
 msgid "Home Page"
 msgstr "Hjem"
 
-#: archive.php:29 index.php:27 search.php:39
+#: archive.php:30 index.php:27 search.php:35
 msgid "No post found!"
 msgstr "Ingen artikler funnet!"
 
@@ -42,27 +43,27 @@ msgstr "Ingen artikler funnet!"
 msgid "Maksimer"
 msgstr "Maksimer"
 
-#: functions.php:40
+#: functions.php:47
 msgid "Main menu"
 msgstr "Hovedmeny"
 
-#: functions.php:55
+#: functions.php:65
 msgid "Updates"
 msgstr "Oppdateringer"
 
-#: functions.php:62
+#: functions.php:72
 msgid "Menu"
 msgstr "Meny"
 
-#: functions.php:65
+#: functions.php:75
 msgid "Widgets"
 msgstr "Widgeter"
 
-#: header.php:18
+#: header.php:30
 msgid "Skip to navigation"
 msgstr "Hopp til navigasjon"
 
-#: header.php:19
+#: header.php:31
 msgid "Skip to content"
 msgstr "Hopp til innhold"
 
@@ -91,10 +92,114 @@ msgid "Maksimer AS"
 msgstr "Maksimer AS"
 
 #. Author URI of the plugin/theme
-#, fuzzy
-#| msgid "http://www.maksimer.no/"
 msgid "https://www.maksimer.no/"
 msgstr "https://www.maksimer.no/"
+
+#, fuzzy
+#~| msgid "Skip to content"
+#~ msgid "Main content"
+#~ msgstr "Hopp til innhold"
+
+#, fuzzy
+#~| msgid "http://www.maksimer.no/"
+#~ msgid "https://make.wordpress.org/"
+#~ msgstr "https://www.maksimer.no/"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Preview"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Comments list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Comments"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Preview page"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "View page"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "About Pages"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Link"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Skip to content"
+#~ msgid "All content"
+#~ msgstr "Hopp til innhold"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "Pages"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No items found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Plugin"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update progress"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Theme"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgctxt "nav menu home label"
+#~ msgid "Home"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No comments found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No links found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "All dates"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "First page"
+#~ msgstr "Neste side"
 
 #~ msgid "Previous page"
 #~ msgstr "Forrige side"
@@ -102,8 +207,940 @@ msgstr "https://www.maksimer.no/"
 #~ msgid "Next page"
 #~ msgstr "Neste side"
 
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Last page"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search Media"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No sites found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Last Updated"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No themes found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No users found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Results"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update %s now"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Now"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Last Updated:"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No plugins found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Items list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgctxt "themes"
+#~ msgid "Latest"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "%s Page"
+#~ msgid_plural "%s Pages"
+#~ msgstr[0] "Side"
+#~ msgstr[1] "Side"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Users"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Sites"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next Steps"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Main menu"
+#~ msgid "Manage menus"
+#~ msgstr "Hovedmeny"
+
+#, fuzzy
+#~| msgid "Search for…"
+#~ msgid "Search Form"
+#~ msgstr "Søk etter…"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Posts Page"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Single Page"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Homepage"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Upload date:"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Preview Changes"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "date"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Updated %s."
+#~ msgstr "Oppdateringer"
+
 #~ msgid "Page"
 #~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No results found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The Walker class named %s does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Plugins"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgctxt "Button label for a previous revision"
+#~ msgid "Previous"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgctxt "Button label for a next revision"
+#~ msgid "Next"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Front Page"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Search for…"
+#~ msgid "Search by keyword"
+#~ msgstr "Søk etter…"
+
+#, fuzzy
+#~| msgid "Search for…"
+#~ msgid "Search by author"
+#~ msgstr "Søk etter…"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search by tag"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Footer Widgets"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update to %s"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Latest"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Sample Page"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Requests"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search Links"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "Link not found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Media"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Main menu"
+#~ msgid "Collapse Main menu"
+#~ msgstr "Hovedmeny"
+
+#, fuzzy
+#~| msgid "Skip to content"
+#~ msgid "Skip to main content"
+#~ msgstr "Hopp til innhold"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Skip to toolbar"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Home"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Updates %s"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Menu"
+#~ msgid "Menus"
+#~ msgstr "Meny"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The primary site you chose does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Menu"
+#~ msgid "Menu Name"
+#~ msgstr "Meny"
+
+#, fuzzy
+#~| msgid "Menu"
+#~ msgid "Save Menu"
+#~ msgstr "Meny"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The requested site does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Site themes list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Site users list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Sites list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Site archived."
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Themes"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Themes list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next Sites"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Users list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "Homepage: %s"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Services"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update File"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Plugins list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Plugins"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The item you are trying to move to the Trash no longer exists."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The item you are trying to restore from the Trash no longer exists."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Themes"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search themes..."
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgctxt "Button label for a theme"
+#~ msgid "Previous"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgctxt "Button label for a theme"
+#~ msgid "Next"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update WordPress"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "How to Update"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Media items list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "User updated."
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update User"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The requested user does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Skip Confirmation Email"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Missing Widgets"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Inactive Widgets"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Widget %s"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Save Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Add Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Akismet Configuration"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "Comment not found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Previous"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "Pages:"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search results for:"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next post:"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Previous Post"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Previous post:"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Menu"
+#~ msgid "Top Menu"
+#~ msgstr "Meny"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Results for: %s"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Search for…"
+#~ msgctxt "label"
+#~ msgid "Search for:"
+#~ msgstr "Søk etter…"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgctxt "placeholder"
+#~ msgid "Search &hellip;"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "submit button"
+#~ msgid "Search"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Skip to content"
+#~ msgid "Scroll down to content"
+#~ msgstr "Hopp til innhold"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Previous Image"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next Image"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "New page title"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "Posts page"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Menu"
+#~ msgid "New Menu"
+#~ msgstr "Meny"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Menu Items"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Clear Results"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No widgets found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Add a Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Widgets"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgctxt "find/replace"
+#~ msgid "Next"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgctxt "TinyMCE"
+#~ msgid "Templates"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "March"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "genitive"
+#~ msgid "March"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The theme directory \"%s\" does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "Parent term does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The source URL does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The specified target URL does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgctxt "custom headers"
+#~ msgid "Previously uploaded"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Menu"
+#~ msgid "Edit Menu"
+#~ msgstr "Meny"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update now"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "404 - Page not found"
+#~ msgid "Page not found"
+#~ msgstr "404 - Siden finnes ikke"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "Page %s"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Results %1$s %2$s"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next Page &raquo;"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgid "&laquo; Previous Page"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Post navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Posts navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Previous page"
+#~ msgctxt "previous set of posts"
+#~ msgid "Previous"
+#~ msgstr "Forrige side"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgctxt "next set of posts"
+#~ msgid "Next"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Comments navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Main menu"
+#~ msgid "Maintenance"
+#~ msgstr "Hovedmeny"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "That user does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgctxt "add new from admin bar"
+#~ msgid "Page"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Changesets"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No changesets found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Blocks"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No blocks found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Blocks list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgctxt "post type general name"
+#~ msgid "Pages"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgctxt "post type singular name"
+#~ msgid "Page"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "Edit Page"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "New Page"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "View Page"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgid "View Pages"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Posts"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Pages"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No posts found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No pages found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No posts found in Trash."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "All Pages"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Posts list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Pages list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The role %s does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "Main menu"
+#~ msgid "Expand Main menu"
+#~ msgstr "Hovedmeny"
+
+#, fuzzy
+#~| msgid "Next page"
+#~ msgid "Next &gt;"
+#~ msgstr "Neste side"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Updating"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgctxt "plugin"
+#~ msgid "Updated!"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgctxt "theme"
+#~ msgid "Updated!"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgctxt "plugin"
+#~ msgid "Update %s now"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search Tags"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Search results"
+#~ msgid "Search Categories"
+#~ msgstr "Søkeresultater"
+
+#, fuzzy
+#~| msgid "Updates"
+#~ msgid "Update Tag"
+#~ msgstr "Oppdateringer"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No tags found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "No categories found."
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Tags list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Skip to navigation"
+#~ msgid "Categories list navigation"
+#~ msgstr "Hopp til navigasjon"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "Theme starter content"
+#~ msgid "Search"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Home Page"
+#~ msgctxt "Theme starter content"
+#~ msgid "Home"
+#~ msgstr "Hjem"
+
+#, fuzzy
+#~| msgid "Skip to content"
+#~ msgid "Display item content?"
+#~ msgstr "Hopp til innhold"
+
+#, fuzzy
+#~| msgid "No post found!"
+#~ msgid "Show post counts"
+#~ msgstr "Ingen artikler funnet!"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Show hierarchy"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Audio Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Image Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Video Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Add to Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Widgets"
+#~ msgid "Media Widget"
+#~ msgstr "Widgeter"
+
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "Page ID"
+#~ msgstr "Side"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgctxt "Search widget"
+#~ msgid "Search"
+#~ msgstr "Søk"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid ""
+#~ "The site you were looking for, %s, does not exist, but you can create it "
+#~ "now!"
+#~ msgstr "Siden du ser etter eksisterer ikke"
+
+#, fuzzy
+#~| msgid "The page you are looking for does not exist"
+#~ msgid "The site you were looking for, %s, does not exist."
+#~ msgstr "Siden du ser etter eksisterer ikke"
 
 #~ msgid "Subpages"
 #~ msgstr "Undersider"

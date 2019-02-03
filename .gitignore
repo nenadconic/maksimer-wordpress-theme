@@ -2,6 +2,10 @@ node_modules
 .idea
 sftp-config.json
 .vscode
-/dist
-/build
-/vendor
+/dist/
+/build/
+/vendor/
+/wp/
+.env
+.DS_Store
+wp-content/themes/maksimer/style.css

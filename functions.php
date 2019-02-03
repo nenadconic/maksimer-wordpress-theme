@@ -11,18 +11,24 @@ function maksimer_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'menus' );
 	add_theme_support( 'woocommerce' );
-	add_theme_support( 'html5', array(
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
-	add_theme_support( 'custom-logo', array(
-		'height'      => 80,
-		'width'       => 200,
-		'flex-height' => true,
-		'flex-width'  => true,
-	) );
+	add_theme_support(
+		'html5',
+		array(
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 80,
+			'width'       => 200,
+			'flex-height' => true,
+			'flex-width'  => true,
+		)
+	);
 
 	// Add editor style. Uses editor-style.css from theme root.
 	add_editor_style();
@@ -36,9 +42,11 @@ function maksimer_theme_setup() {
 	// add_image_size( 'custom-size', 220, 180, true );
 
 	// Register menus.
-	register_nav_menus( array(
-		'main-menu' => __( 'Main menu', 'maksimer-lang' ),
-	) );
+	register_nav_menus(
+		array(
+			'main-menu' => __( 'Main menu', 'maksimer-lang' ),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
@@ -50,6 +58,8 @@ add_action( 'after_setup_theme', 'maksimer_theme_setup' );
  * Customizing the admin sidebar
  */
 function maksimer_customize_sidebar_menu() {
+	remove_menu_page( 'index.php' );
+	remove_menu_page( 'separator1' );
 	remove_menu_page( 'edit-comments.php' );
 	remove_submenu_page( 'edit.php', 'edit-tags.php?taxonomy=post_tag' );
 	add_management_page( __( 'Updates', 'maksimer-lang' ), __( 'Updates', 'maksimer-lang' ), 'update_core', 'update-core.php' );
@@ -80,6 +90,20 @@ function maksimer_enqueue_scripts() {
 	wp_enqueue_script( 'maksimer', get_theme_file_uri( 'build/js/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'build/js/maksimer.min.js' ) ), true );
 }
 add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
+
+
+
+
+
+/**
+ * Enqueue style and scripts in admin pages
+ */
+function maksimer_admin_enqueue() {
+	if ( is_admin() ) {
+		wp_enqueue_style( 'maksimer-admin', get_template_directory_uri() . '/assets/css/admin.css', array(), '1.0.0', 'all' );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
 
 
 

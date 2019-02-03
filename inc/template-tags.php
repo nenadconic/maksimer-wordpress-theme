@@ -25,11 +25,16 @@ function maksimer_thumbnail( $size = 'post-thumbnail' ) {
 	else :
 
 		echo '<a class="post-thumbnail" href="' . get_the_permalink() . '" aria-hidden="true" tabindex="-1">';
-		the_post_thumbnail( $size, array(
-			'alt' => the_title_attribute( array(
-				'echo' => false,
-			) ),
-		) );
+		the_post_thumbnail(
+			$size,
+			array(
+				'alt' => the_title_attribute(
+					array(
+						'echo' => false,
+					)
+				),
+			)
+		);
 		echo '</a>';
 
 	endif;
