@@ -10,9 +10,9 @@ Text Domain: maksimer-lang
 
 /**
  * Vendor
- * 1. Normalize, imported from node_modules. Always on top
+ * 1. Reset, Eric Meyer
  */
-@import 'normalize.css';
+@import 'vendor/reset';
 
 /**
  * Abstracts

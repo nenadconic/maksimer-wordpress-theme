@@ -56,7 +56,5 @@
     "> 0.20%",
     "not dead"
   ],
-  "dependencies": {
-    "normalize.css": "^8.0.1"
-  }
+  "dependencies": {}
 }
