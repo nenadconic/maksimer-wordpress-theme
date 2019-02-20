@@ -45,9 +45,9 @@ gulp.task('images', (cb) => {
 		imagemin([
 			imagemin.svgo({
 				plugins: [
-					{
-						removeViewBox: false
-					}
+					{removeViewBox: false},
+					{mergePaths: false},
+					{cleanupIDs: false}
 				]
 			})]),
 		gulp.dest(images.build)
