@@ -100,7 +100,7 @@ add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_scripts', 11 );
  */
 function maksimer_admin_enqueue() {
 	if ( is_admin() ) {
-		wp_enqueue_style( 'maksimer-admin', get_template_directory_uri() . '/assets/css/admin.css', array(), '1.0.0', 'all' );
+		wp_enqueue_style( 'maksimer-admin', get_theme_file_uri( 'admin.css' ), false, filemtime( get_theme_file_path( 'admin.css' ) ), 'all' );
 	}
 }
 add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
