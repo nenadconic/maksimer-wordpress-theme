@@ -37,7 +37,9 @@
     "pump": "^3.0.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^5.2.1",
+    "babel-cli": "^6.26.0",
+    "core-js": "^3.1.4"
   },
   "scripts": {
     "start": "npm install && gulp",
@@ -55,7 +57,5 @@
     "> 0.20%",
     "not dead"
   ],
-  "dependencies": {
-    "babel-cli": "^6.26.0"
-  }
+  "dependencies": {}
 }
