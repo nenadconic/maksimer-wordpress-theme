@@ -9,21 +9,20 @@
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
-    "autoprefixer": "^9.5.1",
-    "babel-cli": "^6.26.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.26.5",
-    "browserslist": "^4.6.0",
+    "browser-sync": "^2.26.7",
+    "browserslist": "^4.6.6",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "gulp": "^4.0.2",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
@@ -36,8 +35,8 @@
     "postcss-import": "^12.0.1",
     "postcss-prettify": "^0.3.4",
     "pump": "^3.0.0",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
     "webpack-stream": "^5.2.1"
   },
   "scripts": {
@@ -56,5 +55,7 @@
     "> 0.20%",
     "not dead"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "babel-cli": "^6.26.0"
+  }
 }
