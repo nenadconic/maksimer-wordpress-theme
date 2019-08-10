@@ -3,9 +3,9 @@ node_modules
 sftp-config.json
 .vscode
 /dist/
-/build/
 /vendor/
 /wp/
 .env
 .DS_Store
 wp-content/themes/maksimer/style.css
+/build/js/maksimer.min.js.map
