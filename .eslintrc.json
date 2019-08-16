@@ -9,11 +9,10 @@
     "parser": "babel-eslint"
   },
   "extends": [
-    "airbnb"
+    "plugin:@wordpress/eslint-plugin/recommended"
   ],
   "rules": {
     "no-unused-vars" : "warn",
-    "max-len": "off",
     "import/prefer-default-export" : "off"
   }
 }
