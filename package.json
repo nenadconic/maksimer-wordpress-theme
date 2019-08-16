@@ -9,11 +9,11 @@
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "autoprefixer": "^9.6.1",
-    "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "browserslist": "^4.6.6",
