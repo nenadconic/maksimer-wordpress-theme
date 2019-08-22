@@ -46,7 +46,7 @@
    }
   },
   "scripts": {
-    "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -n -p `git ls-files | grep \\.php`",
-    "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -n -p `git ls-files | grep \\.php`"
+    "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
+    "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`"
   }
 }
