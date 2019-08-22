@@ -16,12 +16,7 @@ const
 	// JS:
 	pump          = require('pump'),
 	webpack       = require('webpack'),
-	webpackStream = require('webpack-stream'),
-
-	// BrowserSync
-	browserSync = require('browser-sync'),
-	bs          = browserSync.create(),
-	proxyUrl    = 'http://localhost:8000' // Set this to the hosted site url and port if needed
+	webpackStream = require('webpack-stream')
 ;
 
 
@@ -80,7 +75,7 @@ const css = {
 		require('postcss-prettify'),
 		require('postcss-discard-comments')
 	],
-}
+};
 
 
 gulp.task('scss', (cb) => {
@@ -106,7 +101,7 @@ const js = {
 	src   : dir.src + 'js/**/*',
   build : dir.build + 'js/',
   conf  : './webpack.config.babel.js'
-}
+};
 
 
 gulp.task('webpack', (cb) => {
@@ -138,34 +133,7 @@ gulp.task('watch', () => {
 
 
 
-/**
- * Watch with browsersync
- */
-gulp.task('watch-bs', () => {
-	process.env.NODE_ENV = 'development';
 
-	bs.init({
-		proxy: proxyUrl,
-		snippetOptions: {
-			whitelist: ['/wp-admin/admin-ajax.php'],
-			blacklist: ['/wp-admin/**']
-		}
-	});
-
-	gulp.watch(images.src, gulp.series('images'));
-	gulp.watch(css.src, gulp.series('css', 'bs-reload-css'));
-	gulp.watch(js.src, gulp.series('js', 'bs-reload'));
-});
-
-gulp.task('bs-reload-css', (cb) => {
-	bs.reload('*.css');
-	cb();
-});
-
-gulp.task('bs-reload', (cb) => {
-	bs.reload();
-	cb();
-});
 
 
 
