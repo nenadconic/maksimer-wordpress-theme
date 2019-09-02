@@ -33,6 +33,8 @@
     "postcss-import": "^12.0.1",
     "postcss-prettify": "^0.3.4",
     "pump": "^3.0.0",
+    "stylelint": "^10.1.0",
+    "stylelint-no-unsupported-browser-features": "^3.0.2",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
     "webpack-stream": "^5.2.1"
@@ -44,6 +46,7 @@
     "build-release": "npm install && composer install --no-dev -o && gulp",
     "lint-release": "npm install && composer install && npm run lint",
     "lint-js": "eslint assets/js",
+    "lint-scss": "stylelint assets/sass",
     "lint-php": "composer run lint",
     "format-js": "eslint --fix assets/js",
     "lint": "npm run lint-js && npm run lint-php",
