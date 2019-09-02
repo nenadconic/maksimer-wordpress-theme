@@ -12,6 +12,7 @@ const
 	newer         = require('gulp-newer'),
 	imagemin      = require('gulp-imagemin'),
 	gulpif        = require('gulp-if'),
+	gulpStylelint = require('gulp-stylelint'),
 
 	// JS:
 	pump          = require('pump'),
@@ -80,7 +81,12 @@ const css = {
 
 gulp.task('scss', (cb) => {
 	pump([
-		gulp.src(css.src),
+		gulp.src(css.src)
+			.pipe(gulpStylelint({
+			reporters: [
+				{formatter: 'string', console: true}
+			]
+		})),
 		sass().on('error',sass.logError),
 		postcss(gulpif(process.env.NODE_ENV === 'development', css.processorsDev, css.processors)),
 		gulp.dest(css.build)
