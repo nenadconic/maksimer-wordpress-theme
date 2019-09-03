@@ -2,3 +2,6 @@
  * Document ready
  */
 jQuery( () => {} );
+
+fetch();
+
