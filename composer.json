@@ -49,6 +49,6 @@
     "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
     "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
     "get-storm": "\"$(mdfind -onlyin ~/Applications/ PhpStorm)\"",
-    "composerinspect": "docker run --rm -v $(pwd):/project bentolor/idea-cli-inspector -n -p /project/docker/ComposerInspection.xml"
+    "composerinspect": "docker build -t=\"maksimer/phpstorm\" ./docker/Composer && docker run --rm -v $(pwd):/project maksimer/phpstorm ./inspect.sh /project /project/docker/Composer/ComposerInspection.xml /project/target/results.xml -v1"
   }
 }
