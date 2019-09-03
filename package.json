@@ -54,7 +54,8 @@
     "format": "npm run format-js"
   },
   "browserslist": [
-    "defaults"
+    "> 0.2%",
+    "not dead"
   ],
   "dependencies": {}
 }
