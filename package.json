@@ -33,6 +33,7 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.1",
     "postcss-prettify": "^0.3.4",
+    "pre-commit": "^1.2.2",
     "pump": "^3.0.0",
     "stylelint": "^10.1.0",
     "stylelint-no-unsupported-browser-features": "^3.0.2",
