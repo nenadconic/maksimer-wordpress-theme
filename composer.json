@@ -48,7 +48,10 @@
   "scripts": {
     "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
     "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
-    "get-storm": "\"$(mdfind -onlyin ~/Applications/ PhpStorm)\"",
-    "composerinspect": "docker build -t=\"maksimer/phpstorm\" ./docker/Composer && docker run --rm -v $(pwd):/project maksimer/phpstorm ./inspect.sh /project /project/docker/Composer/ComposerInspection.xml /project/target/results.xml -v1"
+    "get-storm":"mdfind kind:application PhpStorm.app | while read line; do cd \"$line\" && find . -name inspect.sh -exec {} /Users/kristoffer/Projects/maksimer-wordpress-theme/ /Users/kristoffer/Projects/maksimer-wordpress-theme/docker/Composer/ComposerInspection.xml /Users/kristoffer/Projects/maksimer-wordpress-theme/target/results.xml -V1 \\;; done",
+    "composer-inspect": "composer run get-storm ./ docker/Composer/ComposerInspection.xml target/results.xml -V1",
+    "docker-composer-inspect": "docker run --rm -v $(pwd):/project -it bentolor/idea-cli-inspector ./inspect.sh /project /project/docker/Composer/ComposerInspection.xml /project/target/results.xml",
+    "dci2": "docker run --rm -v $(pwd):/project --entrypoint=\"/bin/bash\" -w=\"/srv/idea-IC-183.5153.38/bin\" bentolor/idea-cli-inspector ./inspect.sh /project /project/docker/Composer/ComposerInspection.xml /project/lintresults -v2",
+    "dci3":"docker run --rm -v $(pwd):/project bentolor/idea-cli-inspector -n",
   }
 }
