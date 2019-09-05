@@ -49,7 +49,7 @@
   "scripts": {
     "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
     "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
-    "get-storm":"mdfind kind:application PhpStorm.app | while read line; do cd \"$line\" && find . -name inspect.sh -exec {} \\;; done",
+    "get-storm":"mdfind kind:application PhpStorm.app | while read line; do cd \"$line\" && find . -name inspect.sh -exec bash -c {} '${pwd} ${pwd}\"/.idea/inspectionProfiles/Project_Default.xml\" ${pwd}\"/target/inspection-results\" -v1' \\;; done",
     "phpcompat": "./vendor/bin/phpcompatinfo analyser:run ."
   }
 }
