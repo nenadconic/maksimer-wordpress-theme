@@ -66,6 +66,7 @@ const css = {
 		require('postcss-flexbugs-fixes'),
 		require('postcss-import'),
 		require('cssnano'),
+		require('stylelint'),
 	],
 
 	processorsDev: [
