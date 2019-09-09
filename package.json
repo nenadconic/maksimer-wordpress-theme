@@ -27,7 +27,6 @@
     "gulp-newer": "^1.4.0",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-stylelint": "^9.0.0",
     "path": "^0.12.7",
     "postcss-discard-comments": "^4.0.2",
     "postcss-flexbugs-fixes": "^4.1.0",
