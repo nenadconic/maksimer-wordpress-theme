@@ -13,6 +13,8 @@
   ],
   "rules": {
     "no-unused-vars" : "warn",
+    "no-console" : "warn",
+    "no-alert" : "warn",
     "import/prefer-default-export" : "off"
   }
 }
