@@ -5,7 +5,7 @@ const DIST_PATH = path.resolve('./build/js');
 const config = {
 	cache: true,
 	entry: {
-		maksimer: './assets/js/maksimer.js',
+		index: './assets/js/index.js',
 		// example: './assets/js/example.js', How to add another seperate compiled js file
 	},
 
