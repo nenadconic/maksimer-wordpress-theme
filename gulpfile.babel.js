@@ -72,8 +72,11 @@ const css = {
 		require('autoprefixer'),
 		require('postcss-flexbugs-fixes'),
 		require('postcss-import'),
-		require('postcss-prettify'),
-		require('postcss-discard-comments')
+		require('cssnano')({
+			preset: ['default', {
+				normalizeWhitespace: false
+			}]
+		}),
 	],
 };
 
