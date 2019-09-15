@@ -59,7 +59,7 @@ gulp.task('images', (cb) => {
 const css = {
 	src   : dir.src + 'sass/**/*.scss',
 	watch : dir.src + 'sass/**/*.scss',
-	build : './',
+	build : dir.build + 'css/',
 
 	processors: [
     require('autoprefixer'),
