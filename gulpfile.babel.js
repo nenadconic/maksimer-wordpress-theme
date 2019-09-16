@@ -2,24 +2,24 @@ const
 	// Paths
 	dir = {
 		src  : './assets/',
-		build: './build/'
+		build: './build/',
 	},
 
 	// SCSS:
-	gulp                 = require('gulp'),
-	postcss              = require('gulp-postcss'),
-	sass                 = require('gulp-sass'),
-	newer                = require('gulp-newer'),
-	imagemin             = require('gulp-imagemin'),
-	autoprefixer         = require('autoprefixer'),
-	postcssFlexbugsFixes = require('postcss-flexbugs-fixes'),
-	postcssImport        = require('postcss-import'),
-	cssNano              = require('cssnano'),
+	gulp                 = require( 'gulp' ),
+	postcss              = require( 'gulp-postcss' ),
+	sass                 = require( 'gulp-sass' ),
+	newer                = require( 'gulp-newer' ),
+	imagemin             = require( 'gulp-imagemin' ),
+	autoprefixer         = require( 'autoprefixer' ),
+	postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' ),
+	postcssImport        = require( 'postcss-import' ),
+	cssNano              = require( 'cssnano' ),
 
 	// JS:
-	pump          = require('pump'),
-	webpack       = require('webpack'),
-	webpackStream = require('webpack-stream')
+	pump          = require( 'pump' ),
+	webpack       = require( 'webpack' ),
+	webpackStream = require( 'webpack-stream '),
 ;
 
 
@@ -30,27 +30,30 @@ const
  * Image optimizing
  */
 const images = {
-  src   : dir.src + 'images/**/*',
-  build : dir.build + 'images/'
+  src  : dir.src + 'images/**/*',
+  build: dir.build + 'images/',
 };
 
 
 // image processing
-gulp.task('images', (cb) => {
-	pump([
-		gulp.src(images.src),
-		newer(images.build),
-		imagemin([
-			imagemin.svgo({
+gulp.task( 'images', ( cb ) => {
+	pump( [
+		gulp.src( images.src ),
+		newer( images.build ),
+		imagemin( [
+			imagemin.svgo( {
 				plugins: [
-					{removeViewBox: false},
-					{mergePaths: false},
-					{cleanupIDs: false}
-				]
-			})]),
-		gulp.dest(images.build)
-	], cb);
-});
+					{ removeViewBox: false },
+					{ mergePaths: false },
+					{ cleanupIDs: false },
+				],
+			} ),
+		] ),
+		gulp.dest( images.build )
+	], cb );
+} );
+
+
 
 
 
@@ -58,32 +61,32 @@ gulp.task('images', (cb) => {
  * SCSS
  */
 const css = {
-	src   : dir.src + 'sass/**/*.scss',
-	watch : dir.src + 'sass/**/*.scss',
-	build : dir.build + 'css/',
+	src  : dir.src + 'sass/**/*.scss',
+	watch: dir.src + 'sass/**/*.scss',
+	build: dir.build + 'css/',
 };
 
 
 // scss to css
-gulp.task('scss', (cb) => {
-	pump([
-		gulp.src(css.src),
-		sass().on('error',sass.logError),
-		postcss([
+gulp.task( 'scss', ( cb ) => {
+	pump( [
+		gulp.src( css.src ),
+		sass().on( 'error', sass.logError ),
+		postcss( [
 			autoprefixer,
 			postcssFlexbugsFixes,
 			postcssImport,
-			cssNano({
-				preset: ['default', {
+			cssNano( {
+				preset: [ 'default', {
 					normalizeWhitespace: process.env.NODE_ENV === 'production',
-				}]
-			}),
-		]),
-		gulp.dest(css.build)
-	], cb);
-});
+				} ]
+			} ),
+		] ),
+		gulp.dest( css.build ),
+	], cb );
+} );
 
-gulp.task('css', gulp.series('images', 'scss'));
+gulp.task( 'css', gulp.series( 'images', 'scss' ) );
 
 
 
@@ -94,12 +97,13 @@ gulp.task('css', gulp.series('images', 'scss'));
  * Handled by webpack
  */
 const js = {
-	src   : dir.src + 'js/**/*',
-  build : dir.build + 'js/',
-  conf  : './webpack.config.babel.js'
+	src  : dir.src + 'js/**/*',
+	build: dir.build + 'js/',
+	conf : './webpack.config.babel.js'
 };
 
 
+// Stream files to webpack
 gulp.task('webpack', (cb) => {
 	pump([
 		gulp.src(js.src),
@@ -127,19 +131,13 @@ gulp.task('watch', () => {
 
 
 
-
 /**
- * Set NODE_ENV to production
+ * Set NODE_ENV to development
  */
 gulp.task( 'set-dev-node-env', (cb) => {
 	process.env.NODE_ENV = 'development';
 	cb();
 });
-
-
-
-
-
 
 
 
