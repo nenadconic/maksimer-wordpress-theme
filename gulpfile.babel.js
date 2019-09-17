@@ -104,15 +104,15 @@ const js = {
 
 
 // Stream files to webpack
-gulp.task('webpack', (cb) => {
-	pump([
-		gulp.src(js.src),
-		webpackStream(require(js.conf), webpack),
-		gulp.dest(js.build)
-	], cb);
-});
+gulp.task( 'webpack', ( cb ) => {
+	pump( [
+		gulp.src( js.src ),
+		webpackStream( require( js.conf ), webpack ),
+		gulp.dest( js.build )
+	], cb );
+} );
 
-gulp.task('js', gulp.series('webpack'));
+gulp.task( 'js', gulp.series( 'webpack' ) );
 
 
 
@@ -121,11 +121,11 @@ gulp.task('js', gulp.series('webpack'));
 /**
  * Watch task
  */
-gulp.task('watch', () => {
-	gulp.watch(images.src, gulp.series('set-dev-node-env', 'images'));
-	gulp.watch(css.src, gulp.series('set-dev-node-env', 'css'));
-	gulp.watch(js.src, gulp.series('set-dev-node-env', 'js'));
-});
+gulp.task( 'watch', () => {
+	gulp.watch( images.src, gulp.series( 'set-dev-node-env', 'images' ) );
+	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'css' ) );
+	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
+} );
 
 
 
@@ -134,10 +134,10 @@ gulp.task('watch', () => {
 /**
  * Set NODE_ENV to development
  */
-gulp.task( 'set-dev-node-env', (cb) => {
+gulp.task( 'set-dev-node-env', ( cb ) => {
 	process.env.NODE_ENV = 'development';
 	cb();
-});
+} );
 
 
 
@@ -146,10 +146,10 @@ gulp.task( 'set-dev-node-env', (cb) => {
 /**
  * Set NODE_ENV to production
  */
-gulp.task( 'set-prod-node-env', (cb) => {
+gulp.task( 'set-prod-node-env', ( cb ) => {
 	process.env.NODE_ENV = 'production';
 	cb();
-});
+} );
 
 
 
