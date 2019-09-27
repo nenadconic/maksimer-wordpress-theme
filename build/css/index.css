@@ -578,8 +578,6 @@ input[type=number],
 input[type=password],
 input[type=search]{
   font-family:sans-serif;
-  -webkit-appearance:none;
-  -moz-appearance:none;
   appearance:none;
   width:100%;
   border:1px solid #cccccc;
@@ -593,8 +591,6 @@ input[type=search]{
 
 textarea{
   font-family:sans-serif;
-  -webkit-appearance:none;
-  -moz-appearance:none;
   appearance:none;
   width:100%;
   max-width:100%;
@@ -610,8 +606,6 @@ textarea{
 .button,
 a.button{
   font-family:sans-serif;
-  -webkit-appearance:none;
-  -moz-appearance:none;
   appearance:none;
   border:1px solid #cccccc;
   border-radius:0;
@@ -691,17 +685,14 @@ a.button{
     clear:both;
   }
   .flex-set{
-    display:-webkit-box;
     display:flex;
     flex-wrap:wrap;
   }
   .flex-set .col{
-    -webkit-box-flex:0;
     flex:0 0 50%;
     max-width:50%;
   }
   .flex-set .col.w2{
-    -webkit-box-flex:0;
     flex:0 0 100%;
     max-width:100%;
   }
@@ -717,12 +708,10 @@ a.button{
     clear:none;
   }
   .flex-set.col-3 .col{
-    -webkit-box-flex:0;
     flex:0 0 33.33%;
     max-width:33.33%;
   }
   .flex-set.col-3 .col.w2{
-    -webkit-box-flex:0;
     flex:0 0 66.66%;
     max-width:66.66%;
   }
@@ -736,12 +725,10 @@ a.button{
     width:50%;
   }
   .flex-set.col-4 .col{
-    -webkit-box-flex:0;
     flex:0 0 25%;
     max-width:25%;
   }
   .flex-set.col-4 .col.w2{
-    -webkit-box-flex:0;
     flex:0 0 50%;
     max-width:50%;
   }
