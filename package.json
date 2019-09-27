@@ -1,53 +1,35 @@
 {
   "name": "maksimer-wordpress-theme",
-  "author": "Maksimer",
-  "description": "WordPress starter theme developed and maintained by Maksimer",
   "version": "3.2.0",
+  "description": "WordPress starter theme developed and maintained by Maksimer",
+  "author": "Maksimer",
   "license": "GPL-3.0",
+  "keywords": [
+    "wordpress",
+    "theme"
+  ],
+  "homepage": "https://www.maksimer.no",
   "repository": {
     "type": "git",
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
+  "bugs": "https://github.com/maksimer/maksimer-wordpress-theme.git",
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/register": "^7.6.0",
     "@wordpress/eslint-plugin": "^3.1.0",
-    "autoprefixer": "^9.6.1",
-    "babel-loader": "^8.0.6",
-    "browserslist": "^4.7.0",
-    "core-js": "^3.2.1",
-    "cssnano": "^4.1.10",
-    "eslint": "^6.4.0",
-    "eslint-loader": "^3.0.0",
-    "gulp": "^4.0.2",
-    "gulp-imagemin": "^6.1.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-sass": "^4.0.2",
-    "path": "^0.12.7",
-    "postcss-flexbugs-fixes": "^4.1.0",
-    "postcss-import": "^12.0.1",
-    "pump": "^3.0.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-stream": "^5.2.1"
+    "@wordpress/scripts": "^5.0.0",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "sass-loader": "^8.0.0"
   },
   "scripts": {
-    "start": "npm install && gulp",
-    "watch": "gulp watch",
-    "build": "gulp",
-    "build-release": "npm install && composer install --no-dev -o && gulp",
-    "lint-release": "npm install && composer install && npm run lint",
-    "lint-js": "eslint assets/js",
-    "lint-php": "composer run lint",
-    "format-js": "eslint --fix assets/js",
-    "lint": "npm run lint-js && npm run lint-php",
-    "format": "npm run format-js"
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
   },
   "browserslist": [
     "> 0.20%",
     "not dead"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "node-sass": "^4.12.0"
+  }
 }
