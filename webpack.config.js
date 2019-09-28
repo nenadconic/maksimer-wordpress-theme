@@ -17,7 +17,6 @@ module.exports = {
 	output: {
 		filename: '[name].js',
 		path: path.resolve( process.cwd() ),
-		// path: './build/',
 	},
 
 	// Bring in sourcemaps for non-production builds.

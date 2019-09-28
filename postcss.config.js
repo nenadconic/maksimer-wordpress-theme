@@ -4,12 +4,5 @@ module.exports = {
 		'postcss-preset-env': {},
 		autoprefixer: {},
 		'postcss-flexbugs-fixes': {},
-		cssnano: {
-			preset: [
-				'default', {
-					normalizeWhitespace: false,
-				},
-			],
-		},
 	},
 };
