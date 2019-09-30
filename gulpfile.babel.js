@@ -55,7 +55,7 @@ gulp.task( 'css', gulp.series( 'scss' ) );
 const js = {
 	src: dir.src + 'js/**/*',
 	build: dir.build + 'js/',
-	conf: './webpack.config.babel.js',
+	conf: './webpack.config.js',
 };
 
 // Stream files to webpack
