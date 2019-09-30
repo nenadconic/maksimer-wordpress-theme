@@ -9,7 +9,6 @@
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
   "devDependencies": {
-    "@babel/register": "^7.6.2",
     "@wordpress/scripts": "^5.0.0",
     "autoprefixer": "^9.6.1",
     "browserslist": "^4.7.0",
