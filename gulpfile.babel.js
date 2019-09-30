@@ -8,8 +8,6 @@ const dir = {
 const gulp = require( 'gulp' );
 const postcss = require( 'gulp-postcss' );
 const sass = require( 'gulp-sass' );
-const newer = require( 'gulp-newer' );
-const imagemin = require( 'gulp-imagemin' );
 const autoprefixer = require( 'autoprefixer' );
 const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
 const postcssImport = require( 'postcss-import' );
@@ -19,32 +17,6 @@ const cssNano = require( 'cssnano' );
 const pump = require( 'pump' );
 const webpack = require( 'webpack' );
 const webpackStream = require( 'webpack-stream' );
-
-/**
- * Image optimizing
- */
-const images = {
-	src: dir.src + 'images/**/*',
-	build: dir.build + 'images/',
-};
-
-// image processing
-gulp.task( 'images', ( cb ) => {
-	pump( [
-		gulp.src( images.src ),
-		newer( images.build ),
-		imagemin( [
-			imagemin.svgo( {
-				plugins: [
-					{ removeViewBox: false },
-					{ mergePaths: false },
-					{ cleanupIDs: false },
-				],
-			} ),
-		] ),
-		gulp.dest( images.build ),
-	], cb );
-} );
 
 /**
  * SCSS
@@ -74,7 +46,7 @@ gulp.task( 'scss', ( cb ) => {
 	], cb );
 } );
 
-gulp.task( 'css', gulp.series( 'images', 'scss' ) );
+gulp.task( 'css', gulp.series( 'scss' ) );
 
 /**
  * JS
@@ -101,7 +73,6 @@ gulp.task( 'js', gulp.series( 'webpack' ) );
  * Watch task
  */
 gulp.task( 'watch', () => {
-	gulp.watch( images.src, gulp.series( 'set-dev-node-env', 'images' ) );
 	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'css' ) );
 	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
 } );

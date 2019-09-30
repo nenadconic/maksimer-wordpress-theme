@@ -21,8 +21,6 @@
     "eslint": "^6.5.0",
     "eslint-loader": "^3.0.2",
     "gulp": "^4.0.2",
-    "gulp-imagemin": "^6.1.0",
-    "gulp-newer": "^1.4.0",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "path": "^0.12.7",
