@@ -31,7 +31,8 @@
     "lint-php": "composer run lint",
     "format-js": "eslint --fix assets/js",
     "lint": "npm run lint-js && npm run lint-php",
-    "format": "npm run format-js"
+    "format": "npm run format-js",
+    "check-engines": "wp-scripts check-engines"
   },
   "browserslist": [
     "> 0.20%",

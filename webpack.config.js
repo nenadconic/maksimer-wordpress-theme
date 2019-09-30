@@ -1,56 +1,21 @@
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const path = require( 'path' );
-const webpack = require( 'webpack' );
-const DIST_PATH = path.resolve( './build/js' );
 
-const config = {
-	cache: true,
+module.exports = {
+	...defaultConfig,
 	entry: {
-		index: './assets/js/index.js',
-		// example: './assets/js/example.js', How to add another seperate compiled js file
+		'./build/js/index': path.resolve( process.cwd(), 'assets/js', 'index.js' ),
 	},
 
 	output: {
-		path: DIST_PATH,
-		filename: '[name].min.js',
+		filename: '[name].js',
+		path: path.resolve( process.cwd() ),
 	},
-
-	resolve: {
-		modules: [ 'node_modules' ],
-	},
-
-	devtool: 'source-map',
 
 	module: {
+		...defaultConfig.module,
 		rules: [
-			{
-				test: /\.js$/,
-				enforce: 'pre',
-				loader: 'eslint-loader',
-				options: {
-					fix: true,
-				},
-			},
-			{
-				test: /\.js$/,
-				use: [ {
-					loader: 'babel-loader',
-					options: {
-						babelrc: true,
-					},
-				} ],
-			},
+			...defaultConfig.module.rules,
 		],
 	},
-	mode: process.env.NODE_ENV,
-	plugins: [
-		new webpack.NoEmitOnErrorsPlugin(),
-	],
-	stats: {
-		colors: true,
-	},
-	externals: {
-		jquery: 'jQuery',
-	},
 };
-
-module.exports = config;
