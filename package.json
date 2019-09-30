@@ -20,11 +20,11 @@
     "gulp-sass": "^4.0.2",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.1",
-    "pump": "^3.0.0",
-    "webpack-stream": "^5.2.1"
+    "pump": "^3.0.0"
   },
   "scripts": {
     "start": "npm install && gulp",
+    "start2": "wp-scripts start",
     "watch": "gulp watch",
     "build": "gulp",
     "build-release": "npm install && composer install --no-dev -o && gulp",

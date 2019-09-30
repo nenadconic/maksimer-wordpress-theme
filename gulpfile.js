@@ -12,11 +12,7 @@ const autoprefixer = require( 'autoprefixer' );
 const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
 const postcssImport = require( 'postcss-import' );
 const cssNano = require( 'cssnano' );
-
-// JS;
 const pump = require( 'pump' );
-const webpack = require( 'webpack' );
-const webpackStream = require( 'webpack-stream' );
 
 /**
  * SCSS
@@ -49,32 +45,10 @@ gulp.task( 'scss', ( cb ) => {
 gulp.task( 'css', gulp.series( 'scss' ) );
 
 /**
- * JS
- * Handled by webpack
- */
-const js = {
-	src: dir.src + 'js/**/*',
-	build: dir.build + 'js/',
-	conf: './webpack.config.js',
-};
-
-// Stream files to webpack
-gulp.task( 'webpack', ( cb ) => {
-	pump( [
-		gulp.src( js.src ),
-		webpackStream( require( js.conf ), webpack ),
-		gulp.dest( js.build ),
-	], cb );
-} );
-
-gulp.task( 'js', gulp.series( 'webpack' ) );
-
-/**
  * Watch task
  */
 gulp.task( 'watch', () => {
 	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'css' ) );
-	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
 } );
 
 /**
@@ -96,4 +70,4 @@ gulp.task( 'set-prod-node-env', ( cb ) => {
 /**
  * Production build
  */
-gulp.task( 'default', gulp.series( 'set-prod-node-env', 'css', 'webpack' ) );
+gulp.task( 'default', gulp.series( 'set-prod-node-env', 'css' ) );
