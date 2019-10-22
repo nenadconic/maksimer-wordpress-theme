@@ -1,18 +1,27 @@
 {
   "name": "maksimer-wordpress-theme",
-  "author": "Maksimer",
-  "description": "WordPress starter theme developed and maintained by Maksimer",
   "version": "3.2.0",
-  "license": "GPL-3.0",
+  "description": "WordPress starter theme developed and maintained by Maksimer",
+  "author": "Maksimer AS",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "startertheme",
+    "wp",
+    "gutenberg"
+  ],
+  "homepage": "https://github.com/maksimer/maksimer-wordpress-theme/blob/master/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
+  "bugs": "https://github.com/maksimer/maksimer-wordpress-theme/issues",
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
+    "@wordpress/browserslist-config": "^2.6.0",
     "@wordpress/eslint-plugin": "^3.0.0",
+    "@wordpress/scripts": "^5.1.0",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "browserslist": "^4.7.0",
@@ -32,9 +41,26 @@
     "postcss-import": "^12.0.1",
     "postcss-prettify": "^0.3.4",
     "pump": "^3.0.0",
+    "stylelint-a11y": "^1.2.1",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.8",
     "webpack-stream": "^5.2.1"
+  },
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
   },
   "scripts": {
     "start": "npm install && gulp",
@@ -46,11 +72,26 @@
     "lint-php": "composer run lint",
     "format-js": "eslint --fix assets/js",
     "lint": "npm run lint-js && npm run lint-php",
-    "format": "npm run format-js"
-  },
-  "browserslist": [
-    "> 0.20%",
-    "not dead"
-  ],
-  "dependencies": {}
+    "format": "npm run format-js",
+    "twenty_build": "npm run build:vendor-prefixes && npm run build:rtl",
+    "twenty_build:rtl": "concurrently \"npm run build:rtl-style\" \"npm run build:rtl-esb\" \"npm run build:rtl-esc\"",
+    "twenty_build:rtl-style": "rtlcss style.css style-rtl.css",
+    "twenty_build:rtl-esb": "rtlcss assets/css/editor-style-block.css assets/css/editor-style-block-rtl.css",
+    "twenty_build:rtl-esc": "rtlcss assets/css/editor-style-classic.css assets/css/editor-style-classic-rtl.css",
+    "twenty_build:vendor-prefixes": "concurrently \"npm run build:vendor-prefixes-style\" \"npm run build:vendor-prefixes-esb\" \"npm run build:vendor-prefixes-esc\"",
+    "twenty_build:vendor-prefixes-style": "postcss -r --no-map style.css assets/css/editor-style-block.css assets/css/editor-style-classic.css",
+    "twenty_build:vendor-prefixes-esb": "postcss -r --no-map assets/css/editor-style-block.css ",
+    "twenty_build:vendor-prefixes-esc": "postcss -r --no-map assets/css/editor-style-classic.css",
+    "twenty_lint:css": "wp-scripts lint-style 'style.css' 'assets/**/*.css'",
+    "twenty_lint:js": "wp-scripts lint-js 'assets/**/*.js'",
+    "twenty_lint:pkg-json": "wp-scripts lint-pkg-json",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses --gpl3",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "wp_start": "wp-scripts start",
+    "wp_build": "wp-scripts build",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js"
+  }
 }
