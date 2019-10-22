@@ -38,6 +38,9 @@ function maksimer_theme_setup() {
 	update_option( 'image_default_link_type', 'none' );
 	update_option( 'image_default_size', 'large' );
 
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
+
 	// Custom image sizes
 	// add_image_size( 'custom-size', 220, 180, true );
 
