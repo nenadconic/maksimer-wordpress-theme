@@ -217,19 +217,38 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 	}
 }
 
-if ( ! function_exists( 'twentytwenty_skip_link' ) ) {
+if ( ! function_exists( 'maksimer_skip_link' ) ) {
 
 	/**
 	 * Include a skip to content link at the top of the page so that users can bypass the menu.
 	 */
 	function maksimer_skip_link() {
 		echo '<a class="skip-link faux-button screen-reader-text" href="#site-content">' . __(
-			'Skip to the content',
-			'maksimer-lang'
-		) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- core trusts translations
+				'Skip to the content',
+				'maksimer-lang'
+			) . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- core trusts translations
 	}
 
 	add_action( 'wp_body_open', 'maksimer_skip_link', 5 );
+
+}
+
+if ( ! function_exists( 'maksimer_read_more_tag' ) ) {
+
+	/**
+	 * Read More Link
+	 * Overwrite default (more ...) tag
+	 */
+	function maksimer_read_more_tag() {
+		return sprintf(
+			'<a href="%1$s" class="more-link faux-button">%2$s <span class="screen-reader-text">"%3$s"</span></a>',
+			esc_url( get_permalink( get_the_ID() ) ),
+			esc_html__( 'Continue reading', 'maksimer-lang' ),
+			get_the_title( get_the_ID() )
+		);
+	}
+
+	add_filter( 'the_content_more_link', 'maksimer_read_more_tag' );
 
 }
 
