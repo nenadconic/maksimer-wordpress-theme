@@ -1,12 +1,24 @@
 {
-   "name": "docker-wordpress",
-   "version": "1.0.0",
-   "description": "Docker for WordPress",
-   "scripts": {
-      "docker": "docker-compose up -d",
-      "docker-stop": "docker-compose stop",
-      "docker-delete": "docker-compose down -v",
-      "docker-setup": "docker-compose exec -u www-data wordpress wp-content/themes/maksimer/docker/scripts/compose-this.sh",
-      "wp": "docker-compose exec -u www-data wordpress wp"
-   }
+  "name": "docker-wordpress",
+  "version": "1.0.0",
+  "description": "Docker for WordPress",
+  "author": "Maksimer AS",
+  "license": "GPL-3.0-only",
+  "keywords": [
+    "docker",
+    "wp"
+  ],
+  "homepage": "https://github.com/maksimer/maksimer-wordpress-theme/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
+  },
+  "bugs": "https://github.com/maksimer/maksimer-wordpress-theme/issues",
+  "scripts": {
+    "docker": "docker-compose up -d",
+    "docker-stop": "docker-compose stop",
+    "docker-delete": "docker-compose down -v",
+    "docker-setup": "docker-compose exec -u www-data wordpress wp-content/themes/maksimer/docker/scripts/compose-this.sh",
+    "wp": "docker-compose exec -u www-data wordpress wp"
+  }
 }
