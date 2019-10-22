@@ -6,3 +6,4 @@ node_modules
 /vendor/
 /editor-style-block.css
 /editor-style-classic.css
+/style.css
