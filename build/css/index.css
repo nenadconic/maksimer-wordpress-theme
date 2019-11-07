@@ -19,7 +19,9 @@ blockquote:after,blockquote:before,q:after,q:before{
 table{
   border-collapse:collapse;
   border-spacing:0; }
-*,:after,:before{
+*{
+  box-sizing:border-box; }
+:after,:before{
     box-sizing:border-box; }
 :last-child{
     margin-bottom:0; }
@@ -231,9 +233,6 @@ code{
   padding:5px;
   margin:0 2px; }
 input[type=email],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=url]{
-  line-height:140%;
-  display:block; }
-input[type=email],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=url],textarea{
   font-family:sans-serif;
   -webkit-appearance:none;
      -moz-appearance:none;
@@ -242,29 +241,33 @@ input[type=email],input[type=number],input[type=password],input[type=search],inp
   border:1px solid #ccc;
   border-radius:0;
   font-size:16px;
+  line-height:140%;
   padding:10px;
-  margin:0; }
+  margin:0;
+  display:block; }
 textarea{
+  width:100%;
   max-width:100%;
-  height:100px;
-  display:inline-block; }
-.button,a.button{
+  height:100px; }
+.button,a.button,textarea{
   font-family:sans-serif;
   -webkit-appearance:none;
      -moz-appearance:none;
           appearance:none;
   border:1px solid #ccc;
   border-radius:0;
-  color:#fff;
-  margin:0;
-  padding:10px;
   font-size:16px;
+  padding:10px;
+  margin:0;
+  display:inline-block; }
+.button,a.button{
+  background:#ccc;
+  color:#fff;
   line-height:140%;
   text-decoration:none;
-  cursor:pointer;
-  display:inline-block; }
-.button,.button:focus,.button:hover,a.button,a.button:focus,a.button:hover{
-  background:#ccc; }
+  cursor:pointer; }
+.button:focus,.button:hover,a.button:focus,a.button:hover{
+    background:#ccc; }
 .button:disabled,.button:disabled[disabled],a.button:disabled,a.button:disabled[disabled]{
     cursor:not-allowed;
     opacity:.5; }
