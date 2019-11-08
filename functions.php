@@ -33,11 +33,6 @@ function maksimer_theme_setup() {
 	// Add editor style. Uses editor-style.css from theme root.
 	add_editor_style();
 
-	// Changes default images values.
-	update_option( 'image_default_align', 'none' );
-	update_option( 'image_default_link_type', 'none' );
-	update_option( 'image_default_size', 'large' );
-
 	// Custom image sizes
 	// add_image_size( 'custom-size', 220, 180, true );
 
