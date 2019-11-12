@@ -16,10 +16,6 @@ const spread = [ ...evens ];
 
 const odds = evens.map( ( n ) => n + 1 );
 
-$( '.btn' ).click( ( event ) => {
-	this.sendData();
-} );
-
 const wait1000 = new Promise( ( resolve, reject ) => {
 	setTimeout( resolve, 1000 );
 } ).then( () => {
