@@ -11,6 +11,7 @@ get_header();
 	<main role="main" id="main-content" class="main-content-wrap">
 
 		<article id="post-id-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<h1><?php the_title(); ?></h1>
 			<?php
 			while ( have_posts() ) :
 				the_post();
