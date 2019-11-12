@@ -56,9 +56,6 @@ function maksimer_theme_setup() {
 		)
 	);
 
-	$loader = new TwentyTwenty_Script_Loader();
-	add_filter( 'script_loader_tag', [ $loader, 'filter_script_loader_tag' ], 10, 2 );
-
 }
 
 add_action( 'after_setup_theme', 'maksimer_theme_setup' );
