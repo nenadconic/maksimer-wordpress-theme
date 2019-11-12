@@ -32,32 +32,28 @@
 
 		<header class="header" role="banner">
 
-			<div class="wrapper">
-
-				<div class="logo">
-					<?php
-					if ( has_custom_logo() ) {
-						the_custom_logo();
-					} else {
-						echo '<a href="' . esc_url( get_home_url() ) . '">';
-							bloginfo( 'name' );
-						echo '</a>';
-					}
-					?>
-				</div>
-
-				<nav class="main-menu" id="main-menu-wrapper" role="navigation">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'main-menu',
-							'container'      => false,
-							'fallback_cb'    => false,
-						)
-					);
-					?>
-				</nav>
-
+			<div class="logo">
+				<?php
+				if ( has_custom_logo() ) {
+					the_custom_logo();
+				} else {
+					echo '<a href="' . esc_url( get_home_url() ) . '">';
+						bloginfo( 'name' );
+					echo '</a>';
+				}
+				?>
 			</div>
+
+			<nav class="main-menu" id="main-menu-wrapper" role="navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'main-menu',
+						'container'      => false,
+						'fallback_cb'    => false,
+					)
+				);
+				?>
+			</nav>
 
 		</header>

@@ -651,24 +651,6 @@ a.button{
   opacity:.5;
 }
 
-.wrapper{
-  display:block;
-  zoom:1;
-  max-width:1140px;
-  width:100%;
-  padding:0 20px;
-  margin:0 auto;
-}
-
-.wrapper:after{
-  content:' ';
-  display:block;
-  font-size:0;
-  height:0;
-  clear:both;
-  visibility:hidden;
-}
-
 .col-set{
   margin:-10px;
 }
