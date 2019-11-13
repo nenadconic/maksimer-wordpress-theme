@@ -4,5 +4,4 @@ node_modules
 .env
 .DS_Store
 /vendor/
-/editor-style-block.css
-/editor-style-classic.css
+
