@@ -8,29 +8,25 @@
 get_header();
 ?>
 
-	<div class="wrapper">
+	<main role="main" id="main-content" class="main-content-wrap">
 
-		<main role="main" id="main-content" class="main-content-wrap">
+		<?php
+		if ( have_posts() ) {
 
-			<?php
-			if ( have_posts() ) {
+			while ( have_posts() ) :
+				the_post();
+				get_template_part( 'loop', 'single' );
+			endwhile;
 
-				while ( have_posts() ) :
-					the_post();
-					get_template_part( 'loop', 'single' );
-				endwhile;
+			the_posts_navigation();
 
-				the_posts_navigation();
+		} else {
 
-			} else {
+			echo '<h1>' . esc_attr__( 'No post found!', 'maksimer-lang' ) . '</h1>';
 
-				echo '<h1>' . esc_attr__( 'No post found!', 'maksimer-lang' ) . '</h1>';
+		}
+		?>
 
-			}
-			?>
-
-		</main>
-
-	</div>
+	</main>
 
 <?php get_footer(); ?>

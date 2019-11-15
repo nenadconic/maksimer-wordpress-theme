@@ -4,8 +4,4 @@ node_modules
 .env
 .DS_Store
 /vendor/
-/editor-style-block.css
-/editor-style-classic.css
-/style.css
-/build/js/maksimer.min.js
-/build/js/maksimer.min.js.map
+
