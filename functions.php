@@ -11,15 +11,23 @@ function maksimer_theme_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'menus' );
 	add_theme_support( 'woocommerce' );
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'responsive-embeds' );
+
 	add_theme_support(
 		'html5',
 		array(
+			'search-form',
 			'comment-form',
 			'comment-list',
 			'gallery',
 			'caption',
+			'style',
+			'script',
 		)
 	);
+
 	add_theme_support(
 		'custom-logo',
 		array(
@@ -30,13 +38,8 @@ function maksimer_theme_setup() {
 		)
 	);
 
-	// Add editor style. Uses editor-style.css from theme root.
-	add_editor_style();
-
-	// Changes default images values.
-	update_option( 'image_default_align', 'none' );
-	update_option( 'image_default_link_type', 'none' );
-	update_option( 'image_default_size', 'large' );
+	// Add editor style for the classic tinymce editor.
+	add_editor_style( 'editor-style-classic.css' );
 
 	// Custom image sizes
 	// add_image_size( 'custom-size', 220, 180, true );
@@ -104,6 +107,18 @@ function maksimer_admin_enqueue() {
 	}
 }
 add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
+
+
+
+
+
+/**
+ * Enqueue block editor assets
+ */
+function maksimer_block_editor_styles() {
+	wp_enqueue_style( 'maksimer-block-editor-styles', get_theme_file_uri( 'editor-style-block.css' ), array(), filemtime( get_theme_file_path( 'editor-style-block.css' ) ), 'all' );
+}
+add_action( 'enqueue_block_editor_assets', 'maksimer_block_editor_styles', 1, 1 );
 
 
 
