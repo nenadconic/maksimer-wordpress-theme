@@ -1,0 +1,16 @@
+/**
+ * Editor styles for the classic tinymce editor
+ */
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+body {
+	@include sans-serif;
+	color: $text;
+	font-size: $font-size;
+	line-height: $line-height;
+	font-weight: 300;
+	padding: $space;
+}
+
+@import 'base/typography';
