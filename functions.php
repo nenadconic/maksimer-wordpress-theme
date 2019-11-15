@@ -89,49 +89,25 @@ function maksimer_customize_sidebar_menu() {
 add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
 
 
+
+
+
 /**
  * Register and Enqueue all the styles and scripts
  */
 function maksimer_enqueue_all() {
 
-	wp_enqueue_script(
-		'maksimer-script',
-		get_theme_file_uri( 'build/js/maksimer.min.js' ),
-		array( 'jquery' ),
-		filemtime( get_theme_file_path( 'build/js/maksimer.min.js' ) ),
-		true
-	);
+	wp_enqueue_script( 'maksimer-script', get_theme_file_uri( 'build/js/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'build/js/maksimer.min.js' ) ), true );
 	wp_script_add_data( 'maksimer', 'async', true );
 
-	wp_enqueue_style(
-		'maksimer-style',
-		get_theme_file_uri( 'style.css' ),
-		false,
-		filemtime( get_theme_file_path( 'style.css' ) ),
-		'all'
-	);
-	wp_style_add_data( 'maksimer-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'maksimer-style', get_theme_file_uri( 'style.css' ), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
+	wp_style_add_data( 'maksimer-style', 'defer', true );
 
 }
 add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_all', 11 );
 
 
 
-
-
-/**
- * Enqueue classic editor styles.
- */
-function maksimer_classic_editor_styles() {
-
-	$classic_editor_styles = array(
-		'editor-style-classic.css',
-	);
-
-	add_editor_style( $classic_editor_styles );
-
-}
-add_action( 'init', 'maksimer_classic_editor_styles' );
 
 
 /**
@@ -142,7 +118,6 @@ function maksimer_admin_enqueue() {
 		wp_enqueue_style( 'maksimer-admin', get_theme_file_uri( 'admin.css' ), false, filemtime( get_theme_file_path( 'admin.css' ) ), 'all' );
 	}
 }
-
 add_action( 'admin_enqueue_scripts', 'maksimer_admin_enqueue' );
 
 
@@ -192,6 +167,8 @@ function maksimer_admin_bar() {
 	$wp_admin_bar->remove_menu( 'new-media' );
 }
 add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
+
+
 
 
 /**
