@@ -50,6 +50,13 @@ function maksimer_theme_setup() {
 			'main-menu' => __( 'Main menu', 'maksimer-lang' ),
 		)
 	);
+
+	/*
+     * Adds `async` and `defer` support for scripts registered or enqueued
+     * by the theme.
+     */
+	$loader = new TwentyTwenty_Script_Loader();
+	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
 }
 add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
@@ -109,27 +116,8 @@ function maksimer_enqueue_all() {
 add_action( 'wp_enqueue_scripts', 'maksimer_enqueue_all', 11 );
 
 
-/**
- * Enqueue supplemental block editor styles.
- */
-function maksimer_block_editor_styles() {
 
-	// Enqueue the editor styles.
-	wp_enqueue_style(
-		'maksimer-block-editor-styles',
-		get_theme_file_uri( 'editor-style-block.css' ),
-		array(),
-		filemtime( get_theme_file_path( 'style.css' ) ),
-		'all'
-	);
-	wp_style_add_data( 'block-editor-styles', 'rtl', 'replace' );
 
-	// Add inline style from the Customizer.
-	//wp_add_inline_style( 'twentytwenty-block-editor-styles', twentytwenty_get_customizer_css( 'block-editor' ) );
-
-}
-
-add_action( 'enqueue_block_editor_assets', 'maksimer_block_editor_styles', 1, 1 );
 
 /**
  * Enqueue classic editor styles.
@@ -206,9 +194,10 @@ function maksimer_admin_bar() {
 add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
 
 
-// Custom script loader class.
+/**
+ * Custom script loader class.
+ */
 require get_template_directory() . '/classes/class-twentytwenty-script-loader.php';
-
 
 /**
  * Custom template tags (reusable functions)
