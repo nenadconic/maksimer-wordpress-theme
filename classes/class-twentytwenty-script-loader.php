@@ -40,6 +40,7 @@ if ( ! class_exists( 'TwentyTwenty_Script_Loader' ) ) {
 				// Only allow async or defer, not both.
 				break;
 			}
+			print_r(get_defined_vars());
 			return $tag;
 		}
 

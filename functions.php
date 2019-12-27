@@ -56,7 +56,9 @@ function maksimer_theme_setup() {
      * by the theme.
      */
 	$loader = new TwentyTwenty_Script_Loader();
+	$loader2 = new Maksimer_Style_Loader();
 	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
+	add_filter( 'style_loader_tag', array( $loader2, 'filter_style_loader_tag' ), 100, 4 );
 }
 add_action( 'after_setup_theme', 'maksimer_theme_setup' );
 
@@ -98,7 +100,7 @@ add_action( 'admin_menu', 'maksimer_customize_sidebar_menu' );
 function maksimer_enqueue_all() {
 
 	wp_enqueue_script( 'maksimer-script', get_theme_file_uri( 'build/js/maksimer.min.js' ), array( 'jquery' ), filemtime( get_theme_file_path( 'build/js/maksimer.min.js' ) ), true );
-	wp_script_add_data( 'maksimer', 'async', true );
+	wp_script_add_data( 'maksimer-script', 'defer', true );
 
 	wp_enqueue_style( 'maksimer-style', get_theme_file_uri( 'style.css' ), false, filemtime( get_theme_file_path( 'style.css' ) ), 'all' );
 	wp_style_add_data( 'maksimer-style', 'defer', true );
@@ -175,6 +177,7 @@ add_action( 'wp_before_admin_bar_render', 'maksimer_admin_bar' );
  * Custom script loader class.
  */
 require get_template_directory() . '/classes/class-twentytwenty-script-loader.php';
+require get_template_directory() . '/classes/class-maksimer-style-loader.php';
 
 /**
  * Custom template tags (reusable functions)
