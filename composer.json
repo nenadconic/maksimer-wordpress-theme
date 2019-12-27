@@ -26,9 +26,10 @@
   "require-dev": {
     "wp-coding-standards/wpcs": "^2.1",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-    "squizlabs/php_codesniffer": "^3.5.2",
+    "squizlabs/php_codesniffer": "^3.5",
     "phpcompatibility/phpcompatibility-wp": "^2.0",
-    "roave/security-advisories": "dev-master"
+    "roave/security-advisories": "dev-master",
+    "automattic/phpcs-neutron-standard": "^1.5"
   },
   "extra": {
     "wordpress-install-dir": "wp",
@@ -46,8 +47,6 @@
   },
   "scripts": {
     "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
-    "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",
-    "get-storm":"mdfind kind:application PhpStorm.app | while read line; do cd \"$line\" && find . -name inspect.sh -exec bash -c {} '${pwd} ${pwd}\"/.idea/inspectionProfiles/Project_Default.xml\" ${pwd}\"/target/inspection-results\" -v1' \\;; done",
-    "phpcompat": "./vendor/bin/phpcompatinfo analyser:run ."
+    "lint-fix": "./vendor/bin/phpcbf --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`"
   }
 }
