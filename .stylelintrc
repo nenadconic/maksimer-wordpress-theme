@@ -1,18 +1,6 @@
 {
-	"env": {
-		"browser": true
-	},
-	"plugins": [
-		"stylelint-no-unsupported-browser-features"
-	],
-	"rules": {
-		"plugin/no-unsupported-browser-features": [
-			true,
-			{
-				"ignore": [
-					""
-				]
-			}
-		]
-	}
+  "env": {
+	"browser": true
+  },
+  "extends": "stylelint-config-wordpress/scss"
 }
