@@ -8,17 +8,6 @@
       "email": "post@maksimer.no"
     }
   ],
-  "repositories": {
-
-    "wpackagist": {
-        "type": "composer",
-        "url": "https://wpackagist.org"
-    },
-    "maksimer": {
-        "type": "composer",
-        "url": "https://composer.maksimer.es"
-    }
-  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.3"
@@ -30,20 +19,6 @@
     "phpcompatibility/phpcompatibility-wp": "^2.0",
     "roave/security-advisories": "dev-master",
     "automattic/phpcs-neutron-standard": "^1.5"
-  },
-  "extra": {
-    "wordpress-install-dir": "wp",
-    "installer-paths": {
-         "wp-content/mu-plugins/{$name}/": [
-             "type:wordpress-muplugin"
-         ],
-         "wp-content/plugins/{$name}/": [
-             "type:wordpress-plugin"
-         ],
-         "wp-content/themes/{$name}/": [
-             "type:wordpress-theme"
-         ]
-   }
   },
   "scripts": {
     "lint": "./vendor/bin/phpcs --standard=phpcs.xml.dist --colors --encoding=utf-8 -p `git ls-files --others --exclude-standard -c|grep \\.php`",

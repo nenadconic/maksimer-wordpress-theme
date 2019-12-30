@@ -204,6 +204,8 @@ code {
 	color: $text;
 	padding: $space;
 	margin: 0 0 $space;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
 	tab-size: 2;
 	overflow: scroll;
 }

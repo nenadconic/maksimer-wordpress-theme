@@ -3,9 +3,6 @@
  */
 jQuery( () => { } );
 
-fetch();
-
-
 const first = 'Kim';
 
 const name = `Your name is ${ first }.`;
