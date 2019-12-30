@@ -24,9 +24,10 @@
     "sass-loader": "^8.0.0"
   },
   "scripts": {
+    "install:all": "npm install && composer install",
     "build": "wp-scripts build",
     "watch": "wp-scripts start",
-    "lint:all": "composer install && npm run lint:scss && npm run lint:js",
+    "lint:all": "composer run lint && npm run lint:scss && npm run lint:js",
     "lint:scss": "wp-scripts lint-style 'assets/**/*.scss'",
     "lint:js": "wp-scripts lint-js ./assets/**/*.js",
     "lint:php": "composer run lint"

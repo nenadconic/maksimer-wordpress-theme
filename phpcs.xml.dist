@@ -86,12 +86,4 @@
 			<include-pattern>*\.php$</include-pattern>
 	</rule>
 
-	<!--
-	#############################################################################
-	TESTING Automattic's Neutron PHP Standard
-	#############################################################################
-	-->
-
-	<rule ref="NeutronStandard"/>
-
 </ruleset>
