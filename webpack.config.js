@@ -4,6 +4,8 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
 	...defaultConfig,
 	entry: {
@@ -11,6 +13,7 @@ module.exports = {
 				'maksimer.js'),
 		'./build/js/test': path.resolve(process.cwd(), 'assets/js',
 				'test.js'),
+		'./build/css/index': './assets/sass/style.scss',
 		//'./build/css/sass': path.resolve( process.cwd(), 'assets/sass', 'admin.scss' ),
 		// 'editor-style': path.resolve( process.cwd(), 'assets/sass', 'editor-style.scss' ),
 		// index: path.resolve( process.cwd(), 'assets/sass', 'index.scss' ),
@@ -26,17 +29,24 @@ module.exports = {
 		rules: [
 			...defaultConfig.module.rules,
 			{
-				test: /\.scss$/,
+				test: /\.(sc|sa|c)ss$/,
+				exclude: [ /node_modules/ ],
 				use: [
-					MiniCssExtractPlugin.loader,
 					{
-						loader: 'css-loader',
+						loader: MiniCssExtractPlugin.loader,
 						options: {
-							minimize: ('production' === process.env.NODE_ENV),
+							hmr: process.env.NODE_ENV === 'development',
+							publicPath: ( resourcePath, context ) => {
+								// publicPath is the relative path of the resource to the context
+								// e.g. for ./css/admin/main.css the publicPath will be ../../
+								// while for ./css/main.css the publicPath will be ../
+								return path.relative( path.dirname( resourcePath ), context ) + '/';
+							},
 						},
 					},
-					'postcss-loader',
-					{loader: 'sass-loader'},
+					{ loader: 'css-loader' },
+					{ loader: 'postcss-loader' },
+					{ loader: 'sass-loader' },
 				],
 			},
 			{
@@ -50,6 +60,10 @@ module.exports = {
 		],
 	},
 	plugins: [
+		...defaultConfig.plugins,
+		new MiniCssExtractPlugin( {
+			moduleFilename: ( { name } ) => `${ name.replace( '/js/', '/css/' ) }.css`,
+		} ),
 		// Copy the images folder and optimize all the images
 		new CopyWebpackPlugin([
 			{
