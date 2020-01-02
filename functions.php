@@ -126,7 +126,6 @@ add_action( 'enqueue_block_editor_assets', 'maksimer_block_editor_styles', 1, 1 
 
 /**
  * Change yoast metabox priority
- * TODO: Add to maksimer control?
  */
 function maksimer_wpseo_metabox_priority() {
 	return 'low';
