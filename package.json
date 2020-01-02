@@ -1,7 +1,7 @@
 {
   "name": "maksimer-wordpress-theme",
   "author": "Maksimer",
-  "description": "WordPress starter theme developed and maintained by Maksimer",
+  "description": "WordPress starter theme developed and maintained by Maksimer AS",
   "version": "3.2.0",
   "license": "GPL-3.0",
   "repository": {
@@ -21,19 +21,13 @@
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.3",
     "gulp": "^4.0.2",
-    "gulp-if": "^3.0.0",
-    "gulp-imagemin": "^6.2.0",
-    "gulp-newer": "^1.4.0",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
-    "path": "^0.12.7",
-    "postcss-discard-comments": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.1",
-    "postcss-prettify": "^0.3.4",
     "pump": "^3.0.0",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
     "webpack-stream": "^5.2.1"
   },
   "scripts": {

@@ -1,110 +1,64 @@
-const
-	// Paths
-	dir = {
-		src         : './assets/',
-		build       : './build/'
-	},
-
-	// SCSS:
-	gulp          = require('gulp'),
-	postcss       = require('gulp-postcss'),
-	sass          = require('gulp-sass'),
-	newer         = require('gulp-newer'),
-	imagemin      = require('gulp-imagemin'),
-	gulpif        = require('gulp-if'),
-
-	// JS:
-	pump          = require('pump'),
-	webpack       = require('webpack'),
-	webpackStream = require('webpack-stream')
-;
-
-
-
-
-
 /**
- * Image optimizing
+ * Base paths
  */
-const images = {
-  src   : dir.src + 'images/**/*',
-  build : dir.build + 'images/'
+const dir = {
+	src: './assets/',
+	build: './build/'
 };
-
-
-// image processing
-gulp.task('images', (cb) => {
-	pump([
-		gulp.src(images.src),
-		newer(images.build),
-		imagemin([
-			imagemin.svgo({
-				plugins: [
-					{removeViewBox: false},
-					{mergePaths: false},
-					{cleanupIDs: false}
-				]
-			})]),
-		gulp.dest(images.build)
-	], cb);
-});
-
-
-
-
 
 /**
  * SCSS
  */
+const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const sass = require('gulp-sass');
+const autoprefixer = require('autoprefixer');
+const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
+const postcssImport = require('postcss-import');
+const cssNano = require('cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+
 const css = {
-	src   : dir.src + 'sass/**/*.scss',
-	watch : dir.src + 'sass/**/*.scss',
-	build : './',
-
-	processors: [
-    require('autoprefixer'),
-		require('postcss-flexbugs-fixes'),
-		require('postcss-import'),
-		require('cssnano'),
-	],
-
-	processorsDev: [
-		require('autoprefixer'),
-		require('postcss-flexbugs-fixes'),
-		require('postcss-import'),
-		require('postcss-prettify'),
-		require('postcss-discard-comments')
-	],
+	src: dir.src + 'sass/**/*.scss',
+	watch: dir.src + 'sass/**/*.scss',
+	build: dir.build + 'css/',
 };
-
 
 gulp.task('scss', (cb) => {
 	pump([
 		gulp.src(css.src),
+		sourcemaps.init(),
 		sass().on('error',sass.logError),
-		postcss(gulpif(process.env.NODE_ENV === 'development', css.processorsDev, css.processors)),
+		postcss( [
+			autoprefixer,
+			postcssFlexbugsFixes,
+			postcssImport,
+			cssNano( {
+				preset: ['default', {
+					normalizeWhitespace: process.env.NODE_ENV === 'production',
+				}],
+			}),
+		]),
+		sourcemaps.write( '.' ),
 		gulp.dest(css.build)
 	], cb);
 });
-
-gulp.task('css', gulp.series('images', 'scss'));
-
-
-
-
 
 /**
  * JS
  * Handled by webpack
  */
+const pump = require('pump');
+const webpack = require('webpack');
+const	webpackStream = require('webpack-stream');
+
 const js = {
-	src   : dir.src + 'js/**/*',
-  build : dir.build + 'js/',
-  conf  : './webpack.config.babel.js'
+	src: dir.src + 'js/**/*',
+	build: dir.build + 'js/',
+	conf: './webpack.config.babel.js',
 };
 
-
-gulp.task('webpack', (cb) => {
+gulp.task('js', (cb) => {
 	pump([
 		gulp.src(js.src),
 		webpackStream(require(js.conf), webpack),
@@ -112,32 +66,21 @@ gulp.task('webpack', (cb) => {
 	], cb);
 });
 
-gulp.task('js', gulp.series('webpack'));
-
-
-
-
-
 /**
  * Watch task
  */
 gulp.task('watch', () => {
-	process.env.NODE_ENV = 'development';
-
-	gulp.watch(images.src, gulp.series('images'));
-	gulp.watch(css.src, gulp.series('css'));
-	gulp.watch(js.src, gulp.series('js'));
+	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'scss' ) );
+	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
 });
 
-
-
-
-
-
-
-
-
-
+/**
+ * Set NODE_ENV to development
+ */
+gulp.task( 'set-dev-node-env', ( cb ) => {
+	process.env.NODE_ENV = 'development';
+	cb();
+} );
 
 /**
  * Set NODE_ENV to production
@@ -147,11 +90,7 @@ gulp.task( 'set-prod-node-env', (cb) => {
 	cb();
 });
 
-
-
-
-
 /**
  * Production build
  */
-gulp.task('default', gulp.parallel(gulp.series('images', 'css'), gulp.series('set-prod-node-env', 'webpack')));
+gulp.task( 'default', gulp.series( 'set-prod-node-env', 'scss', 'js' ) );
