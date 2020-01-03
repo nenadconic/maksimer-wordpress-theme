@@ -3,20 +3,20 @@
  */
 const dir = {
 	src: './assets/',
-	build: './build/'
+	build: './build/',
 };
 
 /**
  * SCSS
  */
-const gulp = require('gulp');
-const postcss = require('gulp-postcss');
-const sass = require('gulp-sass');
-const autoprefixer = require('autoprefixer');
-const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
-const postcssImport = require('postcss-import');
-const cssNano = require('cssnano');
-const sourcemaps = require('gulp-sourcemaps');
+const gulp = require( 'gulp' );
+const postcss = require( 'gulp-postcss' );
+const sass = require( 'gulp-sass' );
+const autoprefixer = require( 'autoprefixer' );
+const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
+const postcssImport = require( 'postcss-import' );
+const cssNano = require( 'cssnano' );
+const sourcemaps = require( 'gulp-sourcemaps' );
 
 const css = {
 	src: dir.src + 'sass/**/*.scss',
@@ -24,33 +24,33 @@ const css = {
 	build: dir.build + 'css/',
 };
 
-gulp.task('scss', (cb) => {
-	pump([
-		gulp.src(css.src),
+gulp.task( 'scss', ( cb ) => {
+	pump( [
+		gulp.src( css.src ),
 		sourcemaps.init(),
-		sass().on('error',sass.logError),
+		sass().on( 'error', sass.logError ),
 		postcss( [
 			autoprefixer,
 			postcssFlexbugsFixes,
 			postcssImport,
 			cssNano( {
-				preset: ['default', {
+				preset: [ 'default', {
 					normalizeWhitespace: process.env.NODE_ENV === 'production',
-				}],
-			}),
-		]),
+				} ],
+			} ),
+		] ),
 		sourcemaps.write( '.' ),
-		gulp.dest(css.build)
-	], cb);
-});
+		gulp.dest( css.build ),
+	], cb );
+} );
 
 /**
  * JS
  * Handled by webpack
  */
-const pump = require('pump');
-const webpack = require('webpack');
-const	webpackStream = require('webpack-stream');
+const pump = require( 'pump' );
+const webpack = require( 'webpack' );
+const webpackStream = require( 'webpack-stream' );
 
 const js = {
 	src: dir.src + 'js/**/*',
@@ -58,21 +58,21 @@ const js = {
 	conf: './webpack.config.babel.js',
 };
 
-gulp.task('js', (cb) => {
-	pump([
-		gulp.src(js.src),
-		webpackStream(require(js.conf), webpack),
-		gulp.dest(js.build)
-	], cb);
-});
+gulp.task( 'js', ( cb ) => {
+	pump( [
+		gulp.src( js.src ),
+		webpackStream( require( js.conf ), webpack ),
+		gulp.dest( js.build ),
+	], cb );
+} );
 
 /**
  * Watch task
  */
-gulp.task('watch', () => {
+gulp.task( 'watch', () => {
 	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'scss' ) );
 	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
-});
+} );
 
 /**
  * Set NODE_ENV to development
@@ -85,10 +85,10 @@ gulp.task( 'set-dev-node-env', ( cb ) => {
 /**
  * Set NODE_ENV to production
  */
-gulp.task( 'set-prod-node-env', (cb) => {
+gulp.task( 'set-prod-node-env', ( cb ) => {
 	process.env.NODE_ENV = 'production';
 	cb();
-});
+} );
 
 /**
  * Production build

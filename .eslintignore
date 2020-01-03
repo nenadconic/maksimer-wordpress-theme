@@ -1,5 +1,2 @@
 assets/js/vendor
-build/js/maksimer.min.js
-gulp-tasks/
-webpack.config.babel.js
-gulpfile.babel.js
+build/js

@@ -1,6 +1,6 @@
-const path      = require('path');
-const webpack   = require('webpack');
-const DIST_PATH = path.resolve('./build/js');
+const path = require( 'path' );
+const webpack = require( 'webpack' );
+const DIST_PATH = path.resolve( './build/js' );
 
 const config = {
 	cache: true,
@@ -15,7 +15,7 @@ const config = {
 	},
 
 	resolve: {
-		modules: ['node_modules'],
+		modules: [ 'node_modules' ],
 	},
 
 	devtool: 'source-map',
@@ -27,30 +27,30 @@ const config = {
 				enforce: 'pre',
 				loader: 'eslint-loader',
 				options: {
-					fix: true
-				}
+					fix: true,
+				},
 			},
 			{
 				test: /\.js$/,
-				use: [{
+				use: [ {
 					loader: 'babel-loader',
 					options: {
 						babelrc: true,
-					}
-				}]
-			}
-		]
+					},
+				} ],
+			},
+		],
 	},
 	mode: process.env.NODE_ENV,
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
 	],
 	stats: {
-		colors: true
+		colors: true,
 	},
 	externals: {
-		jquery: 'jQuery'
-	}
+		jquery: 'jQuery',
+	},
 };
 
 module.exports = config;

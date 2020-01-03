@@ -84,6 +84,7 @@
 	<config name="testVersion" value="7.2-"/>
 	<rule ref="PHPCompatibilityWP">
 			<include-pattern>*\.php$</include-pattern>
+			<exclude-pattern>*/vendor/*</exclude-pattern>
 	</rule>
 
 </ruleset>

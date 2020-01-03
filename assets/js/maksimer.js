@@ -3,6 +3,9 @@
  */
 jQuery( () => { } );
 
+/**
+ * TODO: Delete everything here on a new project!
+ */
 const first = 'Kim';
 
 const name = `Your name is ${ first }.`;
