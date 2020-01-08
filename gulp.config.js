@@ -1,4 +1,4 @@
-export const sassFiles = [
+export const sassPaths = [
 	// Maksimer theme
 	{
 		input: './assets/sass/**/*.scss',
@@ -11,7 +11,7 @@ export const sassFiles = [
 	},
 ];
 
-export const jsFiles = [
+export const jsPaths = [
 	// Maksimer theme
 	{
 		input: './assets/js/**/*',

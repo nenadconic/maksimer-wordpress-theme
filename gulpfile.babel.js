@@ -1,107 +1,81 @@
-import { sassFiles, jsFiles } from './gulp.config';
-const watchPaths = [];
-const outPaths = [];
-sassFiles.forEach( ( x ) => {
-	watchPaths.push( x.input );
-	outPaths.push( x.output );
-} );
-
-console.log( watchPaths );
 /**
- * Base paths
+ * Get config containing what paths to watch, compile and output
  */
-const dir = {
-	src: './assets/',
-	build: './build/',
-};
+const { sassPaths, jsPaths } = require( './gulp.config' );
 
 /**
  * SCSS
  */
-import gulp from 'gulp';
-import postcss from 'gulp-postcss';
-import sass from 'gulp-sass';
-import autoprefixer from 'autoprefixer';
-import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
-import postcssImport from 'postcss-import';
-import cssNano from 'cssnano';
-import sourcemaps from 'gulp-sourcemaps';
-
-const css = {
-	src: dir.src + 'sass/**/*.scss',
-	watch: dir.src + 'sass/**/*.scss',
-	build: dir.build + 'css/',
-};
-
-gulp.task( 'scss', ( cb ) => {
-	sassFiles.map( function( file ) {
-		return pump( [
-			gulp.src( file.input ),
-			sourcemaps.init(),
-			sass().on( 'error', sass.logError ),
-			postcss( [
-				autoprefixer,
-				postcssFlexbugsFixes,
-				postcssImport,
-				cssNano( {
-					preset: [ 'default', {
-						normalizeWhitespace: process.env.NODE_ENV === 'production',
-					} ],
-				} ),
-			] ),
-			sourcemaps.write( '.' ),
-			gulp.dest( file.output ),
-		], cb );
-	} );
+const { watch, series, src, dest } = require( 'gulp' );
+const postcss = require( 'gulp-postcss' );
+const sass = require( 'gulp-sass' );
+const autoprefixer = require( 'autoprefixer' );
+const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
+const postcssImport = require( 'postcss-import' );
+const cssNano = require( 'cssnano' );
+const scssWatchPaths = [];
+sassPaths.forEach( ( path ) => {
+	scssWatchPaths.push( path.input );
 } );
+
+function style( cb ) {
+	return pump( [
+		src( 'assets/sass/*.scss', { sourcemaps: true } ),
+		sass().on( 'error', sass.logError ),
+		postcss( [
+			autoprefixer,
+			postcssFlexbugsFixes,
+			postcssImport,
+			cssNano( {
+				preset: [ 'default', {
+					normalizeWhitespace: process.env.NODE_ENV === 'production',
+				} ],
+			} ),
+		] ),
+		dest( 'build/css/', { sourcemaps: '.' } ),
+	], cb );
+}
 
 /**
  * JS
  * Handled by webpack
  */
-import pump from 'pump';
-import webpack from 'webpack';
-import webpackStream from 'webpack-stream';
+const pump = require( 'pump' );
+const webpack = require( 'webpack' );
+const webpackStream = require( 'webpack-stream' );
+const jsWatchPaths = [];
+jsPaths.forEach( ( path ) => {
+	jsWatchPaths.push( path.input );
+} );
 
-const js = {
-	src: dir.src + 'js/**/*',
-	build: dir.build + 'js/',
-	conf: './webpack.config.babel.js',
-};
-
-gulp.task( 'js', ( cb ) => {
+function script( cb ) {
 	pump( [
-		gulp.src( js.src ),
-		webpackStream( require( js.conf ), webpack ),
-		gulp.dest( js.build ),
+		src( 'assets/js/*.js' ),
+		webpackStream( require( './webpack.config.babel.js' ), webpack ),
+		dest( 'build/js/' ),
 	], cb );
-} );
+}
 
 /**
- * Watch task
+ * General tasks
+ * watch and node_env setters
  */
-gulp.task( 'watch', () => {
-	gulp.watch( watchPaths, gulp.series( 'set-dev-node-env', 'scss' ) );
-	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
-} );
+function watchfiles() {
+	setDevEnv();
+	watch( 'assets/sass/*.scss', style );
+	watch( 'assets/js/*.js', script );
+}
 
-/**
- * Set NODE_ENV to development
- */
-gulp.task( 'set-dev-node-env', ( cb ) => {
+function setDevEnv() {
 	process.env.NODE_ENV = 'development';
-	cb();
-} );
+}
 
-/**
- * Set NODE_ENV to production
- */
-gulp.task( 'set-prod-node-env', ( cb ) => {
+function setProdEnv( cb ) {
 	process.env.NODE_ENV = 'production';
 	cb();
-} );
+}
 
-/**
- * Production build
- */
-gulp.task( 'default', gulp.series( 'set-prod-node-env', 'scss', 'js' ) );
+exports.style = style;
+exports.script = script;
+exports.watch = watchfiles;
+exports.default = series( setProdEnv, style, script );
