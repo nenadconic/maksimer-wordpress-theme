@@ -336,16 +336,13 @@ textarea{
         width:100%;
         clear:both; }
   .flex-set{
-    display:-webkit-box;
     display:flex;
     flex-wrap:wrap; }
     .flex-set .col{
-      -webkit-box-flex:0;
-              flex:0 0 50%;
+      flex:0 0 50%;
       max-width:50%; }
       .flex-set .col.w2{
-        -webkit-box-flex:0;
-                flex:0 0 100%;
+        flex:0 0 100%;
         max-width:100%; } }
 @media screen and (min-width:767px){
   .col-set:not(.flex-set).col-3 .col{
@@ -355,12 +352,10 @@ textarea{
       width:66.66%;
       clear:none; }
   .flex-set.col-3 .col{
-    -webkit-box-flex:0;
-            flex:0 0 33.33%;
+    flex:0 0 33.33%;
     max-width:33.33%; }
     .flex-set.col-3 .col.w2{
-      -webkit-box-flex:0;
-              flex:0 0 66.66%;
+      flex:0 0 66.66%;
       max-width:66.66%; } }
 @media screen and (min-width:1023px){
   .col-set:not(.flex-set).col-4 .col{
@@ -368,12 +363,10 @@ textarea{
     .col-set:not(.flex-set).col-4 .col.w2{
       width:50%; }
   .flex-set.col-4 .col{
-    -webkit-box-flex:0;
-            flex:0 0 25%;
+    flex:0 0 25%;
     max-width:25%; }
     .flex-set.col-4 .col.w2{
-      -webkit-box-flex:0;
-              flex:0 0 50%;
+      flex:0 0 50%;
       max-width:50%; } }
 ul.menu{
   list-style:none;
