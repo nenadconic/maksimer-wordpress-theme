@@ -1,3 +1,12 @@
+import { sassFiles, jsFiles } from './gulp.config';
+const watchPaths = [];
+const outPaths = [];
+sassFiles.forEach( ( x ) => {
+	watchPaths.push( x.input );
+	outPaths.push( x.output );
+} );
+
+console.log( watchPaths );
 /**
  * Base paths
  */
@@ -9,14 +18,14 @@ const dir = {
 /**
  * SCSS
  */
-const gulp = require( 'gulp' );
-const postcss = require( 'gulp-postcss' );
-const sass = require( 'gulp-sass' );
-const autoprefixer = require( 'autoprefixer' );
-const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
-const postcssImport = require( 'postcss-import' );
-const cssNano = require( 'cssnano' );
-const sourcemaps = require( 'gulp-sourcemaps' );
+import gulp from 'gulp';
+import postcss from 'gulp-postcss';
+import sass from 'gulp-sass';
+import autoprefixer from 'autoprefixer';
+import postcssFlexbugsFixes from 'postcss-flexbugs-fixes';
+import postcssImport from 'postcss-import';
+import cssNano from 'cssnano';
+import sourcemaps from 'gulp-sourcemaps';
 
 const css = {
 	src: dir.src + 'sass/**/*.scss',
@@ -25,32 +34,34 @@ const css = {
 };
 
 gulp.task( 'scss', ( cb ) => {
-	pump( [
-		gulp.src( css.src ),
-		sourcemaps.init(),
-		sass().on( 'error', sass.logError ),
-		postcss( [
-			autoprefixer,
-			postcssFlexbugsFixes,
-			postcssImport,
-			cssNano( {
-				preset: [ 'default', {
-					normalizeWhitespace: process.env.NODE_ENV === 'production',
-				} ],
-			} ),
-		] ),
-		sourcemaps.write( '.' ),
-		gulp.dest( css.build ),
-	], cb );
+	sassFiles.map( function( file ) {
+		return pump( [
+			gulp.src( file.input ),
+			sourcemaps.init(),
+			sass().on( 'error', sass.logError ),
+			postcss( [
+				autoprefixer,
+				postcssFlexbugsFixes,
+				postcssImport,
+				cssNano( {
+					preset: [ 'default', {
+						normalizeWhitespace: process.env.NODE_ENV === 'production',
+					} ],
+				} ),
+			] ),
+			sourcemaps.write( '.' ),
+			gulp.dest( file.output ),
+		], cb );
+	} );
 } );
 
 /**
  * JS
  * Handled by webpack
  */
-const pump = require( 'pump' );
-const webpack = require( 'webpack' );
-const webpackStream = require( 'webpack-stream' );
+import pump from 'pump';
+import webpack from 'webpack';
+import webpackStream from 'webpack-stream';
 
 const js = {
 	src: dir.src + 'js/**/*',
@@ -70,7 +81,7 @@ gulp.task( 'js', ( cb ) => {
  * Watch task
  */
 gulp.task( 'watch', () => {
-	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'scss' ) );
+	gulp.watch( watchPaths, gulp.series( 'set-dev-node-env', 'scss' ) );
 	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
 } );
 
