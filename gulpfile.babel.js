@@ -51,7 +51,7 @@ jsPaths.forEach( ( path ) => {
 function script( cb ) {
 	pump( [
 		src( 'assets/js/*.js' ),
-		webpackStream( require( './webpack.config.babel.js' ), webpack ),
+		webpackStream( { config: require( './webpack.config.babel.js' ) }, webpack ),
 		dest( 'build/js/' ),
 	], cb );
 }
