@@ -2,5 +2,5 @@
  * Document ready
  */
 jQuery( () => {
-	console.log('kim');
+	console.log('ksim');
 } );
