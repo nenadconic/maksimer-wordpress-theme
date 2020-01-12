@@ -1,33 +1,22 @@
 /**
- * Base paths
+ * Base constants
  */
-const dir = {
-	src: './assets/',
-	build: './build/',
-};
+const { watch, series, src, dest } = require( 'gulp' );
+const pump = require( 'pump' );
 
 /**
  * SCSS
  */
-const gulp = require( 'gulp' );
 const postcss = require( 'gulp-postcss' );
 const sass = require( 'gulp-sass' );
 const autoprefixer = require( 'autoprefixer' );
 const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
 const postcssImport = require( 'postcss-import' );
 const cssNano = require( 'cssnano' );
-const sourcemaps = require( 'gulp-sourcemaps' );
 
-const css = {
-	src: dir.src + 'sass/**/*.scss',
-	watch: dir.src + 'sass/**/*.scss',
-	build: dir.build + 'css/',
-};
-
-gulp.task( 'scss', ( cb ) => {
-	pump( [
-		gulp.src( css.src ),
-		sourcemaps.init(),
+function style( cb ) {
+	return pump( [
+		src( 'assets/sass/*.scss', { sourcemaps: true } ),
 		sass().on( 'error', sass.logError ),
 		postcss( [
 			autoprefixer,
@@ -39,58 +28,45 @@ gulp.task( 'scss', ( cb ) => {
 				} ],
 			} ),
 		] ),
-		sourcemaps.write( '.' ),
-		gulp.dest( css.build ),
+		dest( 'build/css/', { sourcemaps: '.' } ),
 	], cb );
-} );
+}
 
 /**
  * JS
  * Handled by webpack
  */
-const pump = require( 'pump' );
 const webpack = require( 'webpack' );
 const webpackStream = require( 'webpack-stream' );
 
-const js = {
-	src: dir.src + 'js/**/*',
-	build: dir.build + 'js/',
-	conf: './webpack.config.babel.js',
-};
-
-gulp.task( 'js', ( cb ) => {
+function script( cb ) {
 	pump( [
-		gulp.src( js.src ),
-		webpackStream( require( js.conf ), webpack ),
-		gulp.dest( js.build ),
+		src( 'assets/js/*.js' ),
+		webpackStream( { config: require( './webpack.config.babel.js' ) }, webpack ),
+		dest( 'build/js/' ),
 	], cb );
-} );
+}
 
 /**
- * Watch task
+ * General tasks
+ * watch and node_env setters
  */
-gulp.task( 'watch', () => {
-	gulp.watch( css.src, gulp.series( 'set-dev-node-env', 'scss' ) );
-	gulp.watch( js.src, gulp.series( 'set-dev-node-env', 'js' ) );
-} );
+function watchfiles() {
+	setDevEnv();
+	watch( 'assets/sass/*.scss', style );
+	watch( 'assets/js/*.js', script );
+}
 
-/**
- * Set NODE_ENV to development
- */
-gulp.task( 'set-dev-node-env', ( cb ) => {
+function setDevEnv() {
 	process.env.NODE_ENV = 'development';
-	cb();
-} );
+}
 
-/**
- * Set NODE_ENV to production
- */
-gulp.task( 'set-prod-node-env', ( cb ) => {
+function setProdEnv( cb ) {
 	process.env.NODE_ENV = 'production';
 	cb();
-} );
+}
 
-/**
- * Production build
- */
-gulp.task( 'default', gulp.series( 'set-prod-node-env', 'scss', 'js' ) );
+exports.style = style;
+exports.script = script;
+exports.watch = watchfiles;
+exports.default = series( setProdEnv, style, script );
