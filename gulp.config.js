@@ -14,14 +14,16 @@ export const sassPaths = [
 export const jsPaths = [
 	// Maksimer theme
 	{
-		input: './assets/js/**/*',
+		input: './assets/js/maksimer.js',
 		output: './build/js/',
+		outname: 'maksimer.min.js',
 	},
 
 	// Plugin 1
 	{
-		input: './assets/js/**/*',
-		output: './build/js/',
+		input: './assets/jss/kim.js',
+		output: './build/jsss/',
+		outname: 'kim.min.js',
 	},
 ];
 

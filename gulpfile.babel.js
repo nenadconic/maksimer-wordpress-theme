@@ -19,21 +19,23 @@ sassPaths.forEach( ( path ) => {
 } );
 
 function style( cb ) {
-	return pump( [
-		src( 'assets/sass/*.scss', { sourcemaps: true } ),
-		sass().on( 'error', sass.logError ),
-		postcss( [
-			autoprefixer,
-			postcssFlexbugsFixes,
-			postcssImport,
-			cssNano( {
-				preset: [ 'default', {
-					normalizeWhitespace: process.env.NODE_ENV === 'production',
-				} ],
-			} ),
-		] ),
-		dest( 'build/css/', { sourcemaps: '.' } ),
-	], cb );
+	sassPaths.map( function( file ) {
+		return pump( [
+			src( file.input, { sourcemaps: true } ),
+			sass().on( 'error', sass.logError ),
+			postcss( [
+				autoprefixer,
+				postcssFlexbugsFixes,
+				postcssImport,
+				cssNano( {
+					preset: [ 'default', {
+						normalizeWhitespace: process.env.NODE_ENV === 'production',
+					} ],
+				} ),
+			] ),
+			dest( file.output, { sourcemaps: '.' } ),
+		], cb );
+	} );
 }
 
 /**
@@ -49,11 +51,16 @@ jsPaths.forEach( ( path ) => {
 } );
 
 function script( cb ) {
-	pump( [
-		src( 'assets/js/*.js' ),
-		webpackStream( { config: require( './webpack.config.babel.js' ) }, webpack ),
-		dest( 'build/js/' ),
-	], cb );
+	jsPaths.map( function( file ) {
+		process.env.currentJsFileInput = file.input;
+		process.env.currentJsFileOutput = file.output;
+		process.env.currentJsFileOutname = file.outname;
+		return pump( [
+			src( file.input ),
+			webpackStream( { config: require( './webpack.config.babel.js' ) }, webpack ),
+			dest( file.output ),
+		], cb );
+	} );
 }
 
 /**
@@ -62,8 +69,8 @@ function script( cb ) {
  */
 function watchfiles() {
 	setDevEnv();
-	watch( 'assets/sass/*.scss', style );
-	watch( 'assets/js/*.js', script );
+	watch( scssWatchPaths, style );
+	watch( jsWatchPaths, script );
 }
 
 function setDevEnv() {

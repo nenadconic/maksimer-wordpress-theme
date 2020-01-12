@@ -1,17 +1,14 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' );
-const DIST_PATH = path.resolve( './build/js' );
+const DIST_PATH = path.resolve( process.env.currentJsFileOutput );
 
 const config = {
 	cache: true,
-	entry: {
-		maksimer: './assets/js/maksimer.js',
-		// example: './assets/js/example.js', How to add another seperate compiled js file
-	},
+	entry: process.env.currentJsFileInput,
 
 	output: {
 		path: DIST_PATH,
-		filename: '[name].min.js',
+		filename: process.env.currentJsFileOutname,
 	},
 
 	resolve: {
