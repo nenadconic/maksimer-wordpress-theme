@@ -9,9 +9,9 @@
     "url": "https://github.com/maksimer/maksimer-wordpress-theme.git"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.0",
-    "@babel/preset-env": "^7.8.0",
-    "@babel/register": "^7.8.0",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.4",
     "@wordpress/browserslist-config": "^2.6.0",
     "@wordpress/eslint-plugin": "^3.3.0",
     "autoprefixer": "^9.7.3",
